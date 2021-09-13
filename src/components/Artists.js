@@ -1,10 +1,10 @@
 import React from "react";
 import { Route, Redirect } from "react-router-dom";
-import { ApplicationViews } from "./ApplicationViews";
-import { NavBar } from "./nav/NavBar";
+// import { ApplicationViews } from "./ApplicationViews";
+// import { NavBar } from "./nav/NavBar";
 import { Login } from "./auth/Login";
 import { Register } from "./auth/Register";
-import "./Repairs.css";
+import "./Artists.css";
 
 export const Artists = () => (
   <>
@@ -13,8 +13,9 @@ export const Artists = () => (
         if (localStorage.getItem("artist_login")) {
           return (
             <>
-              <NavBar />
-              <ApplicationViews />
+            <p>hello world</p>
+              {/* <NavBar /> */}
+              {/* <ApplicationViews />  */}
             </>
           );
         } else {

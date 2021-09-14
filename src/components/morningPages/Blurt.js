@@ -1,36 +1,26 @@
-// Create a route in ApplicationViews for /employee/create that renders an EmployeeForm.
-// Add a button to the employee list labeled, "Hire Employee".
-// When the button is clicked, show the employee form by using history.push() to change the route.
-// The employee form should include an input for the person's name, their repair specialty, and a button at the end labeled "Finish Hiring".
-// When the "Finish Hiring" button is clicked on the form, create a new employee object and POST it to the API.
-// Once the employee is saved, re-route the user to the list of employees.
-
-
-
-
 import React, { useState } from "react"
 import { useHistory } from "react-router-dom"
 
-export const MorningPage = () => {
+export const Blurt = () => {
     const [morningPage, setMp] = useState({
             "title": "",
             "userId": parseInt(localStorage.getItem("artist_login")),
             "morningPage": "",
             "blurt": "",
             "reframe": "",
-            "date": "9/11/21"
+            "date": Date()
     });
 
 
-const date = () => {
-    let today = new Date();
-    let dd = String(today.getDate()).padStart(2, '0');
-    let mm = String(today.getMonth() + 1).padStart(2, '0'); //January is 0!
-    let yyyy = today.getFullYear();
+// const date = () => {
+//     let today = new Date();
+//     let dd = String(today.getDate()).padStart(2, '0');
+//     let mm = String(today.getMonth() + 1).padStart(2, '0'); //January is 0!
+//     let yyyy = today.getFullYear();
     
-    today = mm + '/' + dd + '/' + yyyy;
-    return today
-}
+//     today = mm + '/' + dd + '/' + yyyy;
+//     return today
+// }
 
 
     const history = useHistory() // hook that allows you to push to browser history
@@ -59,14 +49,14 @@ const date = () => {
     
     return fetch("http://localhost:8088/morningPages", fetchOption)
        .then(() => {
-            history.push("/blurts") // after you post a ticket, you are redirected to blurts
+            history.push("/thought-distortions") // after you post a ticket, you are redirected to blurts
        })
     }
     return (
         <form className="morningPageForm">
             <h2 className="morningPage__title">How are you today?</h2>
             <fieldset>
-                <div className="form-group">
+                {/* <div className="form-group">
                     <label htmlFor="description">Title: </label>
                     <input
                         required autoFocus
@@ -76,24 +66,24 @@ const date = () => {
                         onChange={
                             (evt) => {
                                 const copy = {...morningPage}
-                                copy.name = evt.target.value
+                                copy.title = evt.target.value
                                 setMp(copy)
                             }
                         } />
-                </div>
+                </div> */}
             </fieldset>
             <fieldset>
                 <div className="form-group">
-                    <label htmlFor="name">Specialty:</label>
+                    {/* <label htmlFor="name">Specialty:</label> */}
                     <input 
                         required autoFocus
                         type="text"
                         className="form-control"
-                        placeholder="Specialty"
+                        placeholder="Did you have any unhelpful thoughts?"
                         onChange={
                             (evt) => {
-                                const copy = {...employee}
-                                copy.specialty = evt.target.value
+                                const copy = {...morningPage}
+                                copy.blurt = evt.target.value
                                 setMp(copy)
                             }
                         } 

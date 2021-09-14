@@ -13,54 +13,50 @@ import { useHistory } from "react-router-dom"
 
 export const MorningPage = () => {
     const [morningPage, setMp] = useState({
-            "title": "",
-            "userId": parseInt(localStorage.getItem("artist_login")),
-            "morningPage": "",
-            "blurt": "",
-            "reframe": "",
-            "date": Date()
+        "title": "",
+        "userId": parseInt(localStorage.getItem("artist_login")),
+        "morningPage": "",
+        "blurt": "",
+        "reframe": "",
+        "date": Date()
     });
 
+    // const date = () => {
+    //     let today = new Date();
+    //     let dd = String(today.getDate()).padStart(2, '0');
+    //     let mm = String(today.getMonth() + 1).padStart(2, '0'); //January is 0!
+    //     let yyyy = today.getFullYear();
 
-// const date = () => {
-//     let today = new Date();
-//     let dd = String(today.getDate()).padStart(2, '0');
-//     let mm = String(today.getMonth() + 1).padStart(2, '0'); //January is 0!
-//     let yyyy = today.getFullYear();
-    
-//     today = mm + '/' + dd + '/' + yyyy;
-//     return today
-// }
+    //     today = mm + '/' + dd + '/' + yyyy;
+    //     return today
+    // }
 
 
     const history = useHistory() // hook that allows you to push to browser history
 
-
-// save ticket uses the state variables to create an object to post to api
-
     const submitMorningPage = (event) => { // invoked when you push submit button
         event.preventDefault() // prevents form from being submitted without being able to see your fetch
-        const newMorningPage ={
+        const newMorningPage = {
             title: morningPage.title,
             userId: morningPage.userId,
             morningPage: morningPage.morningPage,
             blurt: morningPage.blurt,
             reframe: morningPage.reframe,
             date: morningPage.date
-            
         }
-       const fetchOption = {
-           method: "POST", //have to write options for fetch before writign fetch call
-           headers: { // needs headers or json won't work. only need content type
-               "Content-Type": "newMorningPage"
-           },
-           body: JSON.stringify(newMorningPage) // sends body of reqest. hast to be sent as string. cant be javascript objects
-       }
-    
-    return fetch("http://localhost:8088/morningPages", fetchOption)
-       .then(() => {
-            history.push("/blurts") // after you post a ticket, you are redirected to blurts
-       })
+        const fetchOption = {
+            method: "POST", //have to write options for fetch before writign fetch call
+            headers: { // needs headers or json won't work. only need content type
+                "Content-Type": "application/json"
+            },
+            body: JSON.stringify(newMorningPage) // sends body of reqest. hast to be sent as string. cant be javascript objects
+        }
+
+        return fetch("http://localhost:8088/morningPages", fetchOption)
+            .then(res => res.json())
+            .then((data) => {
+                history.push(`/blurts/${data.id}`) // This redirects me to the blurts form
+            })
     }
     return (
         <form className="morningPageForm">
@@ -75,7 +71,7 @@ export const MorningPage = () => {
                         placeholder=""
                         onChange={
                             (evt) => {
-                                const copy = {...morningPage}
+                                const copy = { ...morningPage }
                                 copy.title = evt.target.value
                                 setMp(copy)
                             }
@@ -85,23 +81,23 @@ export const MorningPage = () => {
             <fieldset>
                 <div className="form-group">
                     {/* <label htmlFor="name">Specialty:</label> */}
-                    <input 
+                    <input
                         required autoFocus
                         type="text"
                         className="form-control"
                         placeholder="How are you today?"
                         onChange={
                             (evt) => {
-                                const copy = {...morningPage}
+                                const copy = { ...morningPage }
                                 copy.morningPage = evt.target.value
                                 setMp(copy)
                             }
-                        } 
-                       />
+                        }
+                    />
                 </div>
             </fieldset>
-            <button className="btn btn-primary" onClick={submitMorningPage}> 
-              Next
+            <button className="btn btn-primary" onClick={submitMorningPage}>
+                Next
             </button>
         </form>
     )

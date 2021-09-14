@@ -15,7 +15,7 @@ export const ApplicationViews = () => {
             <Route exact path="/morning-pages">
                 <MorningPage />
             </Route>
-            <Route exact path="/blurts">
+            <Route exact path="/blurts/:morningPageId(\d+)">
                 <Blurt />
             </Route>
             {/* <Route exact path="/thought-distortions">

@@ -1,77 +1,56 @@
-import React, { useState } from "react"
+import React, { useState, useEffect } from "react"
 import { useHistory } from "react-router-dom"
 
-export const Blurt = () => {
-    const [morningPage, setMp] = useState({
-            "title": "",
-            "userId": parseInt(localStorage.getItem("artist_login")),
-            "morningPage": "",
+export const Blurt = (props) => {
+    console.log(props)
+    // const { morningPageId } = useParams() // object destructuring. Have to name the variable in curly brackets the same as what you named the variable in your route for app views. can use to capture this component in browser, not just URL
+    const history = useHistory()
+    const [morningPage, setPage] = useState({}) // need to hold our fetch as a variable in order to use it later in our code. it will be an object.  
+
+    useEffect( 
+        () => {
+            return fetch(`http://localhost:8088/morningPages`) 
+            //how to get a single morning page without useParams
+                .then(response => response.json()) // make request and converts data back into a javascript object
+                .then((data) => {
+                    setPage(data)
+
+                })
+        },
+
+        [] 
+    )
+
+    // have to fetch an object because otherwise you'd have to iterate over an array of objects
+    const updateMorningPage = (clickEvent) => { 
+        const newMorningPage = { 
+            "title": morningPage.title,
+            "userId": morningPage.UserId,
+            "morningPage": morningPage.morningPage,
             "blurt": "",
             "reframe": "",
-            "date": Date()
-    });
-
-
-// const date = () => {
-//     let today = new Date();
-//     let dd = String(today.getDate()).padStart(2, '0');
-//     let mm = String(today.getMonth() + 1).padStart(2, '0'); //January is 0!
-//     let yyyy = today.getFullYear();
+            "date": morningPage.date
+    };
     
-//     today = mm + '/' + dd + '/' + yyyy;
-//     return today
-// }
+        return fetch(`http://localhost:8088/morningPages`,{
 
+// need to iterate over morning pages to get the last one, or use use params in order to get the correct morning page to update
 
-    const history = useHistory() // hook that allows you to push to browser history
-
-
-// save ticket uses the state variables to create an object to post to api
-
-    const submitMorningPage = (event) => { // invoked when you push submit button
-        event.preventDefault() // prevents form from being submitted without being able to see your fetch
-        const newMorningPage ={
-            title: morningPage.title,
-            userId: morningPage.userId,
-            morningPage: morningPage.morningPage,
-            blurt: morningPage.blurt,
-            reframe: morningPage.reframe,
-            date: morningPage.date
-            
+            method: "PUT",
+            headers: {
+                "Content-Type": "application/json" // needs metadata or it won't work
+            },
+            body: JSON.stringify(newMorningPage) //this replaces the service ticket you're editing
+        })
+            .then(() => {
+                history.push("/thought-distortions") // don't need to parse any response on a put because json doesn't send anything back. it either works or it doesnt
+            })
         }
-       const fetchOption = {
-           method: "POST", //have to write options for fetch before writign fetch call
-           headers: { // needs headers or json won't work. only need content type
-               "Content-Type": "newMorningPage"
-           },
-           body: JSON.stringify(newMorningPage) // sends body of reqest. hast to be sent as string. cant be javascript objects
-       }
-    
-    return fetch("http://localhost:8088/morningPages", fetchOption)
-       .then(() => {
-            history.push("/thought-distortions") // after you post a ticket, you are redirected to blurts
-       })
-    }
+        
+            
     return (
-        <form className="morningPageForm">
-            <h2 className="morningPage__title">How are you today?</h2>
-            <fieldset>
-                {/* <div className="form-group">
-                    <label htmlFor="description">Title: </label>
-                    <input
-                        required autoFocus
-                        type="text"
-                        className="form-control"
-                        placeholder=""
-                        onChange={
-                            (evt) => {
-                                const copy = {...morningPage}
-                                copy.title = evt.target.value
-                                setMp(copy)
-                            }
-                        } />
-                </div> */}
-            </fieldset>
+        <form className="blurtForm">
+            <h2 className="blurt__title">Blurts</h2>
             <fieldset>
                 <div className="form-group">
                     {/* <label htmlFor="name">Specialty:</label> */}
@@ -84,13 +63,13 @@ export const Blurt = () => {
                             (evt) => {
                                 const copy = {...morningPage}
                                 copy.blurt = evt.target.value
-                                setMp(copy)
+                                updateMorningPage(copy)
                             }
                         } 
                        />
                 </div>
             </fieldset>
-            <button className="btn btn-primary" onClick={submitMorningPage}> 
+            <button className="btn btn-primary" onClick={updateMorningPage}> 
               Next
             </button>
         </form>

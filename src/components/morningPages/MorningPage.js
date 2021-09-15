@@ -55,7 +55,7 @@ export const MorningPage = () => {
         return fetch("http://localhost:8088/morningPages", fetchOption)
             .then(res => res.json())
             .then((data) => {
-                history.push(`/blurts/${data.id}`) // This redirects me to the blurts form
+                history.push(`/blurts/${data.id}`) // This redirects me to the blurts form with the correct id
             })
     }
     return (

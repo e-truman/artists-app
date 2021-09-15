@@ -42,8 +42,9 @@ export const Blurt = (props) => {
             },
             body: JSON.stringify(newMorningPage) //this replaces the service ticket you're editing
         })
-            .then(() => {
-                history.push("/thought-distortions") // don't need to parse any response on a put because json doesn't send anything back. it either works or it doesnt
+            .then(res => res.json())
+            .then((data) => {
+                history.push(`/thought-Distortions/${data.id}`) 
             })
         }
         

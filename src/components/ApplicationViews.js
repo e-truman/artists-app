@@ -4,6 +4,7 @@ import { Route } from "react-router-dom"
 import { MorningPage } from "./morningPages/MorningPage"
 import { Home } from "./Home"
 import { Blurt } from "./morningPages/Blurt"
+import { ThoughtDistortion } from "./morningPages/ThoughtDistortions"
 
 
 export const ApplicationViews = () => {
@@ -18,10 +19,10 @@ export const ApplicationViews = () => {
             <Route exact path="/blurts/:morningPageId(\d+)">
                 <Blurt />
             </Route>
-            {/* <Route exact path="/thought-distortions">
+            <Route exact path="/thought-distortions/:morningPageId(\d+)">
                 <ThoughtDistortion />
             </Route>
-            <Route exact path="/reframe">
+            {/* <Route exact path="/reframe">
                 <Reframe />
             </Route> */}
         </>

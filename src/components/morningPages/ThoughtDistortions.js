@@ -5,9 +5,8 @@ import { useHistory, useParams } from "react-router-dom"
 // Purpose of this page: show throught distortions. allow you to select them. will post the selected thought distortions with the correct morning page Id. The selected thought distortions will appear on next page
 export const ThoughtDistortion = (props) => {
     console.log(props)
-    // const { morningPageId } = useParams() // object destructuring. Have to name the variable in curly brackets the same as what you named the variable in your route for app views. can use to capture this component in browser, not just URL
     const history = useHistory()
-    const [thoughtDistortionsList, setDistortions] = useState([]) // need to hold our fetch as a variable in order to use it later in our code. it will be an object. 
+    const [thoughtDistortionsList, setDistortions] = useState([]) 
     const { morningPageId } = useParams()
     const [thoughtDistortion, addThoughtDistortion] = useState({
         "thoughtDistortionId": 1,
@@ -29,11 +28,10 @@ export const ThoughtDistortion = (props) => {
     )
 
 
-    // have to fetch an object because otherwise you'd have to iterate over an array of objects
     const submitThoughtDistortions = (event) => { // invoked when you push submit button
         event.preventDefault() // prevents form from being submitted without being able to see your fetch
         const newThoughtDistortion = {
-            "thoughtDistortionId": 1,
+            "thoughtDistortionId": thoughtDistortion.thoughtDistortionId,
             "morningPageId": morningPageId
         }
         const fetchOption = {

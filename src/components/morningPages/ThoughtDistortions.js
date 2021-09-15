@@ -9,8 +9,8 @@ export const ThoughtDistortion = (props) => {
     const [thoughtDistortionsList, setDistortions] = useState([])
     const { morningPageId } = useParams()
     const [thoughtDistortion, addThoughtDistortion] = useState({
-        "thoughtDistortionId": 1,
-        "morningPageId": morningPageId
+        // "thoughtDistortionId": 1,
+        // "morningPageId": morningPageId
     });  // this is transient state. The on-change function 
 
 
@@ -30,9 +30,10 @@ export const ThoughtDistortion = (props) => {
 
     const submitThoughtDistortions = (evt) => { // invoked when you push submit button
         evt.preventDefault() // prevents form from being submitted without being able to see your fetch
+        debugger
         const newThoughtDistortion = {
             "thoughtDistortionId": thoughtDistortion.thoughtDistortionId,
-            "morningPageId": morningPageId
+            "morningPageId": parseInt(morningPageId)
         }
         const fetchOption = {
             method: "POST", //have to write options for fetch before writign fetch call

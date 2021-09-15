@@ -6,7 +6,7 @@ import { useHistory, useParams } from "react-router-dom"
 export const ThoughtDistortion = (props) => {
     console.log(props)
     const history = useHistory()
-    const [thoughtDistortionsList, setDistortions] = useState([]) 
+    const [thoughtDistortionsList, setDistortions] = useState([])
     const { morningPageId } = useParams()
     const [thoughtDistortion, addThoughtDistortion] = useState({
         "thoughtDistortionId": 1,
@@ -28,8 +28,8 @@ export const ThoughtDistortion = (props) => {
     )
 
 
-    const submitThoughtDistortions = (event) => { // invoked when you push submit button
-        event.preventDefault() // prevents form from being submitted without being able to see your fetch
+    const submitThoughtDistortions = (evt) => { // invoked when you push submit button
+        evt.preventDefault() // prevents form from being submitted without being able to see your fetch
         const newThoughtDistortion = {
             "thoughtDistortionId": thoughtDistortion.thoughtDistortionId,
             "morningPageId": morningPageId
@@ -46,17 +46,19 @@ export const ThoughtDistortion = (props) => {
             .then((data) => {
                 history.push(`/reframe/${morningPageId}`) // This redirects me to the blurts form with the correct id
             })
-        }
+    }
 
 
 
-        return (
-            <form className="blurtForm">
-                <h2 className="blurt__title">Select the thought distortions present</h2>
-                <fieldset>
-                    <div className="form-group">
-                        {/* <label htmlFor="name">Specialty:</label> */}
-                        {thoughtDistortionsList.map((distortion) => {
+    return (
+        <form className="blurtForm">
+            <h2 className="blurt__title">Select the thought distortions present</h2>
+            <fieldset>
+                <div className="form-group">
+                    {/* <label htmlFor="name">Specialty:</label> */}
+                    {thoughtDistortionsList.map((distortion) => {
+                        return <>
+                            <label>{distortion.name}</label>
                             <input value="distortion.id"
                                 onChange={
                                     (evt) => {
@@ -67,15 +69,16 @@ export const ThoughtDistortion = (props) => {
                                 }
 
                                 type="checkbox" />
-                        })}
-                    </div>
-                </fieldset>
-                <button className="btn btn-primary" onClick={submitThoughtDistortions}>
-                    Next
-                </button>
-            </form>
-        )
-    }
+                        </>
+                    })}
+                </div>
+            </fieldset>
+            <button className="btn btn-primary" onClick={submitThoughtDistortions}>
+                Next
+            </button>
+        </form>
+    )
+}
 
 
 

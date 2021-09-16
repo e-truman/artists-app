@@ -9,45 +9,86 @@ export const Reframe = (props) => {
     const { morningPageId } = useParams()
     const [morningPage, setPage] = useState({}) // trying to get same morning page from previous module. It should be a single object
     const [reframeTransientState, updateReframe] = useState({})
+    const [chosenDistortionList, setThoughtDistortions] = useState([])
+    const [fullDistortionArray, setArray] = useState([])
 
-    useEffect( 
+    useEffect(
         () => {
-            return fetch(`http://localhost:8088/morningPages/${morningPageId}?_embed=thoughtDistortions&_embed=thoughtDistortion`) 
+            return fetch(`http://localhost:8088/thoughtDistortion`)
                 .then(response => response.json()) // make request and converts data back into a javascript object
-                .then((data) => { //I have the javascript object and I'm calling it data
-                    setPage(data) // I gain access to the morning page object with the thought distortions by invoking this function
+                .then((data) => {
+                    setArray(data) // I gain access to the fullDistortionArray by invoking this function
 
                 })
         },
 
-        [] 
+        []
     )
 
-    // useEffect( 
-    //     () => {
-    //         return fetch(`http://localhost:8088/morningPages/${morningPageId}`) 
-    //             .then(response => response.json()) // make request and converts data back into a javascript object
-    //             .then((data) => {
-    //                 setPage(data) // I gain access to the morning page object by invoking this function
+    useEffect(
+        () => {
+            return fetch(`http://localhost:8088/thoughtDistortions?_expand=morningPage&_expand=distortionDetail`)
+                .then(response => response.json()) // make request and converts data back into a javascript object
+                .then((data) => { 
+                    data.distortionNamesArray = data.thoughtDistortions.map((distortion)=>{
+                        distortionNames = fullDistortionArray.filter((d) => { 
+                            return d.id === data.thoughtDistortions.thoughtDistortionId
+                        })
+                        console.log(data.distortionNamesArray)
+                    })
+                })
 
-    //             })
-    //     },
+            // setThoughtDistortions(filteredDistortions) // I gain access to the morning page object with the thought distortions by invoking this function
 
-    //     [] 
-    // )
+        },
+
+        []
+    )
+
+
+
+
+    //  const monstrosity = usersArray.map((userObject) => { 
+    //              userObject.employeeLocations = userObject.employeeLocations.map((location)=> { // mapping over the locations on the user object
+    //         location.location = locations.find((place)=> { // returns object that matches place.id
+    //             return place.id === location.locationId
+    //         }) 
+    //         return location 
+    //     })
+    //     return userObject
+    // })
+    // console.log(monstrosity) 
+    // return monstrosity
+
+
+
+
+
+    useEffect(
+        () => {
+            return fetch(`http://localhost:8088/morningPages/${morningPageId}`)
+                .then(response => response.json()) // make request and converts data back into a javascript object
+                .then((data) => {
+                    setPage(data) // I gain access to the morning page object by invoking this function
+
+                })
+        },
+
+        []
+    )
 
     const updateMorningPage = (evt) => {  // this submits my post.
         evt.preventDefault()
-        const newMorningPage = {  
+        const newMorningPage = {
             "title": morningPage.title,
             "userId": morningPage.UserId,
             "morningPage": morningPage.morningPage,
             "blurt": morningPage.blurt,
             "reframe": reframeTransientState.reframe,
             "date": morningPage.date
-    };
-    
-        return fetch(`http://localhost:8088/morningPages/${morningPageId}`,{
+        };
+
+        return fetch(`http://localhost:8088/morningPages/${morningPageId}`, {
 
             method: "PUT",
             headers: {
@@ -59,32 +100,32 @@ export const Reframe = (props) => {
             .then((data) => {
                 // history.push(`/thought-Distortions/${data.id}`) 
             })
-        }
-        
-            
+    }
+
+
     return (
         <form className="blurtForm">
             <h2 className="blurt__title">Reframe</h2>
             <fieldset>
                 <div className="form-group">
                     {/* <label htmlFor="name">Specialty:</label> */}
-                    <input 
+                    <input
                         required autoFocus
                         type="text"
                         className="form-control"
                         placeholder="What is another way to think bout your unhelpful thoughts?"
                         onChange={
                             (evt) => {
-                                const copy = {...morningPage}
+                                const copy = { ...morningPage }
                                 copy.reframe = evt.target.value
-                               updateReframe(copy)
+                                updateReframe(copy)
                             }
-                        } 
-                       />
+                        }
+                    />
                 </div>
             </fieldset>
-            <button className="btn btn-primary" onClick={updateMorningPage}> 
-              Next
+            <button className="btn btn-primary" onClick={updateMorningPage}>
+                Next
             </button>
         </form>
     )

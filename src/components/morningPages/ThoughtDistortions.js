@@ -8,10 +8,11 @@ export const ThoughtDistortion = (props) => {
     const history = useHistory()
     const [thoughtDistortionsList, setDistortions] = useState([])
     const { morningPageId } = useParams()
-    const [thoughtDistortion, addThoughtDistortion] = useState({
-        // "thoughtDistortionId": 1,
-        // "morningPageId": morningPageId
-    });  // this is transient state. The on-change function 
+    const [thoughtDistortion, addThoughtDistortion] = useState([{
+        "thoughtDistortionId": 1,
+        "morningPageId": morningPageId
+    }]);  // this is transient state. The on-change function 
+    const [chosenThoughtDistortions, setChosenThoughtDistortions] = useState([])
 
 
     //I need to fetch the list of thought distortions. I will map throught them and display them as a list of links
@@ -30,42 +31,51 @@ export const ThoughtDistortion = (props) => {
 
     const submitThoughtDistortions = (evt) => { // invoked when you push submit button
         evt.preventDefault() // prevents form from being submitted without being able to see your fetch
-        debugger
-        const newThoughtDistortion = {
-            "thoughtDistortionId": thoughtDistortion.thoughtDistortionId,
-            "morningPageId": parseInt(morningPageId)
+        //needs to be inside an iteration of chosen thought distortions
+        for (const distortion of chosenThoughtDistortions) {
+
+            const newThoughtDistortion = {
+                "thoughtDistortionId": distortion,
+                "morningPageId": parseInt(morningPageId)
+            }
+            const fetchOption = {
+                method: "POST", //have to write options for fetch before writign fetch call
+                headers: { // needs headers or json won't work. only need content type
+                    "Content-Type": "application/json"
+                },
+                body: JSON.stringify(newThoughtDistortion) // sends body of reqest. hast to be sent as string. cant be javascript objects
+            }
+            fetch("http://localhost:8088/thoughtDistortions", fetchOption)
+                .then(res => res.json())
+                .then((data) => {
+                    //   history.push(`/reframe/${morningPageId}`) // This redirects me to the blurts form with the correct id
+                })
         }
-        const fetchOption = {
-            method: "POST", //have to write options for fetch before writign fetch call
-            headers: { // needs headers or json won't work. only need content type
-                "Content-Type": "application/json"
-            },
-            body: JSON.stringify(newThoughtDistortion) // sends body of reqest. hast to be sent as string. cant be javascript objects
-        }
-        return fetch("http://localhost:8088/thoughtDistortions", fetchOption)
-            .then(res => res.json())
-            .then((data) => {
-                history.push(`/reframe/${morningPageId}`) // This redirects me to the blurts form with the correct id
-            })
     }
 
 
 
     return (
-        <form className="blurtForm">
-            <h2 className="blurt__title">Select the thought distortions present</h2>
+        <form className="thoughtDistortionForm">
+            <h2 className="thoughtDistortion__title">Select the thought distortions present</h2>
             <fieldset>
-                <div className="form-group">
-                    {/* <label htmlFor="name">Specialty:</label> */}
+                <div className="form-checkbox-group">
+                    <label htmlFor="name">click to learn more:</label>
                     {thoughtDistortionsList.map((distortion) => {
                         return <>
                             <label>{distortion.name}</label>
-                            <input value="distortion.id"
+                            <input value={distortion.id}
                                 onChange={
                                     (evt) => {
-                                        const copy = { ...thoughtDistortion }
-                                        copy.thoughtDistortionId = evt.target.value
-                                        addThoughtDistortion(copy)
+                                        let copy = [...chosenThoughtDistortions]
+                                        // copy.chosenThoughtDistortionId = distortion.id
+                                        if (copy.includes(distortion.id)) {
+                                            const position = copy.indexOf(distortion.id) // returns position in array
+                                            copy.splice(position, 1) // removes whatever at that position in array
+                                        } else {
+                                            copy.push(distortion.id)
+                                        }
+                                        setChosenThoughtDistortions(copy)
                                     }
                                 }
 

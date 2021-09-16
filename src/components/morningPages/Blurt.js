@@ -42,7 +42,7 @@ export const Blurt = (props) => {
         })
             .then(res => res.json())
             .then((data) => {
-                history.push(`/thought-Distortions/${data.id}`) 
+                history.push(`/thought-distortions/${data.id}`) 
             })
         }
         

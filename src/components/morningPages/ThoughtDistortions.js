@@ -9,7 +9,7 @@ export const ThoughtDistortion = (props) => {
     const [thoughtDistortionsList, setDistortions] = useState([])
     const { morningPageId } = useParams()
     const [thoughtDistortion, addThoughtDistortion] = useState([{
-        "thoughtDistortionId": 1,
+        "distortionDetailId": 1,
         "morningPageId": morningPageId
     }]);  // this is transient state. The on-change function 
     const [chosenThoughtDistortions, setChosenThoughtDistortions] = useState([])
@@ -18,7 +18,7 @@ export const ThoughtDistortion = (props) => {
     //I need to fetch the list of thought distortions. I will map throught them and display them as a list of links
     useEffect(
         () => {
-            return fetch(`http://localhost:8088/thoughtDistortion?_embed=thoughtDistortions&_embed=morningPages`)
+            return fetch(`http://localhost:8088/distortionDetails?_embed=thoughtDistortions&_embed=morningPages`)
                 .then(response => response.json()) // make request and converts data back into an array of a javascript objects
                 .then((data) => {
                     setDistortions(data)// the array will be called thoughtDistortionList
@@ -35,7 +35,7 @@ export const ThoughtDistortion = (props) => {
         for (const distortion of chosenThoughtDistortions) { // for every distortion number in the chosenThoughtDistortion array, creating a new object for each number
 
             const newThoughtDistortion = {
-                "thoughtDistortionId": distortion, 
+                "distortionDetailId": distortion, 
                 "morningPageId": parseInt(morningPageId)
             }
             const fetchOption = { // for each object, a post will run

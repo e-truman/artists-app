@@ -9,15 +9,15 @@ export const Reframe = (props) => {
     const { morningPageId } = useParams()
     const [morningPage, setPage] = useState({}) // trying to get same morning page from previous module. It should be a single object
     const [reframeTransientState, updateReframe] = useState({})
-    const [chosenDistortionList, setThoughtDistortions] = useState([])
+    const [chosenDistortionList, setTD] = useState([])
     const [fullDistortionArray, setArray] = useState([])
 
     useEffect(
         () => {
-            return fetch(`http://localhost:8088/thoughtDistortion`)
+            return fetch(`http://localhost:8088/distortionDetails`)
                 .then(response => response.json()) // make request and converts data back into a javascript object
                 .then((data) => {
-                    setArray(data) // I gain access to the fullDistortionArray by invoking this function
+                    setTD(data) // I gain access to the fullDistortionArray by invoking this function
 
                 })
         },
@@ -30,17 +30,13 @@ export const Reframe = (props) => {
             return fetch(`http://localhost:8088/thoughtDistortions?_expand=morningPage&_expand=distortionDetail`)
                 .then(response => response.json()) // make request and converts data back into a javascript object
                 .then((data) => { 
-                    data.distortionNamesArray = data.thoughtDistortions.map((distortion)=>{
-                        distortionNames = fullDistortionArray.filter((d) => { 
-                            return d.id === data.thoughtDistortions.thoughtDistortionId
-                        })
-                        console.log(data.distortionNamesArray)
+
+                    
+                     
+                       
                     })
-                })
-
-            // setThoughtDistortions(filteredDistortions) // I gain access to the morning page object with the thought distortions by invoking this function
-
-        },
+                },
+           
 
         []
     )
@@ -81,7 +77,7 @@ export const Reframe = (props) => {
         evt.preventDefault()
         const newMorningPage = {
             "title": morningPage.title,
-            "userId": morningPage.UserId,
+            "userId": morningPage.userId,
             "morningPage": morningPage.morningPage,
             "blurt": morningPage.blurt,
             "reframe": reframeTransientState.reframe,

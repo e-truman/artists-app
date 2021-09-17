@@ -25,7 +25,7 @@ export const Blurt = (props) => {
         evt.preventDefault()
         const newMorningPage = {  
             "title": morningPage.title,
-            "userId": morningPage.UserId,
+            "userId": morningPage.userId,
             "morningPage": morningPage.morningPage,
             "blurt": blurtTransientState.blurt,
             "reframe": "",

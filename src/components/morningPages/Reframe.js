@@ -1,7 +1,7 @@
 // purpose of this page: diplay a list of thought distortions selected for this morning page id, and provide a form where user can reframe
 
 import React, { useState, useEffect } from "react"
-import { useHistory, useParams } from "react-router-dom"
+import { useHistory, useParams, Link } from "react-router-dom"
 
 export const Reframe = (props) => {
     console.log(props)
@@ -81,25 +81,20 @@ export const Reframe = (props) => {
         <>
             <form className="blurtForm">
                 <h2 className="blurt__title">Reframe</h2>
-                <div>{
+                <div>
+                    <h3> Thought Distortions Present</h3>
+                    {
                     chosenDistortions.map((distortion) => {
-                        // debugger
-                    
+                       
                         if (distortion?.morningPageId === parseInt(morningPageId)) {
-                            return <ul>
-                                <li>{distortion.distortionDetail.name}</li>
-                            </ul>
+                            console.log(distortion)
+                            return <p key={distortion?.distortionDetail?.id}><Link to={`/distortionDetail/${distortion?.distortionDetail?.id}`}>{distortion.distortionDetail.name}</Link></p>
+                            
+            
                         }
                     })
                 }
-
-
-
                 </div> 
-                
-                
-
-
                 <fieldset>
                     <div className="form-group">
                         {/* <label htmlFor="name">Specialty:</label> */}

@@ -6,6 +6,7 @@ import { Home } from "./Home"
 import { Blurt } from "./morningPages/Blurt"
 import { ThoughtDistortion } from "./morningPages/ThoughtDistortions"
 import { Reframe } from "./morningPages/Reframe"
+import { Details } from "./morningPages/Details"
 
 
 export const ApplicationViews = () => {
@@ -26,6 +27,10 @@ export const ApplicationViews = () => {
             <Route exact path="/reframe/:morningPageId(\d+)">
                 <Reframe />
             </Route>
+            <Route exact path="/distortionDetail/:distortionDetailId(\d+)">
+                <Details />
+            </Route>
+
         </>
     )
 }

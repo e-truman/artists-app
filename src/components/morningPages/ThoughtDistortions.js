@@ -90,9 +90,3 @@ export const ThoughtDistortion = (props) => {
         </form>
     )
 }
-
-
-
-//http://localhost:8088/morningPages?_embed=thoughtDistortions&_embed=thoughtDistortion
-
-//http://localhost:8088/thoughtDistortion?_embed=thoughtDistortion&_embed=morningPages

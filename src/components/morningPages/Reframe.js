@@ -9,56 +9,34 @@ export const Reframe = (props) => {
     const { morningPageId } = useParams()
     const [morningPage, setPage] = useState({}) // trying to get same morning page from previous module. It should be a single object
     const [reframeTransientState, updateReframe] = useState({})
-    const [chosenDistortionList, setTD] = useState([])
-    const [fullDistortionArray, setArray] = useState([])
+    const [chosenDistortions, setTD] = useState([]) //chosen distortions is an array of objects
+    // const [fullDistortionArray, setArray] = useState([])
 
-    useEffect(
-        () => {
-            return fetch(`http://localhost:8088/distortionDetails`)
-                .then(response => response.json()) // make request and converts data back into a javascript object
-                .then((data) => {
-                    setTD(data) // I gain access to the fullDistortionArray by invoking this function
+    // useEffect(
+    //     () => {
+    //         return fetch(`http://localhost:8088/distortionDetails`)
+    //             .then(response => response.json()) // make request and converts data back into a javascript object
+    //             .then((data) => {
+    //                 setTD(data) // I gain access to the fullDistortionArray by invoking this function
 
-                })
-        },
+    //             })
+    //     },
 
-        []
-    )
+    //     []
+    // )
 
     useEffect(
         () => {
             return fetch(`http://localhost:8088/thoughtDistortions?_expand=morningPage&_expand=distortionDetail`)
                 .then(response => response.json()) // make request and converts data back into a javascript object
-                .then((data) => { 
+                .then((data) => {
+                    setTD(data)    // gits me chosenDIstortionList 
+                })
+        },
 
-                    
-                     
-                       
-                    })
-                },
-           
 
         []
     )
-
-
-
-
-    //  const monstrosity = usersArray.map((userObject) => { 
-    //              userObject.employeeLocations = userObject.employeeLocations.map((location)=> { // mapping over the locations on the user object
-    //         location.location = locations.find((place)=> { // returns object that matches place.id
-    //             return place.id === location.locationId
-    //         }) 
-    //         return location 
-    //     })
-    //     return userObject
-    // })
-    // console.log(monstrosity) 
-    // return monstrosity
-
-
-
-
 
     useEffect(
         () => {
@@ -98,31 +76,52 @@ export const Reframe = (props) => {
             })
     }
 
-
+   
     return (
-        <form className="blurtForm">
-            <h2 className="blurt__title">Reframe</h2>
-            <fieldset>
-                <div className="form-group">
-                    {/* <label htmlFor="name">Specialty:</label> */}
-                    <input
-                        required autoFocus
-                        type="text"
-                        className="form-control"
-                        placeholder="What is another way to think bout your unhelpful thoughts?"
-                        onChange={
-                            (evt) => {
-                                const copy = { ...morningPage }
-                                copy.reframe = evt.target.value
-                                updateReframe(copy)
-                            }
+        <>
+            <form className="blurtForm">
+                <h2 className="blurt__title">Reframe</h2>
+                <div>{
+                    chosenDistortions.map((distortion) => {
+                        // debugger
+                    
+                        if (distortion?.morningPageId === parseInt(morningPageId)) {
+                            return <ul>
+                                <li>{distortion.distortionDetail.name}</li>
+                            </ul>
                         }
-                    />
-                </div>
-            </fieldset>
-            <button className="btn btn-primary" onClick={updateMorningPage}>
-                Next
-            </button>
-        </form>
+                    })
+                }
+
+
+
+                </div> 
+                
+                
+
+
+                <fieldset>
+                    <div className="form-group">
+                        {/* <label htmlFor="name">Specialty:</label> */}
+                        <input
+                            required autoFocus
+                            type="text"
+                            className="form-control"
+                            placeholder="What is another way to think bout your unhelpful thoughts?"
+                            onChange={
+                                (evt) => {
+                                    const copy = { ...morningPage }
+                                    copy.reframe = evt.target.value
+                                    updateReframe(copy)
+                                }
+                            }
+                        />
+                    </div>
+                </fieldset>
+                <button className="btn btn-primary" onClick={updateMorningPage}>
+                    Submit
+                </button>
+            </form>
+        </>
     )
 }

@@ -13,28 +13,33 @@ export const Entries = (props) => {
 
 
 
-        useEffect(
-            () => {
-                return fetch(`http://localhost:8088/morningPages`)
-                    .then(response => response.json()) // make request and converts data back into a javascript object
-                    .then((data) => {
-                        setEntries(data) // I gain access to the fullDistortionArray by invoking this function
-    
-                    })
-            },
-    
-            []
-        )
-    
+    const FetchEntries =
+        () => {
+            return fetch(`http://localhost:8088/morningPages`)
+                .then(response => response.json()) // make request and converts data back into a javascript object
+                .then((data) => {
+                    setEntries(data) // I gain access to the fullDistortionArray by invoking this function
+
+                })
+        }
+
+
+
+    useEffect(
+        () => {
+            FetchEntries()
+        },
+        []
+    )
 
 
     const deleteTicket = (id) => {
         fetch(`http://localhost:8088/morningPages/${id}`, {
             method: "DELETE"
         })
-        .then(() => {
-            // FetchEntries();
-        })
+            .then(() => {
+                FetchEntries();
+            })
     }
 
     return (
@@ -59,7 +64,7 @@ export const Entries = (props) => {
                 }
 
             </div>
-            <button className="btn btn-primary" onClick={()=>history.goBack()}>
+            <button className="btn btn-primary" onClick={() => history.goBack()}>
                 Back
             </button>
 

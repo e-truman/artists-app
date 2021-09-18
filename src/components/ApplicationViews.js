@@ -9,6 +9,7 @@ import { Reframe } from "./morningPages/Reframe"
 import { Details } from "./morningPages/Details"
 import { YouDidIt } from "./morningPages/YouDidIt"
 import { Entries } from "./entries/Entries"
+import { EditEntry } from "./entries/EditEntry"
 
 
 export const ApplicationViews = () => {
@@ -37,6 +38,9 @@ export const ApplicationViews = () => {
             </Route>
             <Route exact path="/checkInComplete">
                 <YouDidIt />
+            </Route>
+            <Route exact path="/edit/:morningPageId(\d+)">
+                <EditEntry />
             </Route>
 
         </>

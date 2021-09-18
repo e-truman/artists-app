@@ -32,6 +32,9 @@ export const Entries = (props) => {
         []
     )
 
+    const  EditEntry = () => {
+          history.push("/edit");
+        }
 
     const deleteTicket = (id) => {
         fetch(`http://localhost:8088/morningPages/${id}`, {
@@ -52,9 +55,13 @@ export const Entries = (props) => {
                         if (entry?.userId === parseInt(localStorage.getItem("artist_login"))) {
                             return <>
                                 <h2>{entry.title}</h2>
-                                <p>{entry.morningPage}</p>
-                                <p>{entry.blurt}</p>
-                                <p>{entry.reframe}</p>
+                                <p>Morning Page: {entry.morningPage}</p>
+                                <p>Blurts: {entry.blurt}</p>
+                                <p>Thought Distortions Present: </p>
+                                <p>Reframe: {entry.reframe}</p>
+                                <button className="btn btn-primary" onClick={EditEntry}>
+                    Edit
+                </button>
                                 <button onClick={() => {
                                     deleteTicket(entry.id)
                                 }}>Delete</button>

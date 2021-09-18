@@ -12,7 +12,7 @@ import { useHistory, useParams, Link } from "react-router-dom"
 
 export const YouDidIt = (props) => {
     let history = useHistory();
-    function HomeButton() {
+    const  HomeButton = () => {
           history.push("/");
         }
     

@@ -8,6 +8,7 @@ import { ThoughtDistortion } from "./morningPages/ThoughtDistortions"
 import { Reframe } from "./morningPages/Reframe"
 import { Details } from "./morningPages/Details"
 import { YouDidIt } from "./morningPages/YouDidIt"
+import { Entries } from "./entries/Entries"
 
 
 export const ApplicationViews = () => {
@@ -30,6 +31,9 @@ export const ApplicationViews = () => {
             </Route>
             <Route exact path="/distortionDetail/:distortionDetailId(\d+)">
                 <Details />
+            </Route>
+            <Route exact path="/entries">
+                <Entries />
             </Route>
             <Route exact path="/checkInComplete">
                 <YouDidIt />

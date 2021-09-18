@@ -72,7 +72,7 @@ export const Reframe = (props) => {
         })
             .then(res => res.json())
             .then((data) => {
-                // history.push(`/thought-Distortions/${data.id}`) 
+                history.push(`/checkInComplete`) 
             })
     }
 

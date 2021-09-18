@@ -1,5 +1,5 @@
 import React, { useState, useEffect } from "react"
-import { useHistory, useParams } from "react-router-dom"
+import { useHistory, useParams, Link } from "react-router-dom"
 
 
 // Purpose of this page: show throught distortions. allow you to select them. will post the selected thought distortions with the correct morning page Id. The selected thought distortions will appear on next page
@@ -63,7 +63,7 @@ export const ThoughtDistortion = (props) => {
                     <label htmlFor="name">click to learn more:</label>
                     {thoughtDistortionsList.map((distortion) => {
                         return <>
-                            <label>{distortion.name}</label>
+                            <Link to={`/distortionDetail/${distortion?.id}`}>{distortion.name}</Link>
                             <input value={distortion.id}
                                 onChange={
                                     (evt) => {

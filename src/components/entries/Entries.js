@@ -7,7 +7,6 @@ export const Entries = (props) => {
     console.log(props)
     const history = useHistory()
     const { morningPageId } = useParams()
-    const { distortionDetailId } = useParams()
     const [entries, setEntries] = useState([]) //chosen distortions is an array of objects
     // const [fullDistortionArray, setArray] = useState([])
 
@@ -32,9 +31,9 @@ export const Entries = (props) => {
         []
     )
 
-    const  EditEntry = () => {
-          history.push("/edit");
-        }
+    const EditEntry = (id) => {
+        history.push(`/edit/${id}`);
+    }
 
     const deleteTicket = (id) => {
         fetch(`http://localhost:8088/morningPages/${id}`, {
@@ -54,14 +53,15 @@ export const Entries = (props) => {
 
                         if (entry?.userId === parseInt(localStorage.getItem("artist_login"))) {
                             return <>
-                                <h2>{entry.title}</h2>
-                                <p>Morning Page: {entry.morningPage}</p>
-                                <p>Blurts: {entry.blurt}</p>
-                                <p>Thought Distortions Present: </p>
-                                <p>Reframe: {entry.reframe}</p>
-                                <button className="btn btn-primary" onClick={EditEntry}>
-                    Edit
-                </button>
+                                <h2 key={entry.id}>{entry.title}</h2>
+                                <p key={entry.id}>Morning Page: {entry.morningPage}</p>
+                                <p key={entry.id}>Blurts: {entry.blurt}</p>
+                                <p key={entry.id}>Thought Distortions Present: </p>
+                                <p key={entry.id}>Reframe: {entry.reframe}</p>
+                                <button  key={entry.id} className="btn btn-primary" value="entry.id" onClick={() => {
+                                    EditEntry(entry.id)}}>
+                                    Edit
+                                </button>
                                 <button onClick={() => {
                                     deleteTicket(entry.id)
                                 }}>Delete</button>

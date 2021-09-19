@@ -63,54 +63,61 @@ export const EditEntry = (props) => {
 
     return (
 
-        entries.map((entry) => {
-            // debugger
-            if (entry?.morningPageId === parseInt(morningPageId)) {
+    //       const foundEntry = entries.find((entry) => {
+    //     entry.morningPageId === parseInt(morningPageId)
+    // }
+    // )
 
-                return <>
-                    <h2 className="morningPage__title">Edit Your Morning Page?</h2>
-                    <fieldset>
-                        <div className="form-group">
-                            <label htmlFor="description">Title: </label>
-                            <input
-                                required autoFocus
-                                type="text"
-                                className="form-control"
-                                placeholder={entry.morningPage.title}
-                                onChange={
-                                    (evt) => {
-                                        const copy = { ...entry }
-                                        copy.morningPage.title = entry.morningPage.title
-                                        updateEntry(copy)
-                                    }
-                                } />
-                        </div>
-                    </fieldset>
 
-                    <fieldset>
-                        <div className="form-group">
-                            <label htmlFor="name">Morning Page:</label>
-                            <input
-                                required autoFocus
-                                type="text"
-                                className="form-control"
-                                placeholder={entry.morningPage.morningPage}
-                                onChange={
-                                    (evt) => {
-                                        const copy = { ...entry }
-                                        copy.morningPage.morningPage = entry.morningPage.morningPage
-                                        updateEntry(copy)
-                                    }
-                                }
-                            />
-                        </div>
-                    </fieldset>
-                    <form className="blurtForm">
-                        {/* <h2 className="blurt__title">Reframe</h2> */}
-                        {/* <div>
-                    <h3> Thought Distortions Present</h3>
-                   {
-                        chosenDistortions.map((distortion) => {
+entries.map((entry) => {
+    // debugger
+
+    if (entry?.morningPage.id === parseInt(morningPageId)) {
+
+        return <>
+            <h2 key={entry.morningPage.id} className="morningPage__title">Edit Your Morning Page</h2>
+            <form>
+            <fieldset>
+                <div key={entry.morningPage.id} className="form-group">
+                    <label htmlFor="description">Title: </label>
+                    <input
+                        required autoFocus
+                        type="text"
+                        className="form-control"
+                        placeholder={entry.morningPage.title}
+                        onChange={
+                            (evt) => {
+                                const copy = { ...entry }
+                                copy.morningPage.title = entry.morningPage.title
+                                updateEntry(copy)
+                            }
+                        } />
+                </div>
+            </fieldset>
+
+            <fieldset>
+                <div className="form-group">
+                    <label htmlFor="name">Morning Page:</label>
+                    <input
+                        required autoFocus
+                        type="text"
+                        className="form-control"
+                        placeholder={entry.morningPage.morningPage}
+                        onChange={
+                            (evt) => {
+                                const copy = { ...entry }
+                                copy.morningPage.morningPage = entry.morningPage.morningPage
+                                updateEntry(copy)
+                            }
+                        }
+                    />
+                </div>
+            </fieldset>
+
+                <div>
+                    <p> Thought Distortions Present:</p>
+                    {
+                        entries.map((distortion) => {
 
                             if (distortion?.morningPageId === parseInt(morningPageId)) {
                                 console.log(distortion)
@@ -120,33 +127,33 @@ export const EditEntry = (props) => {
                             }
                         })
                     }
-                </div> */}
-                        <fieldset>
-                            <div className="form-group">
-                                <label htmlFor="name">Reframe:</label>
-                                <input
-                                    required autoFocus
-                                    type="text"
-                                    className="form-control"
-                                    placeholder={entry.morningPage.reframe}
-                                    onChange={
-                                        (evt) => {
-                                            const copy = { ...entry }
-                                            copy.morningPage.reframe = entry.morningPage.reframe
-                                            updateEntry(copy)
-                                        }
-                                    }
-                                />
-                            </div>
-                        </fieldset>
+                </div>
+                <fieldset>
+                    <div className="form-group">
+                        <label htmlFor="name">Reframe:</label>
+                        <input
+                            required autoFocus
+                            type="text"
+                            className="form-control"
+                            placeholder={entry.morningPage.reframe}
+                            onChange={
+                                (evt) => {
+                                    const copy = { ...entry }
+                                    copy.morningPage.reframe = entry.morningPage.reframe
+                                    updateEntry(copy)
+                                }
+                            }
+                        />
+                    </div>
+                </fieldset>
 
 
-                        <button className="btn btn-primary" onClick={SubmitEntry}>
-                            Submit
-                        </button>
-                    </form>
-                </>
-            } 
-        })
+                <button className="btn btn-primary" onClick={SubmitEntry}>
+                    Submit
+                </button>
+            </form>
+        </>
+    }
+})
     )
 }

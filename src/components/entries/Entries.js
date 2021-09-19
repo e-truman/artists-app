@@ -58,8 +58,9 @@ export const Entries = (props) => {
                                 <p key={entry.id}>Blurts: {entry.blurt}</p>
                                 <p key={entry.id}>Thought Distortions Present: </p>
                                 <p key={entry.id}>Reframe: {entry.reframe}</p>
-                                <button  key={entry.id} className="btn btn-primary" value="entry.id" onClick={() => {
-                                    EditEntry(entry.id)}}>
+                                <button key={entry.id} className="btn btn-primary" value="entry.id" onClick={() => {
+                                    EditEntry(entry.id)
+                                }}>
                                     Edit
                                 </button>
                                 <button onClick={() => {

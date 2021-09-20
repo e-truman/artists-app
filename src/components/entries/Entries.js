@@ -6,9 +6,24 @@ import { useHistory, useParams, Link } from "react-router-dom"
 export const Entries = (props) => {
     console.log(props)
     const history = useHistory()
+    const { editId } = useParams()
     const { morningPageId } = useParams()
     const [entries, setEntries] = useState([]) //chosen distortions is an array of objects
-    // const [fullDistortionArray, setArray] = useState([])
+    const [distortions, setDistortions] = useState([])
+
+
+    useEffect(
+        () => {
+            return fetch(`http://localhost:8088/thoughtDistortions?_expand=morningPage&_expand=distortionDetail`)
+                .then(response => response.json()) // make request and converts data back into a javascript object
+                .then((data) => {
+                    setDistortions(data)
+                })
+        },
+
+
+        []
+    )
 
 
 
@@ -32,6 +47,7 @@ export const Entries = (props) => {
     )
 
     const EditEntry = (id) => {
+        // debugger
         history.push(`/edit/${id}`);
     }
 
@@ -56,11 +72,22 @@ export const Entries = (props) => {
                                 <h2 key={entry.id}>{entry.title}</h2>
                                 <p key={entry.id}>Morning Page: {entry.morningPage}</p>
                                 <p key={entry.id}>Blurts: {entry.blurt}</p>
-                                <p key={entry.id}>Thought Distortions Present: </p>
+
+                                {
+                                distortions.map((distortion) => {
+                                    // debugger
+                                    if (distortion?.morningPageId === entry.id) {
+                                        return <p key={distortion?.distortionDetail?.id}><Link to={`/distortionDetail/${distortion?.distortionDetail?.id}`}>{distortion.distortionDetail.name}</Link></p>
+
+
+                                    }
+                                })
+                            }
+                                
+
                                 <p key={entry.id}>Reframe: {entry.reframe}</p>
-                                <button key={entry.id} className="btn btn-primary" value="entry.id" onClick={() => {
-                                    EditEntry(entry.id)
-                                }}>
+                                <button className="btn btn-primary" value="entry.id" onClick={() => {
+                                    EditEntry(entry.id)}}>
                                     Edit
                                 </button>
                                 <button onClick={() => {

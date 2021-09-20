@@ -29,8 +29,6 @@ export const Details = (props) => {
             <div>
                 {
                     details.map((detail) => {
-                        // debugger
-
                         if (detail?.id === parseInt(distortionDetailId)) {
                             return <>
                                 <h2>{detail.name}</h2>

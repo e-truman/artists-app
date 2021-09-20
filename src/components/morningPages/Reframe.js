@@ -10,20 +10,7 @@ export const Reframe = (props) => {
     const [morningPage, setPage] = useState({}) // trying to get same morning page from previous module. It should be a single object
     const [reframeTransientState, updateReframe] = useState({})
     const [chosenDistortions, setTD] = useState([]) //chosen distortions is an array of objects
-    // const [fullDistortionArray, setArray] = useState([])
 
-    // useEffect(
-    //     () => {
-    //         return fetch(`http://localhost:8088/distortionDetails`)
-    //             .then(response => response.json()) // make request and converts data back into a javascript object
-    //             .then((data) => {
-    //                 setTD(data) // I gain access to the fullDistortionArray by invoking this function
-
-    //             })
-    //     },
-
-    //     []
-    // )
 
     useEffect(
         () => {
@@ -88,7 +75,7 @@ export const Reframe = (props) => {
                        
                         if (distortion?.morningPageId === parseInt(morningPageId)) {
                             console.log(distortion)
-                            return <p key={distortion?.distortionDetail?.id}><Link to={`/distortionDetail/${distortion?.distortionDetail?.id}`}>{distortion.distortionDetail.name}</Link></p>
+                            return <p><Link to={`/distortionDetail/${distortion?.distortionDetail?.id}`}>{distortion.distortionDetail.name}</Link></p>
                             
             
                         }

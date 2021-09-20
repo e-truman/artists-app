@@ -1,8 +1,6 @@
 import React from "react";
 import { Route, Redirect } from "react-router-dom";
 import { ApplicationViews } from "./ApplicationViews";
-// import { NavBar } from "./nav/NavBar";
-import { Home } from "./Home";
 import { Login } from "./auth/Login";
 import { Register } from "./auth/Register";
 import "./Artists.css";

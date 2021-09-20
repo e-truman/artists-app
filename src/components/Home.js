@@ -6,6 +6,7 @@ export const Home = () => {
     
     return (
         <> 
+            
             <h1>The Artist's App</h1>
             <div>
                 <h2>Morning Pages</h2>

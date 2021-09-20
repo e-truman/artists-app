@@ -71,17 +71,17 @@ export const EditEntry = (props) => {
 
     return (
         <>
-            <h2 key={morningPages.id} className="morningPage__title">Edit Your Morning Page</h2>
+            <h2 className="morningPage__title">Edit Your Morning Page</h2>
             <form>
 
                 <fieldset>
-                    <div key={morningPages.id} className="form-group">
+                    <div className="form-group">
                         <label htmlFor="description">Title: </label>
                         <input
                             required autoFocus
                             type="text"
                             className="form-control"
-                            placeholder={morningPages.title}
+                            defaultValue={morningPages.title}
                             onChange={
                                 (evt) => {
                                     const copy = { ...entryTransientState }
@@ -99,7 +99,7 @@ export const EditEntry = (props) => {
                             required autoFocus
                             type="text"
                             className="form-control"
-                            placeholder={morningPages.morningPage}
+                            defaultValue={morningPages.morningPage}
                             onChange={
                                 (evt) => {
                                     const copy = { ...entryTransientState }
@@ -118,11 +118,11 @@ export const EditEntry = (props) => {
                             required autoFocus
                             type="text"
                             className="form-control"
-                            placeholder={morningPages.blurt}
+                            defaultValue={morningPages.blurt}
                             onChange={
                                 (evt) => {
                                     const copy = { ...entryTransientState }
-                                    copy.reframe = evt.target.value
+                                    copy.blurt = evt.target.value
                                     updateEntry(copy)
                                 }
                             }
@@ -137,7 +137,7 @@ export const EditEntry = (props) => {
 
                             if (distortion?.morningPageId === parseInt(morningPageId)) {
                                 console.log(distortion)
-                                return <p key={distortion?.distortionDetail?.id}><Link to={`/distortionDetail/${distortion?.distortionDetail?.id}`}>{distortion.distortionDetail.name}</Link></p>
+                                return <p><Link to={`/distortionDetail/${distortion?.distortionDetail?.id}`}>{distortion.distortionDetail.name}</Link></p>
 
 
                             }
@@ -151,7 +151,7 @@ export const EditEntry = (props) => {
                             required autoFocus
                             type="text"
                             className="form-control"
-                            placeholder={morningPages.reframe}
+                            defaultValue={morningPages.reframe}
                             onChange={
                                 (evt) => {
                                     const copy = { ...entryTransientState }

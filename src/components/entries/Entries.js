@@ -6,7 +6,6 @@ import { useHistory, useParams, Link } from "react-router-dom"
 export const Entries = (props) => {
     console.log(props)
     const history = useHistory()
-    const { editId } = useParams()
     const { morningPageId } = useParams()
     const [entries, setEntries] = useState([]) //chosen distortions is an array of objects
     const [distortions, setDistortions] = useState([])
@@ -47,7 +46,6 @@ export const Entries = (props) => {
     )
 
     const EditEntry = (id) => {
-        // debugger
         history.push(`/edit/${id}`);
     }
 
@@ -60,45 +58,49 @@ export const Entries = (props) => {
             })
     }
 
+
+    const generateKey = (pre) => {
+        return `${ pre }_${ new Date().getTime() }`;
+    }
+
     return (
         <>
-            <div>
+           
                 {
                     entries.map((entry) => {
-                        // debugger
-
                         if (entry?.userId === parseInt(localStorage.getItem("artist_login"))) {
                             return <>
+                            
                                 <h2 key={entry.id}>{entry.title}</h2>
-                                <p key={entry.id}>Morning Page: {entry.morningPage}</p>
-                                <p key={entry.id}>Blurts: {entry.blurt}</p>
-
+                                <p key={ generateKey(entry.morningPage)}>Morning Page: {entry.morningPage}</p>
+                                <p key={ generateKey(entry.blurts)}>Blurts: {entry.blurt}</p>
                                 {
-                                distortions.map((distortion) => {
-                                    // debugger
-                                    if (distortion?.morningPageId === entry.id) {
-                                        return <p key={distortion?.distortionDetail?.id}><Link to={`/distortionDetail/${distortion?.distortionDetail?.id}`}>{distortion.distortionDetail.name}</Link></p>
-
-
-                                    }
-                                })
-                            }
+                                    distortions.map((distortion) => {
+                                        if (distortion?.morningPageId === entry.id) {
+                                            return <p key={ generateKey(distortion.id)}><Link to={`/distortionDetail/${distortion?.distortionDetail?.id}`}>{distortion.distortionDetail.name}</Link></p>
+    
+                                        }
+                                    })
+                                }
                                 
+                               
+                                <p key={ generateKey(entry.reframe)}>Reframe: {entry.reframe}</p>
+                              
 
-                                <p key={entry.id}>Reframe: {entry.reframe}</p>
-                                <button className="btn btn-primary" value="entry.id" onClick={() => {
+                                <button className="btn btn-primary" value={entry.id} onClick={() => {
                                     EditEntry(entry.id)}}>
                                     Edit
                                 </button>
                                 <button onClick={() => {
                                     deleteTicket(entry.id)
                                 }}>Delete</button>
+
                             </>
                         }
                     })
                 }
 
-            </div>
+           
             <button className="btn btn-primary" onClick={() => history.goBack()}>
                 Back
             </button>

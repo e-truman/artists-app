@@ -1,12 +1,11 @@
 // purpose of this page: diplay a list of thought distortions selected for this morning page id, and provide a form where user can reframe
 
 import React, { useState, useEffect } from "react"
-import { useHistory, useParams, Link } from "react-router-dom"
+import { useHistory, Link } from "react-router-dom"
 
 export const Entries = (props) => {
     console.log(props)
     const history = useHistory()
-    const { morningPageId } = useParams()
     const [entries, setEntries] = useState([]) //chosen distortions is an array of objects
     const [distortions, setDistortions] = useState([])
 
@@ -23,7 +22,6 @@ export const Entries = (props) => {
 
         []
     )
-
 
 
     const FetchEntries =

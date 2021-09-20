@@ -59,7 +59,7 @@ export const Reframe = (props) => {
         })
             .then(res => res.json())
             .then((data) => {
-                history.push(`/checkInComplete`) 
+                history.push(`/checkInComplete/${morningPageId}`) 
             })
     }
 

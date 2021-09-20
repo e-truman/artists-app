@@ -1,7 +1,7 @@
 // purpose of this page: diplay a list of thought distortions selected for this morning page id, and provide a form where user can reframe
 
 import React, { useState, useEffect } from "react"
-import { useHistory, useParams, Link } from "react-router-dom"
+import { useHistory, useParams } from "react-router-dom"
 
 export const Details = (props) => {
     console.log(props)

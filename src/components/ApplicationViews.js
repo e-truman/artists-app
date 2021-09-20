@@ -36,7 +36,7 @@ export const ApplicationViews = () => {
             <Route exact path="/entries">
                 <Entries />
             </Route>
-            <Route exact path="/checkInComplete">
+            <Route exact path="/checkInComplete/:morningPageId(\d+)">
                 <YouDidIt />
             </Route>
             <Route exact path="/edit/:morningPageId(\d+)">

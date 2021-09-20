@@ -1,4 +1,3 @@
-import React, { useEffect, useState } from "react"
 import { useHistory } from "react-router-dom"
 
 export const Home = () => {
@@ -6,7 +5,7 @@ export const Home = () => {
     
     return (
         <> 
-            
+
             <h1>The Artist's App</h1>
             <div>
                 <h2>Morning Pages</h2>

@@ -8,10 +8,6 @@ export const ThoughtDistortion = (props) => {
     const history = useHistory()
     const [thoughtDistortionsList, setDistortions] = useState([])
     const { morningPageId } = useParams()
-    const [thoughtDistortion, addThoughtDistortion] = useState([{
-        "distortionDetailId": 1,
-        "morningPageId": morningPageId
-    }]);  // this is transient state. The on-change function 
     const [chosenThoughtDistortions, setChosenThoughtDistortions] = useState([])
 
 
@@ -68,7 +64,6 @@ export const ThoughtDistortion = (props) => {
                                 onChange={
                                     (evt) => {
                                         let copy = [...chosenThoughtDistortions]
-                                        // copy.chosenThoughtDistortionId = distortion.id
                                         if (copy.includes(distortion.id)) {
                                             const position = copy.indexOf(distortion.id) // returns position in array
                                             copy.splice(position, 1) // removes whatever at that position in array

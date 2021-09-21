@@ -5,14 +5,6 @@ export const EditEntry = (props) => {
     console.log(props)
     const history = useHistory()
     const { morningPageId } = useParams()
-    // const [entryTransientState, updateEntry] = useState({
-    //     "title": "",
-    //     "userId": parseInt(localStorage.getItem("artist_login")),
-    //     "morningPage": "",
-    //     "blurt": "",
-    //     "reframe": "",
-    //     "date": ""
-    // })
     const [entries, setEntry] = useState([]) //chosen distortions is an array of objects
     const [morningPages, setPage] = useState({
         "title": "",

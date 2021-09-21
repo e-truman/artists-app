@@ -18,18 +18,18 @@ export const MorningPage = () => {
         "morningPage": "",
         "blurt": "",
         "reframe": "",
-        "date": Date()
+        "date": ""
     });
 
-    // const date = () => {
-    //     let today = new Date();
-    //     let dd = String(today.getDate()).padStart(2, '0');
-    //     let mm = String(today.getMonth() + 1).padStart(2, '0'); //January is 0!
-    //     let yyyy = today.getFullYear();
+   let date = () => {
+        let today = new Date();
+        let dd = String(today.getDate()).padStart(2, '0');
+        let mm = String(today.getMonth() + 1).padStart(2, '0'); //January is 0!
+        let yyyy = today.getFullYear();
 
-    //     today = mm + '/' + dd + '/' + yyyy;
-    //     return today
-    // }
+        today = mm + '/' + dd + '/' + yyyy;
+        return today
+    }
 
 
     const history = useHistory() // hook that allows you to push to browser history
@@ -42,7 +42,7 @@ export const MorningPage = () => {
             morningPage: morningPage.morningPage,
             blurt: morningPage.blurt,
             reframe: morningPage.reframe,
-            date: morningPage.date
+            date: date()
         }
         const fetchOption = {
             method: "POST", //have to write options for fetch before writign fetch call

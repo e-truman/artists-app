@@ -75,54 +75,6 @@ export const YouDidIt = (props) => {
         []
     )
 
-    // const Render = () => {
-    //     // debugger
-    //     if (morningPages.length > 0) {
-    //         return <>
-    //             <form className="blurtForm">
-    //                 <h2 className="blurt__title">Check in complete</h2>
-    //                 <div>
-    //                     <h3> You did it! </h3>
-    //                 </div>
-    //             </form>
-
-
-    //             <h2 key={morningPages.id}>{morningPages.title}</h2>
-    //             <p key={morningPages.morningPage}>Morning Page: {morningPages.morningPage}</p>
-    //             <p key={morningPages.blurts}>Blurts: {morningPages.blurt}</p>
-    //             {
-    //                 distortions.map((distortion) => {
-    //                     // if (distortion?.morningPageId === entry.id) {
-    //                     return <p key={distortion.id}><Link to={`/distortionDetail/${distortion?.distortionDetail?.id}`}>{distortion.distortionDetail.name}</Link></p>
-
-
-    //                 })
-    //             }
-
-
-    //             <p key={morningPages.reframe}>Reframe: {morningPages.reframe}</p>
-
-
-    //             <button className="btn btn-primary" value={morningPages.id} onClick={() => {
-    //                 EditEntry(morningPages.id)
-    //             }}>
-    //                 Edit
-    //             </button>
-    //             <button onClick={() => {
-    //                 deleteTicket(morningPages.id)
-    //             }}>Delete</button>
-
-    //         </>
-
-    //     } else {
-    //         return <>
-
-    //             <p> No Morning Page Entries</p>
-    //         </>
-    //     }
-    // }
-
-
     return (
         <>
             <button className="btn btn-primary" onClick={HomeButton}>Home</button>
@@ -156,24 +108,13 @@ export const YouDidIt = (props) => {
                 }}>
                     Edit
                 </button>
+                
                 <button onClick={() => {
                     deleteTicket(morningPages.id)
                 }}>Delete</button>
 
-           
-
 
         </>
-
-
-
-
-
-
-
-
-
-
 
 
     )

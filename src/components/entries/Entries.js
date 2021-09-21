@@ -99,8 +99,8 @@ export const Entries = (props) => {
                 }
 
            
-            <button className="btn btn-primary" onClick={() => history.goBack()}>
-                Back
+            <button className="btn btn-primary" onClick={() => history.push(`/`)}>
+                Home
             </button>
 
         </>

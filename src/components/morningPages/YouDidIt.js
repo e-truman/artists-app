@@ -21,29 +21,29 @@ export const YouDidIt = (props) => {
     }
 
 
-    const FetchEntries =
-    () => {
-        return fetch(`http://localhost:8088/morningPages`)
-            .then(response => response.json()) // make request and converts data back into a javascript object
-            .then((data) => {
-                setEntries(data) // I gain access to the fullDistortionArray by invoking this function
+    // const FetchMorningPages =
+    //     () => {
+    //         return fetch(`http://localhost:8088/morningPages`)
+    //             .then(response => response.json()) // make request and converts data back into a javascript object
+    //             .then((data) => {
+    //                 setPage(data) // I gain access to morningPages
+    //             })
+    //     }
 
-            })
-    }
-
-    useEffect(
-        () => {
-            FetchEntries()
-        },
-        []
-    )
+    // useEffect(
+    //     () => {
+    //         FetchMorningPages()
+    //     },
+    //     []
+    // )
 
     const deleteTicket = (id) => {
         fetch(`http://localhost:8088/morningPages/${id}`, {
             method: "DELETE"
         })
             .then(() => {
-                FetchEntries();
+                // FetchMorningPages();
+                history.push(`/entries`)
             })
     }
 
@@ -75,49 +75,106 @@ export const YouDidIt = (props) => {
         []
     )
 
+    // const Render = () => {
+    //     // debugger
+    //     if (morningPages.length > 0) {
+    //         return <>
+    //             <form className="blurtForm">
+    //                 <h2 className="blurt__title">Check in complete</h2>
+    //                 <div>
+    //                     <h3> You did it! </h3>
+    //                 </div>
+    //             </form>
+
+
+    //             <h2 key={morningPages.id}>{morningPages.title}</h2>
+    //             <p key={morningPages.morningPage}>Morning Page: {morningPages.morningPage}</p>
+    //             <p key={morningPages.blurts}>Blurts: {morningPages.blurt}</p>
+    //             {
+    //                 distortions.map((distortion) => {
+    //                     // if (distortion?.morningPageId === entry.id) {
+    //                     return <p key={distortion.id}><Link to={`/distortionDetail/${distortion?.distortionDetail?.id}`}>{distortion.distortionDetail.name}</Link></p>
+
+
+    //                 })
+    //             }
+
+
+    //             <p key={morningPages.reframe}>Reframe: {morningPages.reframe}</p>
+
+
+    //             <button className="btn btn-primary" value={morningPages.id} onClick={() => {
+    //                 EditEntry(morningPages.id)
+    //             }}>
+    //                 Edit
+    //             </button>
+    //             <button onClick={() => {
+    //                 deleteTicket(morningPages.id)
+    //             }}>Delete</button>
+
+    //         </>
+
+    //     } else {
+    //         return <>
+
+    //             <p> No Morning Page Entries</p>
+    //         </>
+    //     }
+    // }
+
 
     return (
         <>
-        
-            <form className="blurtForm">
+            <button className="btn btn-primary" onClick={HomeButton}>Home</button>
 
-                <button className="btn btn-primary" onClick={HomeButton}>
-                    Home
+                <form className="blurtForm">
+                    <h2 className="blurt__title">Check in complete</h2>
+                    <div>
+                        <h3> You did it! </h3>
+                    </div>
+                </form>
+
+
+                <h2 key={morningPages.id}>{morningPages.title}</h2>
+                <p key={morningPages.morningPage}>Morning Page: {morningPages.morningPage}</p>
+                <p key={morningPages.blurts}>Blurts: {morningPages.blurt}</p>
+                {
+                    distortions.map((distortion) => {
+                        // if (distortion?.morningPageId === entry.id) {
+                        return <p key={distortion.id}><Link to={`/distortionDetail/${distortion?.distortionDetail?.id}`}>{distortion.distortionDetail.name}</Link></p>
+
+
+                    })
+                }
+
+
+                <p key={morningPages.reframe}>Reframe: {morningPages.reframe}</p>
+
+
+                <button className="btn btn-primary" value={morningPages.id} onClick={() => {
+                    EditEntry(morningPages.id)
+                }}>
+                    Edit
                 </button>
-                <h2 className="blurt__title">Check in complete</h2>
-                <div>
-                    <h3> You did it! </h3>
-                </div>
-            </form>
+                <button onClick={() => {
+                    deleteTicket(morningPages.id)
+                }}>Delete</button>
+
+           
 
 
-                        <h2 key={morningPages.id}>{morningPages.title}</h2>
-                        <p key={morningPages.morningPage}>Morning Page: {morningPages.morningPage}</p>
-                        <p key={morningPages.blurts}>Blurts: {morningPages.blurt}</p>
-                        {
-                            distortions.map((distortion) => {
-                                // if (distortion?.morningPageId === entry.id) {
-                                return <p key={distortion.id}><Link to={`/distortionDetail/${distortion?.distortionDetail?.id}`}>{distortion.distortionDetail.name}</Link></p>
+        </>
 
 
-                            })
-                        }
 
 
-                        <p key={morningPages.reframe}>Reframe: {morningPages.reframe}</p>
 
 
-                        <button className="btn btn-primary" value={morningPages.id} onClick={() => {
-                            EditEntry(morningPages.id)
-                        }}>
-                            Edit
-                        </button>
-                        <button onClick={() => {
-                            deleteTicket(morningPages.id)
-                        }}>Delete</button>
 
 
-        </>       
-        
+
+
+
+
     )
 }

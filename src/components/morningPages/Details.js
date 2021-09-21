@@ -6,17 +6,15 @@ import { useHistory, useParams } from "react-router-dom"
 export const Details = (props) => {
     console.log(props)
     const history = useHistory()
-    const { morningPageId } = useParams()
     const { distortionDetailId } = useParams()
-    const [details, setDetails] = useState([]) //chosen distortions is an array of objects
-    // const [fullDistortionArray, setArray] = useState([])
+    const [details, setDetails] = useState([]) 
 
     useEffect(
         () => {
             return fetch(`http://localhost:8088/distortionDetails`)
                 .then(response => response.json()) // make request and converts data back into a javascript object
                 .then((data) => {
-                    setDetails(data) // I gain access to the fullDistortionArray by invoking this function
+                    setDetails(data) 
 
                 })
         },

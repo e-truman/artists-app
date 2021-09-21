@@ -5,16 +5,23 @@ export const EditEntry = (props) => {
     console.log(props)
     const history = useHistory()
     const { morningPageId } = useParams()
-    const [entryTransientState, updateEntry] = useState({
-        "title": "",
-            "userId": parseInt(localStorage.getItem("artist_login")),
-            "morningPage": "",
-            "blurt": "",
-            "reframe": "",
-            "date": ""
-    })
+    // const [entryTransientState, updateEntry] = useState({
+    //     "title": "",
+    //     "userId": parseInt(localStorage.getItem("artist_login")),
+    //     "morningPage": "",
+    //     "blurt": "",
+    //     "reframe": "",
+    //     "date": ""
+    // })
     const [entries, setEntry] = useState([]) //chosen distortions is an array of objects
-    const [morningPages, setPage] = useState([])
+    const [morningPages, setPage] = useState({
+        "title": "",
+        "userId": parseInt(localStorage.getItem("artist_login")),
+        "morningPage": "",
+        "blurt": "",
+        "reframe": "",
+        "date": ""
+    })
 
     useEffect(
         () => {
@@ -46,11 +53,11 @@ export const EditEntry = (props) => {
         evt.preventDefault()
         const newMorningPage = {
 
-            "title": entryTransientState.title,
+            "title": morningPages.title,
             "userId": morningPages.userId,
-            "morningPage": entryTransientState.morningPage,
-            "blurt": entryTransientState.blurt,
-            "reframe": entryTransientState.reframe,
+            "morningPage": morningPages.morningPage,
+            "blurt": morningPages.blurt,
+            "reframe": morningPages.reframe,
             "date": morningPages.date
         };
 
@@ -81,12 +88,12 @@ export const EditEntry = (props) => {
                             required autoFocus
                             type="text"
                             className="form-control"
-                            defaultValue={morningPages.title}
+                            value={morningPages?.title}
                             onChange={
                                 (evt) => {
-                                    const copy = { ...entryTransientState }
+                                    const copy = { ...morningPages }
                                     copy.title = evt.target.value
-                                    updateEntry(copy)
+                                    setPage(copy)
                                 }
                             } />
                     </div>
@@ -99,12 +106,12 @@ export const EditEntry = (props) => {
                             required autoFocus
                             type="text"
                             className="form-control"
-                            defaultValue={morningPages.morningPage}
+                            value={morningPages.morningPage}
                             onChange={
                                 (evt) => {
-                                    const copy = { ...entryTransientState }
+                                    const copy = { ...morningPages }
                                     copy.morningPage = evt.target.value
-                                    updateEntry(copy)
+                                    setPage(copy)
                                 }
                             }
                         />
@@ -118,12 +125,12 @@ export const EditEntry = (props) => {
                             required autoFocus
                             type="text"
                             className="form-control"
-                            defaultValue={morningPages.blurt}
+                            value={morningPages.blurt}
                             onChange={
                                 (evt) => {
-                                    const copy = { ...entryTransientState }
+                                    const copy = { ...morningPages }
                                     copy.blurt = evt.target.value
-                                    updateEntry(copy)
+                                    setPage(copy)
                                 }
                             }
                         />
@@ -154,9 +161,9 @@ export const EditEntry = (props) => {
                             defaultValue={morningPages.reframe}
                             onChange={
                                 (evt) => {
-                                    const copy = { ...entryTransientState }
+                                    const copy = { ...morningPages }
                                     copy.reframe = evt.target.value
-                                    updateEntry(copy)
+                                    setPage(copy)
                                 }
                             }
                         />

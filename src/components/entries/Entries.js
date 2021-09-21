@@ -29,11 +29,9 @@ export const Entries = (props) => {
             return fetch(`http://localhost:8088/morningPages`)
                 .then(response => response.json()) // make request and converts data back into a javascript object
                 .then((data) => {
-                    setEntries(data) // I gain access to the fullDistortionArray by invoking this function
-
+                    setEntries(data)
                 })
         }
-
 
 
     useEffect(
@@ -43,62 +41,69 @@ export const Entries = (props) => {
         []
     )
 
-    const EditEntry = (id) => {
+    const editEntry = (id) => {
         history.push(`/edit/${id}`);
     }
 
-    const deleteTicket = (id) => {
+    const deleteEntry = (id) => {
         fetch(`http://localhost:8088/morningPages/${id}`, {
             method: "DELETE"
         })
             .then(() => {
-                FetchEntries();
-            })
+                FetchEntries()
+            }
+            )
     }
 
 
-    const generateKey = (pre) => {
-        return `${ pre }_${ new Date().getTime() }`;
-    }
+    // const render = () => {
+
+
+    // }
+
+
+
+
+
 
     return (
         <>
-           
-                {
-                    entries.map((entry) => {
-                        if (entry?.userId === parseInt(localStorage.getItem("artist_login"))) {
-                            return <>
-                            
-                                <h2 key={entry.id}>{entry.title}</h2>
-                                <p key={ generateKey(entry.morningPage)}>Morning Page: {entry.morningPage}</p>
-                                <p key={ generateKey(entry.blurts)}>Blurts: {entry.blurt}</p>
-                                {
-                                    distortions.map((distortion) => {
-                                        if (distortion?.morningPageId === entry.id) {
-                                            return <p key={ generateKey(distortion.id)}><Link to={`/distortionDetail/${distortion?.distortionDetail?.id}`}>{distortion.distortionDetail.name}</Link></p>
-    
-                                        }
-                                    })
-                                }
-                                
-                               
-                                <p key={ generateKey(entry.reframe)}>Reframe: {entry.reframe}</p>
-                              
+            {
 
-                                <button className="btn btn-primary" value={entry.id} onClick={() => {
-                                    EditEntry(entry.id)}}>
-                                    Edit
-                                </button>
-                                <button onClick={() => {
-                                    deleteTicket(entry.id)
-                                }}>Delete</button>
+                entries.map((entry) => {
+                    if (entry?.userId === parseInt(localStorage.getItem("artist_login"))) {
+                        // debugger
+                         return <>
 
-                            </>
-                        }
-                    })
-                }
+                            <h2>{entry.title}</h2>
+                            <p> Morning Page: {entry.morningPage}</p>
+                            <p> Blurts: {entry.blurt}</p>
+                            {
+                                distortions.map((distortion) => {
+                                    if (distortion?.morningPageId === entry.id) {
+                                        return <p key={entry.id}><Link to={`/distortionDetail/${distortion?.distortionDetail?.id}`}>{distortion.distortionDetail.name}</Link></p>
 
-           
+                                    }
+                                })
+                            }
+
+
+                            <p key={entry.id}>Reframe: {entry.reframe}</p>
+
+
+                            <button className="btn btn-primary" value={entry.id} onClick={() => {
+                                editEntry(entry.id)
+                            }}>
+                                Edit
+                            </button>
+                            <button onClick={() => {
+                                deleteEntry(entry.id)
+                            }}>Delete</button>
+
+                        </>
+                    }
+                })
+            }
             <button className="btn btn-primary" onClick={() => history.push("/")}>
                 Home
             </button>

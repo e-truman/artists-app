@@ -1,5 +1,10 @@
 /* Import the google web fonts you want to use */
 @import url("https://fonts.googleapis.com/css?family=Comfortaa|Patua+One");
+@import url('https://fonts.googleapis.com/css2?family=Beth+Ellen&display=swap');
+
+@import url('https://fonts.googleapis.com/css2?family=Montserrat:wght@200&display=swap');
+
+
 
 /*Typography
 --------------------------------------------------------------*/
@@ -14,8 +19,13 @@ textarea {
   line-height: 1.5;
 }
 
-h1, h2, h3, h4, h5, h6 {
-  font-family: "Patua One", serif;
+h1 {
+  font-family: 'Beth Ellen', cursive;
+  letter-spacing: 2px;
+}
+
+h2, h3, h4, h5, h6 {
+  font-family: 'Montserrat', sans-serif;
   letter-spacing: 2px;
 }
 

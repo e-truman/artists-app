@@ -1,13 +1,3 @@
-// Create a route in ApplicationViews for /employee/create that renders an EmployeeForm.
-// Add a button to the employee list labeled, "Hire Employee".
-// When the button is clicked, show the employee form by using history.push() to change the route.
-// The employee form should include an input for the person's name, their repair specialty, and a button at the end labeled "Finish Hiring".
-// When the "Finish Hiring" button is clicked on the form, create a new employee object and POST it to the API.
-// Once the employee is saved, re-route the user to the list of employees.
-
-
-
-
 import React, { useState } from "react"
 import { useHistory } from "react-router-dom"
 
@@ -24,7 +14,7 @@ export const MorningPage = () => {
    let date = () => {
         let today = new Date();
         let dd = String(today.getDate()).padStart(2, '0');
-        let mm = String(today.getMonth() + 1).padStart(2, '0'); //January is 0!
+        let mm = String(today.getMonth() + 1).padStart(2, '0'); 
         let yyyy = today.getFullYear();
 
         today = mm + '/' + dd + '/' + yyyy;

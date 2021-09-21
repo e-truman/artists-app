@@ -56,16 +56,7 @@ export const Entries = (props) => {
     }
 
 
-    // const render = () => {
-
-
-    // }
-
-
-
-
-
-
+    
     return (
         <>
             {
@@ -89,6 +80,7 @@ export const Entries = (props) => {
 
 
                             <p key={entry.id}>Reframe: {entry.reframe}</p>
+                            <p>Date: {entry.date}</p>
 
 
                             <button className="btn btn-primary" value={entry.id} onClick={() => {

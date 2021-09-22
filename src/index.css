@@ -1,3 +1,4 @@
+
 body {
   margin: 0;
   padding: 2em;
@@ -6,7 +7,14 @@ body {
     sans-serif;
   -webkit-font-smoothing: antialiased;
   -moz-osx-font-smoothing: grayscale;
-}
+
+    background: url(https://www.rawpixel.com/image/597475/creative-paint-texture-background) no-repeat center center fixed; 
+    -webkit-background-size: cover;
+    -moz-background-size: cover;
+    -o-background-size: cover;
+    background-size: cover;
+  }
+
 
 code {
   font-family: source-code-pro, Menlo, Monaco, Consolas, 'Courier New',

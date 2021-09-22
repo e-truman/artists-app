@@ -5,16 +5,19 @@ import { Login } from "./auth/Login";
 import { Register } from "./auth/Register";
 import "./Artists.css";
 import { NavBar } from "./nav/NavBar";
+import background from "./images/brush-background.jpeg";
 
 export const Artists = () => (
   <>
+  <img className="background" src={background} alt="paint splatters" />
+
     <Route
       render={() => {
         if (localStorage.getItem("artist_login")) {
           return (
             <>
-              <NavBar />
               <ApplicationViews />
+              <NavBar />
             </>
           );
         } else {

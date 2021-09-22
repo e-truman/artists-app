@@ -2,7 +2,7 @@
 import React from "react"
 import { Route } from "react-router-dom"
 import { MorningPage } from "./morningPages/MorningPage"
-import { Home } from "./Home"
+import { Home } from "./Home/Home"
 import { Blurt } from "./morningPages/Blurt"
 import { ThoughtDistortion } from "./morningPages/ThoughtDistortions"
 import { Reframe } from "./morningPages/Reframe"

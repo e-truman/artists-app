@@ -24,9 +24,7 @@ export const ThoughtDistortion = (props) => {
         []
     )
 
-
     const submitThoughtDistortions = (evt) => { // invoked when you push submit button
-
 
         if (chosenThoughtDistortions.length > 0) {
             evt.preventDefault() // prevents form from being submitted without being able to see your fetch
@@ -50,7 +48,6 @@ export const ThoughtDistortion = (props) => {
                         history.push(`/reframe/${morningPageId}`)
                     })
             }
-
 
         } else {
             history.push(`/reframe/${morningPageId}`)

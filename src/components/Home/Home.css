@@ -1,0 +1,23 @@
+
+.card-body {
+    display: flex;
+    justify-content: center;
+    margin: 2em;
+    
+}
+.card {
+    justify-content: center;
+    background-image: url("https://www.rawpixel.com/image/597475/creative-paint-texture-background");
+    
+}
+.card-title {
+    font-weight: 800;
+    
+}
+
+.row {
+    flex-direction: column;
+    
+}
+
+

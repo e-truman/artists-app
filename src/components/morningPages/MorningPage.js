@@ -22,7 +22,7 @@ export const MorningPage = () => {
     }
 
 
-    const history = useHistory() // hook that allows you to push to browser history
+    const history = useHistory() 
 
     const submitMorningPage = (event) => { // invoked when you push submit button
         event.preventDefault() // prevents form from being submitted without being able to see your fetch

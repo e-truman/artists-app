@@ -19,6 +19,11 @@ textarea {
   line-height: 1.5;
 }
 
+body {
+  margin: 0;
+  
+}
+
 h1 {
   font-family: 'Beth Ellen', cursive;
   letter-spacing: 2px;
@@ -32,3 +37,27 @@ h2, h3, h4, h5, h6 {
 p {
   margin-bottom: 1.5em;
 }
+
+.background {
+  position:absolute;
+  left:0px;
+  top:0px;
+  z-index:-1;
+  opacity:40%
+}
+
+
+
+/* .background::before{
+  content:"";
+  background-image: url(./images/brush-background.jpeg);
+  opacity:0.5;
+  position:absolute;
+  top:0;
+  bottom:0;
+  right:0;
+  left:0;
+  width:auto;
+  height:auto;
+  z-index:-3;
+} */

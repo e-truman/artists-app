@@ -43,7 +43,9 @@ p {
   left:0px;
   top:0px;
   z-index:-1;
-  opacity:40%
+  opacity:40%;
+  width: 100%;
+  max-height: fit-content;
 }
 
 

@@ -4,12 +4,14 @@
     flex-wrap: nowrap;
     justify-content: left;
     background-color: #6c757d;
-    margin: 50% 0% 0% 0%;
-   
-}
-
-ul.navbar {
-
+    width:100%;
+    overflow: hidden;
+    position: sticky;
+    bottom: 0;
+    left: 0;
+    color: white;
+    margin-bottom: 0%;  
+    padding-bottom: 0;
 }
 
 .navbar__item {
@@ -17,6 +19,7 @@ ul.navbar {
     list-style-type: none;
     display: flex;
    flex-direction: column;
+
 }
 
 .navbar__link {
@@ -27,7 +30,7 @@ ul.navbar {
     color: white;
     display:flex;
     flex-direction: column;
-    /* margin-right: 5em; */
+    
    
 }
 

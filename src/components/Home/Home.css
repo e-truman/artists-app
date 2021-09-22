@@ -2,12 +2,14 @@
 .card-body {
     display: flex;
     justify-content: center;
-    margin: 2em;
+    margin: 2em 1em 2em 1em;
+    padding: 2em 2em 2em 2em;
+
     
 }
 .card {
+    text-align: center;
     justify-content: center;
-    background-image: url("https://www.rawpixel.com/image/597475/creative-paint-texture-background");
     
 }
 .card-title {
@@ -17,7 +19,17 @@
 
 .row {
     flex-direction: column;
+    /* position:fixed; */
+    /* top:0;
+    bottom:0; */
+    /* left:0; */
+    right:0;
+    width: fit-content;
     
+}
+.title {
+    margin: .75em 0em 0em .75em;
+
 }
 
 

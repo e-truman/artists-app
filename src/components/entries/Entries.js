@@ -2,6 +2,8 @@
 
 import React, { useState, useEffect } from "react"
 import { useHistory, Link } from "react-router-dom"
+import './Entries.css';
+import { Card, Button, CardTitle, CardText, Row, Col } from 'reactstrap';
 
 export const Entries = (props) => {
     console.log(props)
@@ -56,50 +58,92 @@ export const Entries = (props) => {
     }
 
 
-    
+
     return (
         <>
-            {
+<div className="container">
+            {/* <Row> */}
 
-                entries.map((entry) => {
-                    if (entry?.userId === parseInt(localStorage.getItem("artist_login"))) {
-                        // debugger
-                         return <>
+                {/* <Col sm="6"> */}
+                    <Card body>
 
-                            <h2>{entry.title}</h2>
-                            <p> Morning Page: {entry.morningPage}</p>
-                            <p> Blurts: {entry.blurt}</p>
-                            {
-                                distortions.map((distortion) => {
-                                    if (distortion?.morningPageId === entry.id) {
-                                        return <p key={entry.id}><Link to={`/distortionDetail/${distortion?.distortionDetail?.id}`}>{distortion.distortionDetail.name}</Link></p>
+                        {
 
-                                    }
-                                })
+                            entries.map((entry) => {
+                                if (entry?.userId === parseInt(localStorage.getItem("artist_login"))) {
+                                    return <>
+
+
+                                        <CardTitle tag="h5">{entry.title}</CardTitle>
+                                        <CardText><p> Morning Page: {entry.morningPage}</p>
+                                            <p> Blurts: {entry.blurt}</p>
+                                            {
+                                                distortions.map((distortion) => {
+                                                    if (distortion?.morningPageId === entry.id) {
+                                                        return <p key={entry.id}><Link to={`/distortionDetail/${distortion?.distortionDetail?.id}`}>{distortion.distortionDetail.name}</Link></p>
+
+                                                    }
+                                                })
+                                            }
+                                            <p key={entry.id}>Reframe: {entry.reframe}</p>
+                                            <p>Date: {entry.date}</p>
+                                        </CardText>
+                                        <div className="button-container">
+                                        <Button value={entry.id} onClick={() => { editEntry(entry.id) }}>Edit</Button>
+                                        <Button onClick={() => { deleteEntry(entry.id) }}>Delete</Button>
+                                        </div>
+                                    </>
+
+
+                                }
                             }
+                            )
+                        }
+                    </Card>
+                {/* </Col> */}
 
 
-                            <p key={entry.id}>Reframe: {entry.reframe}</p>
-                            <p>Date: {entry.date}</p>
 
 
-                            <button className="btn btn-primary" value={entry.id} onClick={() => {
-                                editEntry(entry.id)
-                            }}>
-                                Edit
-                            </button>
-                            <button onClick={() => {
-                                deleteEntry(entry.id)
-                            }}>Delete</button>
+            {/* </Row > */}
 
-                        </>
-                    }
-                })
-            }
-            <button className="btn btn-primary" onClick={() => history.push("/")}>
-                Home
-            </button>
+
+
+
+            <Button onClick={() => history.push("/")}>
+                Home</Button>
+
+
+</div>
+
 
         </>
     )
 }
+
+
+
+
+
+
+
+
+
+
+
+/* <button className="btn btn-primary" value={entry.id} onClick={() => {
+editEntry(entry.id)
+}}>
+Edit
+</button>
+<button onClick={() => {
+deleteEntry(entry.id)
+}}>Delete</button>
+</div>
+</>
+}
+})
+}
+<button className="btn btn-primary" onClick={() => history.push("/")}>
+Home
+</button>   */

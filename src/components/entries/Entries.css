@@ -1,0 +1,20 @@
+.button-container {
+    display: flex;
+    flex-direction: column;
+
+}
+
+.btn {
+    width: 10em;
+    margin: 1em;
+    margin: auto;
+}
+
+.container {
+    margin: auto;
+}
+
+.card {
+    margin: 7em;
+}
+

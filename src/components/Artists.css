@@ -24,12 +24,12 @@ body {
   
 }
 
-h1 {
+.title {
   font-family: 'Beth Ellen', cursive;
   letter-spacing: 2px;
 }
 
-h2, h3, h4, h5, h6 {
+h1, h2, h3, h4, h5, h6 {
   font-family: 'Montserrat', sans-serif;
   letter-spacing: 2px;
 }
@@ -45,7 +45,7 @@ p {
   z-index:-3;
   opacity:40%;
   width: 100%;
-  height: auto;
+  /* height: auto; */
 }
 
 /* .background-container {

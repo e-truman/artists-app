@@ -42,24 +42,16 @@ p {
   position:absolute;
   left:0px;
   top:0px;
-  z-index:-1;
+  z-index:-3;
   opacity:40%;
   width: 100%;
-  max-height: fit-content;
+  height: auto;
 }
 
+/* .background-container {
+  
 
-
-/* .background::before{
-  content:"";
-  background-image: url(./images/brush-background.jpeg);
-  opacity:0.5;
-  position:absolute;
-  top:0;
-  bottom:0;
-  right:0;
-  left:0;
-  width:auto;
-  height:auto;
-  z-index:-3;
 } */
+
+
+

@@ -2,23 +2,23 @@
 .navbar {
     display: flex;
     flex-wrap: nowrap;
-    justify-content: left;
+    /* justify-content: left; */
     background-color: #6c757d;
     width:100%;
-    overflow: hidden;
-    position: sticky;
+    /* overflow: hidden; */
+    margin: 45% 0 0 0;
+    position: fixed;
     bottom: 0;
-    left: 0;
     color: white;
-    margin-bottom: 0%;  
-    padding-bottom: 0;
+    
+    
 }
 
 .navbar__item {
     flex-basis: 20%;
     list-style-type: none;
-    display: flex;
-   flex-direction: column;
+    
+
 
 }
 

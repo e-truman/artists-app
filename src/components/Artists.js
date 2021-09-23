@@ -9,15 +9,14 @@ import background from "./images/brush-background.jpeg";
 
 export const Artists = () => (
   <>
-  <img className="background" src={background} alt="paint splatters" />
-
     <Route
       render={() => {
         if (localStorage.getItem("artist_login")) {
           return (
             <>
-              <ApplicationViews />
-              <NavBar />
+                <img className="background" src={background} alt="paint splatters" />
+                <ApplicationViews />
+                <NavBar />
             </>
           );
         } else {
@@ -34,3 +33,8 @@ export const Artists = () => (
     </Route>
   </>
 );
+
+
+{/* <div className="background" style={{ 
+      backgroundImage: `url("https://www.rawpixel.com/image/597475/creative-paint-texture-background")` 
+    }}></div> */}

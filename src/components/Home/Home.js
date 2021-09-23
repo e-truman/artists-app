@@ -8,7 +8,6 @@ export const Home = (props) => {
 
   return (
     <>
-      
       <h1 className="title">The Artist's App</h1>
 
 
@@ -23,21 +22,16 @@ export const Home = (props) => {
         </Col>
 
 
-        <Col sm="6">
+        {/* <Col sm="6">
           <Card body>
             <CardTitle tag="h5">MORNING PAGES</CardTitle>
             <CardText>With supporting text below as a natural lead-in to additional content.</CardText>
             <Button onClick={() => history.push("/morning-pages")}>START</Button>
           </Card>
-        </Col>
+        </Col> */}
 
 
       </Row>
-
-
-
-
-
 
     </>
   )
@@ -46,7 +40,8 @@ export const Home = (props) => {
 
 
 
-
+// card-title
+// card-text
 
 
 

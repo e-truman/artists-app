@@ -1,5 +1,6 @@
 import React, { useState } from "react"
 import { useHistory } from "react-router-dom"
+import "./MorningPages.css";
 
 export const MorningPage = () => {
     const [morningPage, setMp] = useState({
@@ -49,8 +50,8 @@ export const MorningPage = () => {
             })
     }
     return (
-        <form className="morningPageForm">
-            <h2 className="morningPage__title">How are you today?</h2>
+        <form className="form">
+            <h2 className="morningPage__title">Morning Pages</h2>
             <fieldset>
                 <div className="form-group">
                     <label htmlFor="description">Title: </label>
@@ -58,7 +59,7 @@ export const MorningPage = () => {
                         required autoFocus
                         type="text"
                         className="form-control"
-                        placeholder=""
+                        placeholder="Title"
                         onChange={
                             (evt) => {
                                 const copy = { ...morningPage }
@@ -74,7 +75,7 @@ export const MorningPage = () => {
                     <input
                         required autoFocus
                         type="text"
-                        className="form-control"
+                        className="form-control journal"
                         placeholder="How are you today?"
                         onChange={
                             (evt) => {

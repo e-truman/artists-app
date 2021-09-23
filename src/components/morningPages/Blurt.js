@@ -1,5 +1,6 @@
 import React, { useState, useEffect } from "react"
 import { useHistory, useParams } from "react-router-dom"
+import "./MorningPages.css";
 
 export const Blurt = (props) => {
     console.log(props)
@@ -48,7 +49,7 @@ export const Blurt = (props) => {
         
             
     return (
-        <form className="blurtForm">
+        <form className="form">
             <h2 className="blurt__title">Blurts</h2>
             <fieldset>
                 <div className="form-group">

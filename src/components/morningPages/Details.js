@@ -2,6 +2,7 @@
 
 import React, { useState, useEffect } from "react"
 import { useHistory, useParams } from "react-router-dom"
+import "./MorningPages.css";
 
 export const Details = (props) => {
     console.log(props)

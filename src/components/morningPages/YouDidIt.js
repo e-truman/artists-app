@@ -1,5 +1,7 @@
 import React, { useState, useEffect } from "react"
 import { useHistory, useParams, Link } from "react-router-dom"
+import "./MorningPages.css";
+
 
 // Morning Page complete. WHat would you like to do next?
 //Daily streak
@@ -77,43 +79,43 @@ export const YouDidIt = (props) => {
 
     return (
         <>
+
+
+            <form className="form">
+                <h2 className="form__title">Check in complete</h2>
+                <div>
+                    <h3> You did it! </h3>
+                </div>
+            </form>
+
+
+            <h2 key={morningPages.id}>{morningPages.title}</h2>
+            <p key={morningPages.morningPage}>Morning Page: {morningPages.morningPage}</p>
+            <p key={morningPages.blurts}>Blurts: {morningPages.blurt}</p>
+            {
+                distortions.map((distortion) => {
+                    // if (distortion?.morningPageId === entry.id) {
+                    return <p key={distortion.id}><Link to={`/distortionDetail/${distortion?.distortionDetail?.id}`}>{distortion.distortionDetail.name}</Link></p>
+
+
+                })
+            }
+
+
+            <p key={morningPages.reframe}>Reframe: {morningPages.reframe}</p>
+
+
+            <button className="btn btn-primary" value={morningPages.id} onClick={() => {
+                EditEntry(morningPages.id)
+            }}>
+                Edit
+            </button>
+
+            <button className="btn btn-primary" onClick={() => {
+                deleteTicket(morningPages.id)
+            }}>Delete</button>
+
             <button className="btn btn-primary" onClick={HomeButton}>Home</button>
-
-                <form className="blurtForm">
-                    <h2 className="blurt__title">Check in complete</h2>
-                    <div>
-                        <h3> You did it! </h3>
-                    </div>
-                </form>
-
-
-                <h2 key={morningPages.id}>{morningPages.title}</h2>
-                <p key={morningPages.morningPage}>Morning Page: {morningPages.morningPage}</p>
-                <p key={morningPages.blurts}>Blurts: {morningPages.blurt}</p>
-                {
-                    distortions.map((distortion) => {
-                        // if (distortion?.morningPageId === entry.id) {
-                        return <p key={distortion.id}><Link to={`/distortionDetail/${distortion?.distortionDetail?.id}`}>{distortion.distortionDetail.name}</Link></p>
-
-
-                    })
-                }
-
-
-                <p key={morningPages.reframe}>Reframe: {morningPages.reframe}</p>
-
-
-                <button className="btn btn-primary" value={morningPages.id} onClick={() => {
-                    EditEntry(morningPages.id)
-                }}>
-                    Edit
-                </button>
-                
-                <button onClick={() => {
-                    deleteTicket(morningPages.id)
-                }}>Delete</button>
-
-
         </>
 
 

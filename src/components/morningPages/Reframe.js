@@ -2,6 +2,7 @@
 
 import React, { useState, useEffect } from "react"
 import { useHistory, useParams, Link } from "react-router-dom"
+import "./MorningPages.css";
 
 export const Reframe = (props) => {
     console.log(props)

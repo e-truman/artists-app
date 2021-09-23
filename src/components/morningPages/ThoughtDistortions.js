@@ -1,5 +1,6 @@
 import React, { useState, useEffect } from "react"
 import { useHistory, useParams, Link } from "react-router-dom"
+import "./MorningPages.css";
 
 
 // Purpose of this page: show throught distortions. allow you to select them. will post the selected thought distortions with the correct morning page Id. The selected thought distortions will appear on next page
@@ -57,8 +58,8 @@ export const ThoughtDistortion = (props) => {
 
 
     return (
-        <form className="thoughtDistortionForm">
-            <h2 className="thoughtDistortion__title">Select the thought distortions present</h2>
+        <form className="form">
+            <h2 className="title">Select the thought distortions present</h2>
             <fieldset>
                 <div className="form-checkbox-group">
                     <label htmlFor="name">click to learn more:</label>

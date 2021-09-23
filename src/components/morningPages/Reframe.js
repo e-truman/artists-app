@@ -67,10 +67,10 @@ export const Reframe = (props) => {
    
     return (
         <>
-            <form className="blurtForm">
-                <h2 className="blurt__title">Reframe</h2>
+        <h2 className="title">REFRAME</h2>
+            <form className="form"> 
                 <div>
-                    <h3> Thought Distortions Present</h3>
+                    <p> Thought Distortions Present</p>
                     {
                     chosenDistortions.map((distortion) => {
                        
@@ -89,7 +89,7 @@ export const Reframe = (props) => {
                         <input
                             required autoFocus
                             type="text"
-                            className="form-control"
+                            className="form-control journal"
                             placeholder="What is another way to think bout your unhelpful thoughts?"
                             onChange={
                                 (evt) => {

@@ -50,8 +50,9 @@ export const MorningPage = () => {
             })
     }
     return (
+        <>
+        <h2 className="title">MORNING PAGES</h2>
         <form className="form">
-            <h2 className="morningPage__title">Morning Pages</h2>
             <fieldset>
                 <div className="form-group">
                     <label htmlFor="description">Title: </label>
@@ -91,5 +92,6 @@ export const MorningPage = () => {
                 Next
             </button>
         </form>
+        </>
     )
 }

@@ -1,43 +1,54 @@
-
+.bg-light,
 .navbar {
     display: flex;
     flex-wrap: nowrap;
-    /* justify-content: left; */
-    background-color: #6c757d;
+    justify-content: right;
     width:100%;
     /* overflow: hidden; */
     /* margin: 45% 0 0 0; */
     /* position: fixed; */
     /* bottom: 0; */
-    color: white;
+    /* color: white; */
     
     
 }
 
-.navbar__item {
+/* .navbar__item {
     flex-basis: 20%;
     list-style-type: none;
     
-}
+} */
 
+a,
 .navbar__link {
     text-decoration: none;
+    color: #6c757d;
 
 }
-.icon {
+/* .icon {
     color: white;
     display:flex;
     flex-direction: column;
     
    
-}
+} */
 
 .nav__text {
     font-size: 50%;
 }
 
 svg {
-    margin-left: .75em;
+    margin-right: .75em;
+}
+
+.navbar-brand {
+    font-family: 'Beth Ellen', cursive;
+    color: #6c757d;
+    margin: .5em;
+}
+
+.collapse {
+    text-align:right;
 }
 
 

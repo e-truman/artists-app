@@ -82,13 +82,9 @@ export const YouDidIt = (props) => {
 
 
             <form className="form">
-                <h2 className="form__title">Check in complete</h2>
-                <div>
-                    <h3> You did it! </h3>
-                </div>
-            
-
-
+                <h2 className="title">CHECK IN COMPLETE</h2>
+               
+        
             <h2 key={morningPages.id}>{morningPages.title}</h2>
             <p key={morningPages.morningPage}>Morning Page: {morningPages.morningPage}</p>
             <p key={morningPages.blurts}>Blurts: {morningPages.blurt}</p>

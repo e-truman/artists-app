@@ -25,7 +25,8 @@ body {
 }
 
 .card-title {
-  font-family: 'Beth Ellen', cursive;
+  font-family: 'Montserrat', sans-serif;
+  font-weight: 700;
   letter-spacing: 2px;
   padding: 0em 5em 0em 4em;
 }
@@ -52,16 +53,18 @@ p {
 .card-body {
   display: flex;
   justify-content: center;
-  margin: 2em 1em 2em 1em;
-  padding: 2em 2em 2em 2em;
+  margin: 1em 2em 2em 2em;
+  padding: 0em 2em 2em 2em;
   font-family: 'Montserrat', sans-serif;
-  /* width: 150%; */
+  border-style: solid;
+
 
   
 }
 .card {
   /* text-align: center; */
   justify-content: center;
+  /* margin: 2em; */
 }
 
 .row {
@@ -74,10 +77,10 @@ p {
   /* width: fit-content; */
   
 }
-.title {
+/* .title {
   margin: .75em 0em 0em .75em;
 
-}
+} */
 
 /* .col-sm-6 {
   padding: 5% 5% 5% 50%;
@@ -100,7 +103,7 @@ p {
 } */
 
 .card {
-  margin: 7em;
+  margin: 2em 10em 2em 10em;
 }
 
 .space-between {
@@ -111,9 +114,14 @@ p {
   padding: 0em 5em 0em 5em;
 }
 
-.card-body {
-  padding:2em;
+.title {
+  font-weight: 500;
+  font-size: 1.5rem;
+  padding-left: 1em;
 }
+
+
+
 
 
 

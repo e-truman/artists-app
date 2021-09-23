@@ -14,9 +14,10 @@ export const Artists = () => (
         if (localStorage.getItem("artist_login")) {
           return (
             <>
-                <img className="background" src={background} alt="paint splatters" />
-                <ApplicationViews />
-                <NavBar />
+              <NavBar />
+              <img className="background" src={background} alt="paint splatters" />
+              <ApplicationViews />
+
             </>
           );
         } else {

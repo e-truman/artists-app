@@ -25,7 +25,7 @@ export const Details = (props) => {
 
     return (
         <>
-            <div>
+            <div className="form">
                 {
                     details.map((detail) => {
                         if (detail?.id === parseInt(distortionDetailId)) {
@@ -41,7 +41,7 @@ export const Details = (props) => {
                 }
 
             </div>
-            <button className="btn btn-primary" onClick={()=>history.goBack()}>
+            <button className="btn btn-secondary" onClick={()=>history.goBack()}>
                 Back
             </button>
 

@@ -86,7 +86,7 @@ export const YouDidIt = (props) => {
                 <div>
                     <h3> You did it! </h3>
                 </div>
-            </form>
+            
 
 
             <h2 key={morningPages.id}>{morningPages.title}</h2>
@@ -103,19 +103,21 @@ export const YouDidIt = (props) => {
 
 
             <p key={morningPages.reframe}>Reframe: {morningPages.reframe}</p>
-
-
-            <button className="btn btn-primary" value={morningPages.id} onClick={() => {
+<div className="buttons">
+<div className="edit-delete-buttons">
+            <button className="btn btn-secondary" value={morningPages.id} onClick={() => {
                 EditEntry(morningPages.id)
             }}>
                 Edit
             </button>
 
-            <button className="btn btn-primary" onClick={() => {
+            <button className="btn btn-secondary" onClick={() => {
                 deleteTicket(morningPages.id)
             }}>Delete</button>
-
-            <button className="btn btn-primary" onClick={HomeButton}>Home</button>
+</div>
+            <button className="btn btn-secondary" onClick={HomeButton}>Home</button>
+            </div>
+            </form>
         </>
 
 

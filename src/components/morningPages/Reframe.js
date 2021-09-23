@@ -101,7 +101,7 @@ export const Reframe = (props) => {
                         />
                     </div>
                 </fieldset>
-                <button className="btn btn-primary" onClick={updateMorningPage}>
+                <button className="btn btn-secondary" onClick={updateMorningPage}>
                     Submit
                 </button>
             </form>

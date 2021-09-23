@@ -85,7 +85,7 @@ export const ThoughtDistortion = (props) => {
                     })}
                 </div>
             </fieldset>
-            <button className="btn btn-primary" onClick={submitThoughtDistortions}>
+            <button className="btn btn-secondary" onClick={submitThoughtDistortions}>
                 Next
             </button>
         </form>

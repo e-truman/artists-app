@@ -87,7 +87,7 @@ export const MorningPage = () => {
                     />
                 </div>
             </fieldset>
-            <button className="btn btn-primary" onClick={submitMorningPage}>
+            <button className="btn btn-secondary" onClick={submitMorningPage}>
                 Next
             </button>
         </form>

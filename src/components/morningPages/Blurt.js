@@ -50,7 +50,7 @@ export const Blurt = (props) => {
             
     return (
         <form className="form">
-            <h2 className="blurt__title">Blurts</h2>
+            <h2 className="form__title">Blurts</h2>
             <fieldset>
                 <div className="form-group">
                     {/* <label htmlFor="name">Specialty:</label> */}
@@ -69,7 +69,7 @@ export const Blurt = (props) => {
                        />
                 </div>
             </fieldset>
-            <button className="btn btn-primary" onClick={updateMorningPage}> 
+            <button className="btn btn-secondary" onClick={updateMorningPage}> 
               Next
             </button>
         </form>

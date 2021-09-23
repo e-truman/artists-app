@@ -71,16 +71,16 @@ export const EditEntry = (props) => {
 
     return (
         <>
-            <h2 className="morningPage__title">Edit Your Morning Page</h2>
+            <h2 className="title">EDIT YOUR MORNING PAGE</h2>
             <form className="form">
 
                 <fieldset>
                     <div className="form-group">
-                        <label htmlFor="description">Title: </label>
+                        <label htmlFor="description">TITLE: </label>
                         <input
                             required autoFocus
                             type="text"
-                            className="form-control"
+                            className="form-control edit-title"
                             value={morningPages?.title}
                             onChange={
                                 (evt) => {
@@ -90,15 +90,13 @@ export const EditEntry = (props) => {
                                 }
                             } />
                     </div>
-                </fieldset>
 
-                <fieldset>
                     <div className="form-group">
-                        <label htmlFor="name">Morning Page:</label>
-                        <input
-                            required autoFocus
+                        <label htmlFor="name">MORNING PAGE:</label>
+                        <textarea
+                            required
                             type="text"
-                            className="form-control"
+                            className="form-control journal"
                             value={morningPages.morningPage}
                             onChange={
                                 (evt) => {
@@ -109,15 +107,13 @@ export const EditEntry = (props) => {
                             }
                         />
                     </div>
-                </fieldset>
 
-                <fieldset>
-                    <div className="form-group">
-                        <label htmlFor="name">Blurt:</label>
-                        <input
-                            required autoFocus
+                    <div className="form-group journal">
+                        <label htmlFor="name">BLURT:</label>
+                        <textarea
+                            required
                             type="text"
-                            className="form-control"
+                            className="form-control journal"
                             value={morningPages.blurt}
                             onChange={
                                 (evt) => {
@@ -128,29 +124,26 @@ export const EditEntry = (props) => {
                             }
                         />
                     </div>
-                </fieldset>
+                    <div className="distortion-list">
+                            <p>THOUGHT DISTORTIONS PRESENT:</p>
+                        {
+                            entries.map((distortion) => {
 
-                <div>
-                    <p> Thought Distortions Present:</p>
-                    {
-                        entries.map((distortion) => {
-
-                            if (distortion?.morningPageId === parseInt(morningPageId)) {
-                                console.log(distortion)
-                                return <p><Link to={`/distortionDetail/${distortion?.distortionDetail?.id}`}>{distortion.distortionDetail.name}</Link></p>
+                                if (distortion?.morningPageId === parseInt(morningPageId)) {
+                                    return <p><Link className="distortions" to={`/distortionDetail/${distortion?.distortionDetail?.id}`}>{distortion.distortionDetail.name}</Link></p>
 
 
-                            }
-                        })
-                    }
-                </div>
-                <fieldset>
+                                }
+                            })
+                        }
+                    </div>
+
                     <div className="form-group">
-                        <label htmlFor="name">Reframe:</label>
-                        <input
-                            required autoFocus
+                        <label htmlFor="name">REFRAME:</label>
+                        <textarea
+                            required
                             type="text"
-                            className="form-control"
+                            className="form-control journal"
                             defaultValue={morningPages.reframe}
                             onChange={
                                 (evt) => {
@@ -164,8 +157,8 @@ export const EditEntry = (props) => {
                 </fieldset>
 
 
-                <button className="btn btn-primary" onClick={SubmitEntry}>
-                    Submit
+                <button className="btn btn-secondary" onClick={SubmitEntry}>
+                    SUBMIT
                 </button>
             </form>
         </>

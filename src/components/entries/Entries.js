@@ -89,9 +89,9 @@ export const Entries = (props) => {
                                             <p key={entry.id}>REFRAME: {entry.reframe}</p>
                                             <p>Date: {entry.date}</p>
                                         </p>
-                                        <div className="button-container">
+                                        <div className="buttons">
                                             <Button value={entry.id} onClick={() => { editEntry(entry.id) }}>EDIT</Button>
-                                            <Button onClick={() => { deleteEntry(entry.id) }}>DELETE</Button>
+                                            <Button className="btn btn-secondary delete" onClick={() => { deleteEntry(entry.id) }}>DELETE</Button>
 
                                         </div>
                                     </p>
@@ -113,7 +113,7 @@ export const Entries = (props) => {
 
             </div>
 
-            <Button onClick={() => history.push("/")}>
+            <Button className="buttons home" onClick={() => history.push("/")}>
                 HOME</Button>
 
 

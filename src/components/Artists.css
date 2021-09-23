@@ -10,6 +10,7 @@
 --------------------------------------------------------------*/
 body,
 button,
+label,
 input,
 select,
 textarea {
@@ -119,7 +120,7 @@ p {
 .title {
   font-weight: 500;
   font-size: 1.5rem;
-  padding-left: 2%;
+  padding-left: 1%;
 }
 
 .form-checkbox-group {
@@ -134,7 +135,9 @@ p {
   text-decoration: none;
   color: #404040;
 }
-
+.distortions:hover {
+  color:rgb(149, 173, 173)
+}
 
 .checkbox-field {
   margin-bottom: 1em;
@@ -182,7 +185,7 @@ p {
 }
 
 .journal {
-  height: 20rem;
+  height: 15rem;
 }
 
 
@@ -199,5 +202,21 @@ p {
     
 }
 
+.distortion-list {
+  margin-top: 10%;
+}
+
+.edit-title {
+  margin: 2% 0 2% 0;
+}
+
+label {
+  font-weight: 500;
+  font-size: 3 rem;
+}
+
+.home {
+  margin: 1% 0% 2% 6%;
+}
 
 

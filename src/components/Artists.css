@@ -147,7 +147,21 @@ p {
 
 .checkbox {
   margin-right:.5em;
-  
+}
+
+.mp-title {
+  font-family: 'Beth Ellen', cursive;
+  color: #6c757d;
+}
+
+.completed-checkin {
+  margin-bottom: 1em;
+  background-color: #fff;
+    background-clip: border-box;
+    border: 1px solid rgba(0,0,0,.125);
+    border-radius: .25rem;
+    padding:2em;
+    
 }
 
 

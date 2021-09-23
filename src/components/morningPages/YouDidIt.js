@@ -79,40 +79,41 @@ export const YouDidIt = (props) => {
 
     return (
         <>
+            <h2 className="title">CHECK IN COMPLETE</h2>
+
+            <form className="form completed-checkin">
 
 
-            <form className="form">
-                <h2 className="title">CHECK IN COMPLETE</h2>
-               
-        
-            <h2 key={morningPages.id}>{morningPages.title}</h2>
-            <p key={morningPages.morningPage}>Morning Page: {morningPages.morningPage}</p>
-            <p key={morningPages.blurts}>Blurts: {morningPages.blurt}</p>
-            {
-                distortions.map((distortion) => {
-                    // if (distortion?.morningPageId === entry.id) {
-                    return <p key={distortion.id}><Link to={`/distortionDetail/${distortion?.distortionDetail?.id}`}>{distortion.distortionDetail.name}</Link></p>
+
+                <h4 className="mp-title" key={morningPages.id}>{morningPages.title}</h4>
+                <p key={morningPages.morningPage}>MORNING PAGE: {morningPages.morningPage}</p>
+                <p key={morningPages.blurts}>BLURTS: {morningPages.blurt}</p>
+                <p>THOUGHT DISTORTIONS PRESENT: </p>
+                {
+                    distortions.map((distortion) => {
+                        // if (distortion?.morningPageId === entry.id) {
+                        return <p key={distortion.id}><Link to={`/distortionDetail/${distortion?.distortionDetail?.id}`}>{distortion.distortionDetail.name}</Link></p>
 
 
-                })
-            }
+                    })
+                }
 
 
-            <p key={morningPages.reframe}>Reframe: {morningPages.reframe}</p>
-<div className="buttons">
-<div className="edit-delete-buttons">
-            <button className="btn btn-secondary" value={morningPages.id} onClick={() => {
-                EditEntry(morningPages.id)
-            }}>
-                Edit
-            </button>
+                <p key={morningPages.reframe}>REFRAME: {morningPages.reframe}</p>
+                <div className="buttons">
+                    <div className="edit-delete-buttons">
+                        <button className="btn btn-secondary" value={morningPages.id} onClick={() => {
+                            EditEntry(morningPages.id)
+                        }}>
+                            EDIT
+                        </button>
 
-            <button className="btn btn-secondary" onClick={() => {
-                deleteTicket(morningPages.id)
-            }}>Delete</button>
-</div>
-            <button className="btn btn-secondary" onClick={HomeButton}>Home</button>
-            </div>
+                        <button className="btn btn-secondary" onClick={() => {
+                            deleteTicket(morningPages.id)
+                        }}>DELETE</button>
+                    </div>
+                    <button className="btn btn-secondary" onClick={HomeButton}>Home</button>
+                </div>
             </form>
         </>
 

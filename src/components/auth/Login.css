@@ -27,7 +27,7 @@ fieldset {
 .form-control {
     display: block;
     width: 75%;
-    height: calc(1.5em + .75rem + 2px);
+    /* height: calc(1.5em + .75rem + 2px); */
     padding: .375rem .75rem;
     font-size: 1rem;
     font-weight: 400;
@@ -67,5 +67,5 @@ fieldset {
 
 .journal {
     height: 20rem;
-    margin-top: 2rem;
+    margin: 2rem 0rem 2rem 0rem;
 }

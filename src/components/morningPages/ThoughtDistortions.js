@@ -58,36 +58,43 @@ export const ThoughtDistortion = (props) => {
 
 
     return (
-        <form className="form">
-            <h2 className="title">Select the thought distortions present</h2>
-            <fieldset>
-                <div className="form-checkbox-group">
-                    <label htmlFor="name">click to learn more:</label>
-                    {thoughtDistortionsList.map((distortion) => {
-                        return <>
-                            <Link to={`/distortionDetail/${distortion?.id}`}>{distortion.name}</Link>
-                            <input value={distortion.id}
-                                onChange={
-                                    (evt) => {
-                                        let copy = [...chosenThoughtDistortions]
-                                        if (copy.includes(distortion.id)) {
-                                            const position = copy.indexOf(distortion.id) // returns position in array
-                                            copy.splice(position, 1) // removes whatever at that position in array
-                                        } else {
-                                            copy.push(distortion.id)
-                                        }
-                                        setChosenThoughtDistortions(copy)
-                                    }
-                                }
+        <>
+            <h2 className="title">THOUGHT DISTORTIONS</h2>
+            <form className="form">
+                <fieldset>
+                    <p>Select any thought distortions present:</p>
+                    <div className="form-checkbox-group">
 
-                                type="checkbox" />
-                        </>
-                    })}
-                </div>
-            </fieldset>
-            <button className="btn btn-secondary" onClick={submitThoughtDistortions}>
-                Next
-            </button>
-        </form>
+                        {thoughtDistortionsList.map((distortion) => {
+                            return <>
+                                <div className="ceckbox-and-name">
+                                    <input value={distortion.id}
+                                        onChange={
+                                            (evt) => {
+                                                let copy = [...chosenThoughtDistortions]
+                                                if (copy.includes(distortion.id)) {
+                                                    const position = copy.indexOf(distortion.id) // returns position in array
+                                                    copy.splice(position, 1) // removes whatever at that position in array
+                                                } else {
+                                                    copy.push(distortion.id)
+                                                }
+                                                setChosenThoughtDistortions(copy)
+                                            }
+                                        }
+
+                                        type="checkbox" />
+
+
+                                    <Link className="distortions" to={`/distortionDetail/${distortion?.id}`}>{distortion.name}</Link>
+                                </div>
+                            </>
+                        })}
+                    </div>
+                </fieldset>
+                <button className="btn btn-secondary" onClick={submitThoughtDistortions}>
+                    Next
+                </button>
+            </form>
+        </>
     )
 }

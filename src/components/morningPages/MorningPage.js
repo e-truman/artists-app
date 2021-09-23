@@ -55,7 +55,6 @@ export const MorningPage = () => {
         <form className="form">
             <fieldset>
                 <div className="form-group">
-                    <label htmlFor="description">Title: </label>
                     <input
                         required autoFocus
                         type="text"
@@ -73,7 +72,7 @@ export const MorningPage = () => {
             <fieldset>
                 <div className="form-group">
                     {/* <label htmlFor="name">Specialty:</label> */}
-                    <input
+                    <textarea
                         required autoFocus
                         type="text"
                         className="form-control journal"

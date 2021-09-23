@@ -120,6 +120,17 @@ p {
   padding-left: 1em;
 }
 
+.form-checkbox-group {
+  display: flex;
+  flex-direction: column;
+  
+}
+
+.distortions {
+  text-decoration: none;
+  color: #404040;
+}
+
 
 
 

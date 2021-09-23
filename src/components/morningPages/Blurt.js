@@ -9,9 +9,9 @@ export const Blurt = (props) => {
     const [morningPage, setPage] = useState({}) // trying to get same morning page from previous module. It should be a single object
     const [blurtTransientState, updateBlurt] = useState({})
 
-    useEffect( 
+    useEffect(
         () => {
-            return fetch(`http://localhost:8088/morningPages/${morningPageId}`) 
+            return fetch(`http://localhost:8088/morningPages/${morningPageId}`)
                 .then(response => response.json()) // make request and converts data back into a javascript object
                 .then((data) => {
                     setPage(data) // I gain access to the morning page object by invoking this function
@@ -24,16 +24,16 @@ export const Blurt = (props) => {
 
     const updateMorningPage = (evt) => {  // this submits my post.
         evt.preventDefault()
-        const newMorningPage = {  
+        const newMorningPage = {
             "title": morningPage.title,
             "userId": morningPage.userId,
             "morningPage": morningPage.morningPage,
             "blurt": blurtTransientState.blurt,
             "reframe": "",
             "date": morningPage.date
-    };
-    
-        return fetch(`http://localhost:8088/morningPages/${morningPageId}`,{
+        };
+
+        return fetch(`http://localhost:8088/morningPages/${morningPageId}`, {
 
             method: "PUT",
             headers: {
@@ -43,35 +43,38 @@ export const Blurt = (props) => {
         })
             .then(res => res.json())
             .then((data) => {
-                history.push(`/thought-distortions/${data.id}`) 
+                history.push(`/thought-distortions/${data.id}`)
             })
-        }
-        
-            
+    }
+
+
     return (
-        <form className="form">
+        <>
             <h2 className="title">BLURTS</h2>
-            <fieldset>
-                <div className="form-group">
-                    {/* <label htmlFor="name">Specialty:</label> */}
-                    <input 
-                        required autoFocus
-                        type="text"
-                        className="form-control journal"
-                        placeholder="Did you have any unhelpful thoughts?"
-                        onChange={
-                            (evt) => {
-                                const copy = {...morningPage}
-                                copy.blurt = evt.target.value
-                               updateBlurt(copy)
+            <form className="form">
+
+                <fieldset>
+                    <div className="form-group">
+                        {/* <label htmlFor="name">Specialty:</label> */}
+                        <textarea
+                            required autoFocus
+                            type="text"
+                            className="form-control journal"
+                            placeholder="Did you have any unhelpful thoughts?"
+                            onChange={
+                                (evt) => {
+                                    const copy = { ...morningPage }
+                                    copy.blurt = evt.target.value
+                                    updateBlurt(copy)
+                                }
                             }
-                        } 
-                       />
-                </div>
-            </fieldset>
-            <button className="btn btn-secondary" onClick={updateMorningPage}> 
-              Next
-            </button>
-        </form>
+                        />
+                    </div>
+                </fieldset>
+                <button className="btn btn-secondary" onClick={updateMorningPage}>
+                    Next
+                </button>
+            </form>
+        </>
     )
 }

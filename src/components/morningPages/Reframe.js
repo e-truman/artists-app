@@ -70,7 +70,7 @@ export const Reframe = (props) => {
         <h2 className="title">REFRAME</h2>
             <form className="form"> 
                 <div>
-                    <p> Thought Distortions Present</p>
+                    <p> THOUGHT DISTORTIONS PRESENT:</p>
                     {
                     chosenDistortions.map((distortion) => {
                        
@@ -102,7 +102,7 @@ export const Reframe = (props) => {
                     </div>
                 </fieldset>
                 <button className="btn btn-secondary" onClick={updateMorningPage}>
-                    Submit
+                    SUBMIT
                 </button>
             </form>
         </>

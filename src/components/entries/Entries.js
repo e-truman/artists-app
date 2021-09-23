@@ -113,7 +113,7 @@ export const Entries = (props) => {
 
             </div>
 
-            <Button className="buttons home" onClick={() => history.push("/")}>
+            <Button className="buttons home-entries" onClick={() => history.push("/")}>
                 HOME</Button>
 
 

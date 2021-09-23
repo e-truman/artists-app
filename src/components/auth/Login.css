@@ -1,5 +1,12 @@
+@import url('https://fonts.googleapis.com/css2?family=Beth+Ellen&display=swap');
+
+@import url('https://fonts.googleapis.com/css2?family=Montserrat:wght@200;300&family=Open+Sans&display=swap');
+
+
 .h1, h1 {
-    font-size: 2.5rem;
+    font-family: 'Beth Ellen', cursive;
+  color: #6c757d;
+  margin-bottom: 2%;
 }
 
 fieldset {

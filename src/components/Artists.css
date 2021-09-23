@@ -156,6 +156,7 @@ p {
 .mp-title {
   font-family: 'Beth Ellen', cursive;
   color: #6c757d;
+  margin-bottom: 2%;
 }
 
 .completed-checkin {
@@ -212,10 +213,10 @@ p {
 
 label {
   font-weight: 500;
-  font-size: 3 rem;
+  font-size: 1rem;
 }
 
-.home {
+.home-entries {
   margin: 1% 0% 2% 6%;
 }
 

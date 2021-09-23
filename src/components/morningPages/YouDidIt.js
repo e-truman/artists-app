@@ -111,7 +111,7 @@ export const YouDidIt = (props) => {
                             deleteTicket(morningPages.id)
                         }}>DELETE</button>
                    {/* </p> */}
-                    <button className="btn btn-secondary home" onClick={HomeButton}>HOME</button>
+                    {/* <button className="btn btn-secondary home" onClick={HomeButton}>HOME</button> */}
                 </div>
             </form>
         </>

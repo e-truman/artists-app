@@ -28,15 +28,15 @@ export const Login = () => {
     }
 
     return (
-        <main className="container--login">
+        <main className="form">
             <dialog className="dialog dialog--auth" ref={existDialog}>
-                <div>User does not exist</div>
+                <div>USER DOES NOT EXIST</div>
                 <button className="button--close" onClick={e => existDialog.current.close()}>Close</button>
             </dialog>
 
             <section>
                 <form className="form--login" onSubmit={handleLogin}>
-                    <h1>The Artist's App</h1>
+                    <h1 className="title">The Artist's App</h1>
                     <h2>Please sign in</h2>
                     <fieldset>
                         <label htmlFor="inputEmail"> Email address </label>

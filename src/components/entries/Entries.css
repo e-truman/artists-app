@@ -10,11 +10,22 @@
     margin: auto;
 }
 
-.container {
+/* .container {
     margin: auto;
-}
+} */
 
 .card {
     margin: 7em;
 }
 
+.space-between {
+    margin-bottom: 2em;
+}
+
+.card-text {
+    padding: 0em 5em 0em 5em;
+}
+
+.card-body {
+    padding:2em;
+}

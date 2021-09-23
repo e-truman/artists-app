@@ -61,21 +61,22 @@ export const Entries = (props) => {
 
     return (
         <>
-<div className="container">
-            {/* <Row> */}
 
-                {/* <Col sm="6"> */}
-                    <Card body>
+        <h2>PAST ENTRIES</h2>
+            <div className="container">
+                {/* <Row sm="0"> */}
+{/* <Col sm="0"> */}
+                <Card body>
 
-                        {
+                    {
 
-                            entries.map((entry) => {
-                                if (entry?.userId === parseInt(localStorage.getItem("artist_login"))) {
-                                    return <>
+                        entries.map((entry) => {
+                            if (entry?.userId === parseInt(localStorage.getItem("artist_login"))) {
+                                return <>
 
-
+                                    <p className="space-between">
                                         <CardTitle tag="h5">{entry.title}</CardTitle>
-                                        <CardText><p> Morning Page: {entry.morningPage}</p>
+                                        <CardText><p> <h6>MORNING PAGE:</h6> {entry.morningPage}</p>
                                             <p> Blurts: {entry.blurt}</p>
                                             {
                                                 distortions.map((distortion) => {
@@ -85,36 +86,38 @@ export const Entries = (props) => {
                                                     }
                                                 })
                                             }
-                                            <p key={entry.id}>Reframe: {entry.reframe}</p>
+                                            <p key={entry.id}>REFRAME: {entry.reframe}</p>
                                             <p>Date: {entry.date}</p>
                                         </CardText>
                                         <div className="button-container">
-                                        <Button value={entry.id} onClick={() => { editEntry(entry.id) }}>Edit</Button>
-                                        <Button onClick={() => { deleteEntry(entry.id) }}>Delete</Button>
+                                            <Button value={entry.id} onClick={() => { editEntry(entry.id) }}>EDIT</Button>
+                                            <Button onClick={() => { deleteEntry(entry.id) }}>DELETE</Button>
+
                                         </div>
-                                    </>
+                                    </p>
+                                </>
 
 
-                                }
                             }
-                            )
                         }
-                    </Card>
+                        )
+                    }
+                </Card>
                 {/* </Col> */}
 
-
+                {/* </div> */}
 
 
             {/* </Row > */}
 
 
-
+            </div>
 
             <Button onClick={() => history.push("/")}>
-                Home</Button>
+                HOME</Button>
 
 
-</div>
+   
 
 
         </>

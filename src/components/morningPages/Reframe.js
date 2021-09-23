@@ -86,7 +86,7 @@ export const Reframe = (props) => {
                 <fieldset>
                     <div className="form-group">
                         {/* <label htmlFor="name">Specialty:</label> */}
-                        <input
+                        <textarea
                             required autoFocus
                             type="text"
                             className="form-control journal"

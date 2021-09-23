@@ -61,14 +61,14 @@ export const ThoughtDistortion = (props) => {
         <>
             <h2 className="title">THOUGHT DISTORTIONS</h2>
             <form className="form">
-                <fieldset>
+                <fieldset className="checkbox-field">
                     <p>Select any thought distortions present:</p>
                     <div className="form-checkbox-group">
 
                         {thoughtDistortionsList.map((distortion) => {
                             return <>
-                                <div className="ceckbox-and-name">
-                                    <input value={distortion.id}
+                                <div className="checkbox-and-name">
+                                    <input className="checkbox" value={distortion.id}
                                         onChange={
                                             (evt) => {
                                                 let copy = [...chosenThoughtDistortions]

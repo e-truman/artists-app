@@ -2,7 +2,7 @@
 @import url("https://fonts.googleapis.com/css?family=Comfortaa|Patua+One");
 @import url('https://fonts.googleapis.com/css2?family=Beth+Ellen&display=swap');
 
-@import url('https://fonts.googleapis.com/css2?family=Montserrat:wght@200&display=swap');
+@import url('https://fonts.googleapis.com/css2?family=Montserrat:wght@200;300&family=Open+Sans&display=swap');
 
 
 
@@ -14,7 +14,7 @@ input,
 select,
 textarea {
   color: #404040;
-  font-family: "Comfortaa", Arial, sans-serif;
+  font-family: 'Montserrat', sans-serif;
   font-size: 14px;
   line-height: 1.5;
 }
@@ -38,6 +38,7 @@ h1, h2, h3, h4, h5, h6 {
 
 p {
   margin-bottom: 1.5em;
+  font-family: 'Montserrat', sans-serif;
 }
 
 .background {
@@ -94,8 +95,8 @@ p {
 
 .btn {
   width: 10em;
-  margin: 1em;
   margin: auto;
+  padding: 1em 0em 1em 0em;
 }
 
 /* .container {
@@ -121,8 +122,10 @@ p {
 }
 
 .form-checkbox-group {
+  font-family: 'Montserrat', sans-serif;
   display: flex;
   flex-direction: column;
+
   
 }
 
@@ -132,6 +135,20 @@ p {
 }
 
 
+.checkbox-field {
+  margin-bottom: 1em;
+  background-color: #fff;
+    background-clip: border-box;
+    border: 1px solid rgba(0,0,0,.125);
+    border-radius: .25rem;
+    padding:2em;
+    width: 30em;
+}
+
+.checkbox {
+  margin-right:.5em;
+  
+}
 
 
 

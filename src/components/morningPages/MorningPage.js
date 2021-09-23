@@ -73,7 +73,7 @@ export const MorningPage = () => {
                 <div className="form-group">
                     {/* <label htmlFor="name">Specialty:</label> */}
                     <textarea
-                        required autoFocus
+                        required 
                         type="text"
                         className="form-control journal"
                         placeholder="How are you today?"

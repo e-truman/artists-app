@@ -97,6 +97,7 @@ p {
   width: 10em;
   margin: auto;
   padding: 1em 0em 1em 0em;
+  font-family: 'Montserrat', sans-serif;
 }
 
 /* .container {
@@ -118,7 +119,7 @@ p {
 .title {
   font-weight: 500;
   font-size: 1.5rem;
-  padding-left: 1em;
+  padding-left: 2%;
 }
 
 .form-checkbox-group {
@@ -142,7 +143,7 @@ p {
     border: 1px solid rgba(0,0,0,.125);
     border-radius: .25rem;
     padding:2em;
-    width: 30em;
+    width: 75%;
 }
 
 .checkbox {
@@ -161,9 +162,42 @@ p {
     border: 1px solid rgba(0,0,0,.125);
     border-radius: .25rem;
     padding:2em;
+    width: 75%;
     
 }
 
+.delete {
+  margin: 0em 1em 0em 1em;
+}
+
+
+p {
+  margin-bottom: 1.5em;
+}
+
+.form {
+  padding: 2%;
+  margin: 1%;
+
+}
+
+.journal {
+  height: 20rem;
+}
+
+
+
+
+.entry {
+  margin-bottom: 1em;
+  background-color: #fff;
+    background-clip: border-box;
+    border: 1px solid rgba(0,0,0,.125);
+    border-radius: .25rem;
+    padding:2em;
+    width: 75%;
+    
+}
 
 
 

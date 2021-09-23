@@ -92,7 +92,7 @@ export const YouDidIt = (props) => {
                 {
                     distortions.map((distortion) => {
                         // if (distortion?.morningPageId === entry.id) {
-                        return <p key={distortion.id}><Link to={`/distortionDetail/${distortion?.distortionDetail?.id}`}>{distortion.distortionDetail.name}</Link></p>
+                        return <p key={distortion.id}><Link className="distortions" to={`/distortionDetail/${distortion?.distortionDetail?.id}`}>{distortion.distortionDetail.name}</Link></p>
 
 
                     })
@@ -101,18 +101,17 @@ export const YouDidIt = (props) => {
 
                 <p key={morningPages.reframe}>REFRAME: {morningPages.reframe}</p>
                 <div className="buttons">
-                    <div className="edit-delete-buttons">
-                        <button className="btn btn-secondary" value={morningPages.id} onClick={() => {
+                        <button className="btn btn-secondary edit" value={morningPages.id} onClick={() => {
                             EditEntry(morningPages.id)
                         }}>
                             EDIT
                         </button>
-
-                        <button className="btn btn-secondary" onClick={() => {
+                        {/* <p> */}
+                        <button className="btn btn-secondary delete" onClick={() => {
                             deleteTicket(morningPages.id)
                         }}>DELETE</button>
-                    </div>
-                    <button className="btn btn-secondary" onClick={HomeButton}>Home</button>
+                   {/* </p> */}
+                    <button className="btn btn-secondary home" onClick={HomeButton}>HOME</button>
                 </div>
             </form>
         </>

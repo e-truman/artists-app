@@ -76,7 +76,7 @@ export const Reframe = (props) => {
                        
                         if (distortion?.morningPageId === parseInt(morningPageId)) {
                             console.log(distortion)
-                            return <p><Link to={`/distortionDetail/${distortion?.distortionDetail?.id}`}>{distortion.distortionDetail.name}</Link></p>
+                            return <p><Link className="distortions" to={`/distortionDetail/${distortion?.distortionDetail?.id}`}>{distortion.distortionDetail.name}</Link></p>
                             
             
                         }

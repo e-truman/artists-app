@@ -1,4 +1,4 @@
-body,
+/* body,
 button,
 input,
 select,
@@ -12,31 +12,12 @@ textarea {
 h1, h2, h3, h4, h5, h6 {
   font-family: "Patua One", serif;
   letter-spacing: 2px;
-}
+} */
 
-p {
-  margin-bottom: 1.5em;
-}
 
-.form {
-  padding: 1rem;
+/* 
 
-  margin: 2rem;
 
-}
-
-.journal {
-  height: 200%;
-}
-
-.buttons {
-margin: 1em
-
-}
-
-.edit-delete-buttons {
-  justify-content: space-around;
-}
 
 .btn {
   background-color: #404040;
@@ -52,14 +33,29 @@ margin: 1em
     user-select: none;
     background-color: transparent;
     border: 1px solid transparent;
-    padding: .375rem .75rem;
-    font-size: 1rem;
+    /* padding: .375rem .75rem; */
+    /* font-size: 1rem;
     border-radius: .25rem;
     transition: color .15s ease-in-out,background-color .15s ease-in-out,border-color .15s ease-in-out,box-shadow .15s ease-in-out;
-}
+} */
 
 .btn-primary{
     color: #fff;
     background-color: #6c757d;
     border-color: #6c757d;
+}
+
+p {
+  margin-bottom: 1.5em;
+}
+
+.form {
+  padding: 2%;
+
+  margin: 1%;
+
+}
+
+.journal {
+  height: 200%;
 }

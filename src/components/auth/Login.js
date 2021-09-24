@@ -29,7 +29,7 @@ export const Login = () => {
     }
 
     return (
-        <main className="form">
+        <main>
             <dialog className="dialog dialog--auth" ref={existDialog}>
                 <div>USER DOES NOT EXIST</div>
                 <button className="button--close" onClick={e => existDialog.current.close()}>Close</button>
@@ -42,7 +42,7 @@ export const Login = () => {
                     <fieldset>
                         <input type="email"
                             onChange={evt => set(evt.target.value)}
-                            className="form-control email-field"
+                            className="form-control entry-field"
                             placeholder="EMAIL ADDRESS"
                             required autoFocus />
                     </fieldset>

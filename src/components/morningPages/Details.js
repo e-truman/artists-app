@@ -8,14 +8,14 @@ export const Details = (props) => {
     console.log(props)
     const history = useHistory()
     const { distortionDetailId } = useParams()
-    const [details, setDetails] = useState([]) 
+    const [details, setDetails] = useState([])
 
     useEffect(
         () => {
             return fetch(`http://localhost:8088/distortionDetails`)
                 .then(response => response.json()) // make request and converts data back into a javascript object
                 .then((data) => {
-                    setDetails(data) 
+                    setDetails(data)
 
                 })
         },
@@ -25,7 +25,7 @@ export const Details = (props) => {
 
     return (
         <>
-            <div className="form">
+            <div className="form" id="distortion-details-background">
                 {
                     details.map((detail) => {
                         if (detail?.id === parseInt(distortionDetailId)) {
@@ -39,12 +39,10 @@ export const Details = (props) => {
                         }
                     })
                 }
-
+                <button className="btn btn-secondary" onClick={() => history.goBack()}>
+                    BACK
+                </button>
             </div>
-            <button className="btn btn-secondary" onClick={()=>history.goBack()}>
-                Back
-            </button>
-
         </>
     )
 }

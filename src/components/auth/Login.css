@@ -50,7 +50,6 @@ fieldset {
     border: 1px solid rgba(0,0,0,.125);
     border-radius: .25rem;
     padding:2em;
-    width: 75%;
 }
 
 .container--login {
@@ -91,8 +90,9 @@ fieldset {
       border: 1px solid rgba(0,0,0,.125);
       border-radius: .25rem;
       padding:2em;
-      width: 70%;
+      width: 45%;
       height: 20rem;
+      margin: 5% 0 2% 25%;
 }
 
 .button {
@@ -102,14 +102,25 @@ fieldset {
         
     }
 
-    .email-field {
+    .entry-field {
         margin: 2% 0% 2% 0%;
+        width: 60%;
     }
 
     .link {
         text-decoration: none;
         color: #404040;
+        margin-left: 25%;
       }
       .link:hover {
         color:rgb(149, 173, 173)
       }
+
+#name {
+    width: 60%;
+}
+
+#email {
+    width: 60%;
+}
+

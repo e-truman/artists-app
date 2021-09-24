@@ -55,10 +55,11 @@ p {
 .card-body {
   display: flex;
   justify-content: center;
-  margin: 1em 2em 2em 2em;
-  padding: 0em 2em 2em 2em;
+  margin: 1em 2em 2em 10em;
+  padding: 0% 1% 2% 1%;
   font-family: 'Montserrat', sans-serif;
   border-style: solid;
+  width: 50%;
 
 
   
@@ -66,7 +67,7 @@ p {
 .card {
   /* text-align: center; */
   justify-content: center;
-  /* margin: 2em; */
+ 
 }
 
 .row {
@@ -114,7 +115,7 @@ p {
 }
 
 .card-text {
-  padding: 0em 5em 0em 5em;
+  padding: 0em 2em 0em 2em;
 }
 
 .title {
@@ -142,11 +143,11 @@ p {
 .checkbox-field {
   margin-bottom: 1em;
   background-color: #fff;
-    background-clip: border-box;
-    border: 1px solid rgba(0,0,0,.125);
-    border-radius: .25rem;
-    padding:2em;
-    width: 75%;
+  background-clip: border-box;
+  border: 1px solid rgba(0,0,0,.125);
+  border-radius: .25rem;
+  padding:2em;
+  width: 75%;
 }
 
 .checkbox {
@@ -162,12 +163,23 @@ p {
 .completed-checkin {
   margin-bottom: 1em;
   background-color: #fff;
-    background-clip: border-box;
-    border: 1px solid rgba(0,0,0,.125);
-    border-radius: .25rem;
-    padding:2em;
-    width: 75%;
+  background-clip: border-box;
+  border: 1px solid rgba(0,0,0,.125);
+  border-radius: .25rem;
+  padding:2em;
+  width: 75%;
     
+}
+
+
+#distortion-details-background {
+  margin:5%;
+  background-color: #fff;
+  background-clip: border-box;
+  border: 1px solid rgba(0,0,0,.125);
+  border-radius: .25rem;
+  padding:2em;
+  width: 75%;
 }
 
 .delete {

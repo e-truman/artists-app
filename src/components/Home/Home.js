@@ -9,7 +9,7 @@ export const Home = (props) => {
   const [quotes, setQuotes] = useState([])
   const [quote, setQuote] = useState({
     "quote": "It does not matter how slow you go so long as you do not stop.",
-    "author": "Confucious"
+    "author": "Confucius"
   })
   const [number, setNumber] = useState(1)
 

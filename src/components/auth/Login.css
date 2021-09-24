@@ -3,10 +3,10 @@
 @import url('https://fonts.googleapis.com/css2?family=Montserrat:wght@200;300&family=Open+Sans&display=swap');
 
 
-.h1, h1 {
+.title-login {
     font-family: 'Beth Ellen', cursive;
-  color: #6c757d;
-  margin-bottom: 2%;
+    color: #6c757d;
+    margin-bottom: 3%;
 }
 
 fieldset {
@@ -46,6 +46,11 @@ fieldset {
     border-radius: .25rem;
     -webkit-transition: border-color .15s ease-in-out,box-shadow .15s ease-in-out;
     transition: border-color .15s ease-in-out,box-shadow .15s ease-in-out;
+    background-clip: border-box;
+    border: 1px solid rgba(0,0,0,.125);
+    border-radius: .25rem;
+    padding:2em;
+    width: 75%;
 }
 
 .container--login {
@@ -76,3 +81,35 @@ fieldset {
     height: 20rem;
     margin: 2rem 0rem 2rem 0rem;
 }
+
+
+
+.login-background {
+    margin-bottom: 1em;
+    background-color: #fff;
+      background-clip: border-box;
+      border: 1px solid rgba(0,0,0,.125);
+      border-radius: .25rem;
+      padding:2em;
+      width: 70%;
+      height: 20rem;
+}
+
+.button {
+        color: #fff;
+        background-color: #6c757d;
+        border-color: #6c757d;
+        
+    }
+
+    .email-field {
+        margin: 2% 0% 2% 0%;
+    }
+
+    .link {
+        text-decoration: none;
+        color: #404040;
+      }
+      .link:hover {
+        color:rgb(149, 173, 173)
+      }

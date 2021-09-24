@@ -5,7 +5,7 @@ import { Login } from "./auth/Login";
 import { Register } from "./auth/Register";
 import "./Artists.css";
 import { NavBar } from "./nav/NavBar";
-import background from "./images/brush-background.jpeg";
+import background from "./brush-background.jpeg";
 
 export const Artists = () => (
   <>

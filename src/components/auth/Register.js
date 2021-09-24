@@ -57,7 +57,7 @@ export const Register = (props) => {
 
             <section className="login-background register-background">
                 <form className="form--login" onSubmit={handleRegister}>
-                    <h1 className="h3 mb-3 font-weight-normal">Please Register for The Artist's App</h1>
+                    <h1 className="h6 mb-3 font-weight-normal">REGISTER FOR THE ARTIST'S WAY APP</h1>
                     
                     <fieldset>
                         <input onChange={updateUser} type="email" size="20" id="email" className="form-control entry-field" placeholder="EMAIL ADDRESS" required />

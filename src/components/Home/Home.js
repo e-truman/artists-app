@@ -16,7 +16,7 @@ export const Home = (props) => {
         <Col sm="6"> */}
           <Card body>
             <CardTitle tag="h5">MORNING PAGES</CardTitle>
-            <CardText>With supporting text below as a natural lead-in to additional content.</CardText>
+            <CardText>"Each morning, as we face the page, we meet ourselves. The pages give us a place to vent and a place to dream."</CardText>
             <Button onClick={() => history.push("/morning-pages")}>START</Button>
           </Card>
         {/* </Col> */}

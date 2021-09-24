@@ -7,6 +7,7 @@
     font-family: 'Beth Ellen', cursive;
     color: #6c757d;
     margin-bottom: 3%;
+    overflow-wrap: break-word;
 }
 
 fieldset {
@@ -50,6 +51,7 @@ fieldset {
     border: 1px solid rgba(0,0,0,.125);
     border-radius: .25rem;
     padding:2em;
+    overflow-wrap: break-word;
 }
 
 .container--login {
@@ -90,9 +92,10 @@ fieldset {
       border: 1px solid rgba(0,0,0,.125);
       border-radius: .25rem;
       padding:2em;
-      width: 60%;
+      width: 45%;
       height: 20rem;
       margin: 5% 0 2% 25%;
+      overflow-wrap: break-word; 
 }
 
 .button {

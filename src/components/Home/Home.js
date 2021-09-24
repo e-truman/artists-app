@@ -8,7 +8,7 @@ export const Home = (props) => {
   const history = useHistory()
   const [quotes, setQuotes] = useState([])
   const [quote, setQuote] = useState({
-    "quote":"It does not matter how slow you go so long as you do not stop.",
+    "quote": "It does not matter how slow you go so long as you do not stop.",
     "author": "Confucious"
   })
   const [number, setNumber] = useState(1)
@@ -30,7 +30,7 @@ export const Home = (props) => {
 
   useEffect(
     () => {
-      
+
     },
 
     [number]
@@ -60,8 +60,8 @@ export const Home = (props) => {
       <Card body>
         {/* <CardTitle tag="h5">QUOTES</CardTitle> */}
         <CardText>
-        <p>"{quote.quote}"</p>
-      <p>-{quote.author}</p>
+          <p>"{quote.quote}"</p>
+          <p>-{quote.author}</p>
         </CardText>
         <Button onClick={RandomNumber}>NEW QUOTE</Button>
       </Card>

@@ -29,7 +29,8 @@ body {
   font-family: 'Montserrat', sans-serif;
   font-weight: 700;
   letter-spacing: 2px;
-  padding: 0em 5em 0em 4em;
+  /* padding: 0em 5em 0em 4em; */
+  text-align: center;
 }
 
 h1, h2, h3, h4, h5, h6 {
@@ -54,40 +55,22 @@ p {
 
 .card-body {
   display: flex;
+
   justify-content: center;
-  margin: 1em 2em 2em 10em;
-  padding: 0% 1% 2% 1%;
+  margin: 1% 30%;
+  padding: 0% 30% 2% 30%;
   font-family: 'Montserrat', sans-serif;
   border-style: solid;
   width: 50%;
-
+}
 
   
-}
 .card {
   /* text-align: center; */
-  justify-content: center;
+  align-content: center;
+  margin: 2% 25%;
  
 }
-
-.row {
-  /* flex-direction: column;
-  position:fixed;
-  top:0;
-  bottom:0;
-  left:0;
-  right:0; */
-  /* width: fit-content; */
-  
-}
-/* .title {
-  margin: .75em 0em 0em .75em;
-
-} */
-
-/* .col-sm-6 {
-  padding: 5% 5% 5% 50%;
-}  */
 
 .button-container {
   display: flex;
@@ -106,9 +89,9 @@ p {
   margin: auto;
 } */
 
-.card {
+/* .card {
   margin: 2em 10em 2em 10em;
-}
+} */
 
 .space-between {
   margin-bottom: 2em;

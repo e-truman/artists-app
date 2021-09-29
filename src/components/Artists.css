@@ -150,11 +150,18 @@ p {
   border: 1px solid rgba(0,0,0,.125);
   border-radius: .25rem;
   padding:2em;
-  width: 75%;
-    
+  width: 75%;    
 }
 
-
+.weekly-streak{
+  margin-bottom: 1em;
+  background-color: #fff;
+  background-clip: border-box;
+  border: 1px solid rgba(0,0,0,.125);
+  border-radius: .25rem;
+  padding:2em;
+  width: 75%;
+}
 #distortion-details-background {
   margin:5%;
   background-color: #fff;

@@ -1,40 +1,24 @@
+.streak-button {
+    justify-content: space-around;
+    width: 2rem;
+    font-weight: 400;
+    line-height: 1.5;
+    color: #484b4e;
+    border-color: #c7dbd9;
+    border-style: solid;
+    text-align: center;
+    text-decoration: none;
+    background-color: transparent;
+    padding: .1rem .2rem;
+    font-size: 1rem;
+    border-radius: 50%;
+    pointer-events: none;
+    cursor: not-allowed;
+}
 
-.card-body {
+
+.streak-buttons {
     display: flex;
-    justify-content: center;
-    margin: 2em 1em 2em 1em;
-    padding: 2em 2em 2em 2em;
-    /* width: 150%; */
-
-    
+    justify-content: space-around;   
 }
-.card {
-    /* text-align: center; */
-    justify-content: center;
-    
-}
-.card-title {
-    font-weight: 800;
-    
-}
-
-.row {
-    /* flex-direction: column;
-    position:fixed;
-    top:0;
-    bottom:0;
-    left:0;
-    right:0; */
-    /* width: fit-content; */
-    
-}
-.title {
-    margin: .75em 0em 0em .75em;
-
-}
-
-/* .col-sm-6 {
-    padding: 5% 5% 5% 50%;
-}  */
-
 

@@ -12,13 +12,32 @@ export const MorningPage = () => {
         "date": ""
     });
 
-   let date = () => {
+    let date = () => {
+        // debugger
         let today = new Date();
+        let day = String(today.getDay())
         let dd = String(today.getDate()).padStart(2, '0');
         let mm = String(today.getMonth() + 1).padStart(2, '0'); 
         let yyyy = today.getFullYear();
 
-        today = mm + '/' + dd + '/' + yyyy;
+        console.log(day)
+        if (day === "0") {
+            day = "Sunday"
+        } else if (day === "1") {
+            day = "Monday"
+        } else if (day === "2") {
+            day = "Tuesday"
+        } else if (day === "3") {
+            day = "Wednesday"
+        } else if (day === "4") {
+            day = "Thursday"
+        } else if (day === "5") {
+            day = "Friday"
+        } else {
+            day = "Saturday"
+        }
+
+        today = `${day} ${mm}/${dd}/${yyyy}`;
         return today
     }
 

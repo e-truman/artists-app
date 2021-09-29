@@ -17,6 +17,8 @@ export const YouDidIt = (props) => {
     const [morningPages, setDates] = useState([])
     const dates = []
     let streak = summary({ dates })
+
+    console.log(streak)
     let history = useHistory();
     const HomeButton = () => {
         history.push("/");
@@ -32,7 +34,6 @@ export const YouDidIt = (props) => {
             method: "DELETE"
         })
             .then(() => {
-                // FetchMorningPages();
                 history.push(`/entries`)
             })
     }
@@ -81,9 +82,11 @@ export const YouDidIt = (props) => {
 
 
     for (const morningPage of morningPages) {
-        dates.push(morningPage.date)
+        dates.push(new Date(morningPage.date))
 
     }
+
+    console.log(dates)
 
 
 

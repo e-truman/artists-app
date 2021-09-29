@@ -4,6 +4,7 @@ import React, { useState, useEffect } from "react"
 import './Home.css';
 import { Quotes } from "./Quotes";
 import { WeeklyStreak } from "./WeeklyStreak";
+import { ArtistDateStart } from "./ArtistDateStart";
 
 
 export const Home = (props) => {
@@ -21,6 +22,7 @@ export const Home = (props) => {
         <Button onClick={() => history.push("/morning-pages")}>START</Button>
       </Card>
       <WeeklyStreak />
+      <ArtistDateStart />
       
     </>
   )

@@ -42,9 +42,9 @@ export const ApplicationViews = () => {
             <Route exact path="/edit/:morningPageId(\d+)">
                 <EditEntry />
             </Route>
-            <Route exact path="/artist-dates">
+            {/* <Route exact path="/artist-dates">
                 <ArtistDates />
-            </Route>
+            </Route> */}
 
         </>
     )

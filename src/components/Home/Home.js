@@ -5,6 +5,7 @@ import './Home.css';
 import { Quotes } from "./Quotes";
 import { WeeklyStreak } from "./WeeklyStreak";
 import { ArtistDateStart } from "./ArtistDateStart";
+import { MorningPageStart } from "./MorningPageStart";
 
 
 export const Home = (props) => {
@@ -15,15 +16,12 @@ export const Home = (props) => {
   return (
     <>
 
-     <Quotes />
-      <Card body>
-        <CardTitle tag="h5">MORNING PAGES</CardTitle>
-        <CardText>"Each morning, as we face the page, we meet ourselves. The pages give us a place to vent and a place to dream."</CardText>
-        <Button onClick={() => history.push("/morning-pages")}>START</Button>
-      </Card>
-      <WeeklyStreak />
+      <Quotes />
+      <MorningPageStart />
       <ArtistDateStart />
-      
+      <WeeklyStreak />
+
+
     </>
   )
 }

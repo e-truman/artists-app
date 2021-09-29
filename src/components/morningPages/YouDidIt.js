@@ -14,7 +14,9 @@ export const YouDidIt = (props) => {
     const [distortions, setDistortions] = useState([]) //chosen distortions is an array of objects
     const [morningPage, setPage] = useState([])
     const [entries, setEntries] = useState([])
-    const [dates, setDates] = useState([])
+    const [morningPages, setDates] = useState([])
+    const dates = []
+    let streak = summary({ dates })
     let history = useHistory();
     const HomeButton = () => {
         history.push("/");
@@ -77,15 +79,19 @@ export const YouDidIt = (props) => {
     )
 
 
-   
+
+    for (const morningPage of morningPages) {
+        dates.push(morningPage.date)
+
+    }
+
+
 
     return (
         <>
             <h2 className="title">CHECK IN COMPLETE</h2>
 
             <form className="form completed-checkin">
-
-
 
                 <h4 className="mp-title" key={morningPage.id}>{morningPage.title}</h4>
                 <p key={morningPage.morningPage}>MORNING PAGE: {morningPage.morningPage}</p>
@@ -102,17 +108,21 @@ export const YouDidIt = (props) => {
 
 
                 <p key={morningPage.reframe}>REFRAME: {morningPage.reframe}</p>
+
+                <p>CURRENT STREAK: {streak.currentStreak}  </p>
+                <p>LONGEST STREAK: {streak.longestStreak}  </p>
                 <div className="buttons">
-                        <button className="btn btn-secondary edit" value={morningPage.id} onClick={() => {
-                            EditEntry(morningPage.id)
-                        }}>
-                            EDIT
-                        </button>
-                        {/* <p> */}
-                        <button className="btn btn-secondary delete" onClick={() => {
-                            deleteTicket(morningPage.id)
-                        }}>DELETE</button>
-                   {/* </p> */}
+                    <button className="btn btn-secondary edit" value={morningPage.id} onClick={() => {
+                        EditEntry(morningPage.id)
+                    }}>
+
+                        EDIT
+                    </button>
+                    {/* <p> */}
+                    <button className="btn btn-secondary delete" onClick={() => {
+                        deleteTicket(morningPage.id)
+                    }}>DELETE</button>
+                    {/* </p> */}
                     {/* <button className="btn btn-secondary home" onClick={HomeButton}>HOME</button> */}
                 </div>
             </form>

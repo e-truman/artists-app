@@ -5,10 +5,10 @@ import "./ArtistDates.css";
 
 
 // Purpose of this page: show throught distortions. allow you to select them. will post the selected thought distortions with the correct morning page Id. The selected thought distortions will appear on next page
-export const ArtistDatesList = ({searchState}) => {
+export const ArtistDatesList = ({ searchState }) => {
     const history = useHistory()
     const [artistDates, setADs] = useState([])
-    
+
 
     useEffect(
         () => {
@@ -30,7 +30,7 @@ export const ArtistDatesList = ({searchState}) => {
     return (
         <>
             <div className="artist-dates-container">
-           
+
                 <div className="dates-background">
                     <h2 className="title">Music Venues and Live Performances</h2>
                     {
@@ -135,11 +135,9 @@ export const ArtistDatesList = ({searchState}) => {
                         })
                     }
                 </div>
-                <Button className="buttons home-entries" onClick={() => history.push("/")}>
+                <Button className="buttons" onClick={() => history.push("/")}>
                     HOME</Button>
             </div>
-
-
         </>
     )
 }

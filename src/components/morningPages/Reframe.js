@@ -1,5 +1,3 @@
-// purpose of this page: diplay a list of thought distortions selected for this morning page id, and provide a form where user can reframe
-
 import React, { useState, useEffect } from "react"
 import { useHistory, useParams, Link } from "react-router-dom"
 import "./MorningPages.css";
@@ -8,9 +6,9 @@ export const Reframe = (props) => {
     console.log(props)
     const history = useHistory()
     const { morningPageId } = useParams()
-    const [morningPage, setPage] = useState({}) // trying to get same morning page from previous module. It should be a single object
+    const [morningPage, setPage] = useState({})
     const [reframeTransientState, updateReframe] = useState({})
-    const [chosenDistortions, setTD] = useState([]) //chosen distortions is an array of objects
+    const [chosenDistortions, setTD] = useState([])
 
 
     useEffect(
@@ -60,32 +58,31 @@ export const Reframe = (props) => {
         })
             .then(res => res.json())
             .then((data) => {
-                history.push(`/checkInComplete/${morningPageId}`) 
+                history.push(`/checkInComplete/${morningPageId}`)
             })
     }
 
-   
+
     return (
         <>
-        <h2 className="title">REFRAME</h2>
-            <form className="form"> 
+            <h2 className="title">REFRAME</h2>
+            <form className="form">
                 <div>
                     <p> THOUGHT DISTORTIONS PRESENT:</p>
                     {
-                    chosenDistortions.map((distortion) => {
-                       
-                        if (distortion?.morningPageId === parseInt(morningPageId)) {
-                            console.log(distortion)
-                            return <p><Link className="distortions" to={`/distortionDetail/${distortion?.distortionDetail?.id}`}>{distortion.distortionDetail.name}</Link></p>
-                            
-            
-                        }
-                    })
-                }
-                </div> 
+                        chosenDistortions.map((distortion) => {
+
+                            if (distortion?.morningPageId === parseInt(morningPageId)) {
+                                console.log(distortion)
+                                return <p><Link className="distortions" to={`/distortionDetail/${distortion?.distortionDetail?.id}`}>{distortion.distortionDetail.name}</Link></p>
+
+
+                            }
+                        })
+                    }
+                </div>
                 <fieldset>
                     <div className="form-group">
-                        {/* <label htmlFor="name">Specialty:</label> */}
                         <textarea
                             required autoFocus
                             type="text"

@@ -4,21 +4,30 @@ import "./MorningPages.css";
 import { summary } from 'date-streaks';
 
 
-// Morning Page complete. WHat would you like to do next?
-//Daily streak
-//home button
-//show options of what to do next- tasks, see 
-
 export const YouDidIt = (props) => {
     const { morningPageId } = useParams()
     const [distortions, setDistortions] = useState([]) //chosen distortions is an array of objects
     const [morningPage, setPage] = useState([])
-    const [entries, setEntries] = useState([])
     const [morningPages, setDates] = useState([])
-    const dates = []
-    let streak = summary({ dates })
-
+    // const datesArray = []
+    let streak = {}
     console.log(streak)
+   
+
+    // useEffect(
+    //     () => {
+    //         if (dates !== []) {
+    //             let streak = summary({ dates })
+    //             } 
+    //         } else {
+    //             updateSearchResults({})
+    //         }
+    //     },
+    //     [searchState]
+    // )
+
+
+
     let history = useHistory();
     const HomeButton = () => {
         history.push("/");
@@ -71,7 +80,7 @@ export const YouDidIt = (props) => {
             return fetch(`http://localhost:8088/morningPages`)
                 .then(response => response.json()) // make request and converts data back into a javascript object
                 .then((data) => {
-                    setDates(data) // I gain access to the morning page object by invoking this function
+                    setDates(data)
 
                 })
         },
@@ -80,15 +89,29 @@ export const YouDidIt = (props) => {
     )
 
 
+    // for (const morningPage of morningPages) {
+    //            dates.push(morningPage.date)
+    //            console.log(dates)
+    //        }
 
-    for (const morningPage of morningPages) {
-        dates.push(new Date(morningPage.date))
 
+
+
+    const Streak = () => {
+
+        const dates = []
+        let streak = []
+        morningPages.map((mp) => {dates.push(mp.date)
+   
+        })
+        
+        streak = summary({ dates })
+        console.log(streak)
+        return <>
+            <p>CURRENT STREAK: {streak?.currentStreak}  </p>
+            <p>LONGEST STREAK: {streak?.longestStreak}  </p>
+        </>
     }
-
-    console.log(dates)
-
-
 
     return (
         <>
@@ -111,22 +134,14 @@ export const YouDidIt = (props) => {
 
 
                 <p key={morningPage.reframe}>REFRAME: {morningPage.reframe}</p>
-
-                <p>CURRENT STREAK: {streak.currentStreak}  </p>
-                <p>LONGEST STREAK: {streak.longestStreak}  </p>
+                {Streak()}
                 <div className="buttons">
                     <button className="btn btn-secondary edit" value={morningPage.id} onClick={() => {
                         EditEntry(morningPage.id)
-                    }}>
-
-                        EDIT
-                    </button>
-                    {/* <p> */}
+                    }}>EDIT</button>
                     <button className="btn btn-secondary delete" onClick={() => {
                         deleteTicket(morningPage.id)
                     }}>DELETE</button>
-                    {/* </p> */}
-                    {/* <button className="btn btn-secondary home" onClick={HomeButton}>HOME</button> */}
                 </div>
             </form>
         </>

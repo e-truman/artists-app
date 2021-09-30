@@ -3,7 +3,7 @@ import { Link } from "react-router-dom"
 
 
 
-export const DatesList = ({searchState}) => {
+export const DatesList = ({ searchState }) => {
     const [searchResults, updateSearchResults] = useState({})
     const [artistDates, setADs] = useState([])
 
@@ -25,9 +25,9 @@ export const DatesList = ({searchState}) => {
                 // debugger
                 const filteredDates = artistDates.find(date => date.title.startsWith(searchState))
                 if (filteredDates !== undefined) {
-                   
+
                     updateSearchResults(filteredDates)
-                } 
+                }
             } else {
                 updateSearchResults({})
             }
@@ -37,8 +37,9 @@ export const DatesList = ({searchState}) => {
 
     return (
         <>
-            <h2>Search Results:</h2>
-            <a className="date-link" href={searchResults.link}>{searchResults?.title}</a>
+            <div className="search-results-container">
+                <p ><a className={ searchState === "" ? "no-style" : "date-link search-results" }href={searchResults.link}>{searchResults?.title}</a></p>
+            </div>
         </>
     )
 }

@@ -45,9 +45,6 @@ export const ApplicationViews = () => {
                 <EditEntry />
             </Route>
             <Route exact path="/artist-dates">
-                <ArtistDatesList />
-            </Route>
-            <Route exact path="/search-dates">
                 <ArtistDates />
             </Route>
 

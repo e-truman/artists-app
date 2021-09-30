@@ -100,7 +100,7 @@ export const YouDidIt = (props) => {
     const Streak = () => {
 
         const dates = []
-        let streak = []
+        let streak = {}
         morningPages.map((mp) => {dates.push(mp.date)
    
         })

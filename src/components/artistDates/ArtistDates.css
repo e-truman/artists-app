@@ -1,0 +1,28 @@
+.dates-background {
+    margin:2%;
+    background-color: #fff;
+    background-clip: border-box;
+    border: 1px solid rgba(0,0,0,.125);
+    border-radius: .25rem;
+    padding:2em;
+    
+  }
+
+  .artist-dates-container {
+    display: flex;
+    flex-direction: column;
+    margin: 2% 25%;
+   
+  }
+
+  .date-link {
+    text-decoration: none;
+    color: #404040;
+  }
+  .date-link:hover {
+    color:rgb(149, 173, 173)
+  }
+
+  ul {
+    list-style-type:none
+  }

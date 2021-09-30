@@ -10,7 +10,7 @@ import { Details } from "./morningPages/Details"
 import { YouDidIt } from "./morningPages/YouDidIt"
 import { Entries } from "./entries/Entries"
 import { EditEntry } from "./entries/EditEntry"
-
+import { ArtistDates } from "./artistDates/ArtistDates"
 
 export const ApplicationViews = () => {
     return (
@@ -42,9 +42,9 @@ export const ApplicationViews = () => {
             <Route exact path="/edit/:morningPageId(\d+)">
                 <EditEntry />
             </Route>
-            {/* <Route exact path="/artist-dates">
+            <Route exact path="/artist-dates">
                 <ArtistDates />
-            </Route> */}
+            </Route>
 
         </>
     )

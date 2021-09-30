@@ -29,7 +29,6 @@ body {
   font-family: 'Montserrat', sans-serif;
   font-weight: 700;
   letter-spacing: 2px;
-  /* padding: 0em 5em 0em 4em; */
   text-align: center;
 }
 
@@ -50,7 +49,6 @@ p {
   z-index:-3;
   opacity:40%;
   width: 100%;
-  /* height: auto; */
 }
 
 .card-body {
@@ -153,15 +151,6 @@ p {
   width: 75%;    
 }
 
-.weekly-streak{
-  margin-bottom: 1em;
-  background-color: #fff;
-  background-clip: border-box;
-  border: 1px solid rgba(0,0,0,.125);
-  border-radius: .25rem;
-  padding:2em;
-  width: 75%;
-}
 #distortion-details-background {
   margin:5%;
   background-color: #fff;
@@ -194,11 +183,11 @@ p {
 .entry {
   margin-bottom: 1em;
   background-color: #fff;
-    background-clip: border-box;
-    border: 1px solid rgba(0,0,0,.125);
-    border-radius: .25rem;
-    padding:2em;
-    width: 75%;
+  background-clip: border-box;
+  border: 1px solid rgba(0,0,0,.125);
+  border-radius: .25rem;
+  padding:2em;
+  width: 75%;
     
 }
 

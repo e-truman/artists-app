@@ -8,8 +8,6 @@ import "./Home.css";
 export const WeeklyStreak = (props) => {
     const [morningPages, setDates] = useState([])
     let history = useHistory();
-    // let today = date()
-
     let today = new Date();
     let day = parseInt(String(today.getDay()))
     console.log(day)
@@ -31,6 +29,7 @@ export const WeeklyStreak = (props) => {
         let endDate = EndDate()
         let length = 7
         morningPages.map((mp) => {
+            if (morningPages.userId === parseInt(localStorage.getItem("artist_login")))
             dates.push(mp.date)
         })
         let recordDates = trackRecord({ dates, length, endDate })
@@ -51,15 +50,13 @@ export const WeeklyStreak = (props) => {
             sunday.push(recordDates[key]);
         }
 
-        // key.slice(0, 3), 
-
         for (key in recordDates) {
-            if (!key.startsWith('Mon') ) continue;
+            if (!key.startsWith('Mon')) continue;
             monday.push(recordDates[key]);
         }
 
         for (key in recordDates) {
-            if (!key.startsWith('Tue') ) continue;
+            if (!key.startsWith('Tue')) continue;
             tuesday.push(recordDates[key]);
         }
 
@@ -85,10 +82,6 @@ export const WeeklyStreak = (props) => {
             saturday.push(recordDates[key]);
         }
 
-
-        console.log(saturday)
-
-
         return <>
             <Card body>
                 <div className="streak-buttons">
@@ -98,7 +91,7 @@ export const WeeklyStreak = (props) => {
                     <button className={tuesday[0] === true && day >= 2 ? "btn-fill" : "streak-button"} >T</button>{''}
                     <button className={wednesday[0] === true && day >= 3 ? "btn-fill" : "streak-button"} >W</button>{''}
                     <button className={thursday[0] === true && day >= 4 ? "btn-fill" : "streak-button"} >T</button>{''}
-                    <button className={friday[0] === true  && day >= 5 ? "btn-fill" : "streak-button"}>F</button>{''}
+                    <button className={friday[0] === true && day >= 5 ? "btn-fill" : "streak-button"}>F</button>{''}
                     <button className={saturday[0] === true && day === 6 ? "btn-fill" : "streak-button"} >S</button>
                 </div>
 

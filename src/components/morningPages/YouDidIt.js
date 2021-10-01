@@ -80,15 +80,16 @@ export const YouDidIt = (props) => {
         const dates = []
         let streak = {}
         morningPages.map((mp) => {
-            dates.push(mp.date)
-
+            if (mp.userId === parseInt(localStorage.getItem("artist_login"))) {
+                dates.push(mp.date)
+            }
         })
 
         streak = summary({ dates })
         console.log(streak)
         return <>
-            <p><span className="check-in-categories">CURRENT STREAK:</span> {streak?.currentStreak} DAYS  </p>
-            <p><span className="check-in-categories">LONGEST STREAK:</span> {streak?.longestStreak} DAYS </p>
+            <p><span className="check-in-categories">CURRENT STREAK:</span> {streak?.currentStreak} {streak.currentStreak === 1 ? "DAY" : "DAYS"}  </p>
+            <p><span className="check-in-categories">LONGEST STREAK:</span> {streak?.longestStreak} {streak.longestStreak === 1 ? "DAY" : "DAYS"}  </p>
         </>
     }
 
@@ -98,9 +99,9 @@ export const YouDidIt = (props) => {
             <h2 className=" check-in-title">CHECK IN COMPLETE</h2>
             <div className="completed-checkin">
 
-                <h4 className="mp-title" key={morningPage.id}>{morningPage.title}</h4>
+                <h4 className="mp-title" key={morningPage.id}> {morningPage.title}</h4>
                 <p><span className="check-in-categories">MORNING PAGE: </span>  {morningPage.morningPage}</p>
-                <p><span className="check-in-categories">BLURTS: </span>{morningPage.blurt}</p>
+                <p><span className="check-in-categories">BLURTS: </span>{ morningPage.blurt}</p>
                 <p><span className="check-in-categories">THOUGHT DISTORTIONS PRESENT: </span></p>
                 {
                     distortions.map((distortion) => {
@@ -108,7 +109,7 @@ export const YouDidIt = (props) => {
                     })
                 }
 
-                <p> <span className="check-in-categories">REFRAME:</span>  {morningPage.reframe}</p>
+                <p> <span className="check-in-categories">REFRAME: </span>  {morningPage.reframe}</p>
                 {Streak()}
                 <div className="buttons">
                     <button className="btn btn-secondary edit" value={morningPage.id} onClick={() => {

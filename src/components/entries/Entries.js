@@ -67,8 +67,9 @@ export const Entries = (props) => {
 
                                 <p className="space-between">
                                     <h4 className="mp-title">{entry.title}</h4>
-                                    <p><p> <h6>MORNING PAGE:</h6> {entry.morningPage}</p>
-                                        <p> BLURT:{entry.blurt}</p>
+                                    <p>
+                                        <p> <span className="check-in-categories">MORNING PAGE: </span> {entry.morningPage}</p>
+                                        <p> <span className="check-in-categories">BLURT:</span> {entry.blurt}</p>
                                         {
                                             distortions.map((distortion) => {
                                                 if (distortion?.morningPageId === entry.id) {
@@ -76,8 +77,8 @@ export const Entries = (props) => {
                                                 }
                                             })
                                         }
-                                        <p key={entry.id}>REFRAME: {entry.reframe}</p>
-                                        <p>Date: {entry.date}</p>
+                                        <p key={entry.id}> <span className="check-in-categories">REFRAME: </span>{entry.reframe}</p>
+                                        <p className="check-in-categories">Date: {entry.date}</p>
                                     </p>
                                     <div className="buttons">
                                         <Button value={entry.id} onClick={() => { editEntry(entry.id) }}>EDIT</Button>

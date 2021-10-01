@@ -32,9 +32,8 @@ export const Discover = (props) => {
 
             </Card>
 
-            <button className="btn btn-secondary" id="back-button" onClick={() => history.goBack()}>
-                BACK
-            </button>
+            <button className="btn btn-secondary"  id="back-button" onClick={() => history.push("/")}>
+                    HOME</button>
         </>
     )
 }

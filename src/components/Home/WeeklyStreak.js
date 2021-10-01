@@ -1,19 +1,28 @@
 import React, { useState, useEffect } from "react"
-import { useHistory } from "react-router-dom"
 import { trackRecord } from 'date-streaks';
 import { Card } from 'reactstrap';
 import "./Home.css";
 
 
-export const WeeklyStreak = (props) => {
+export const WeeklyStreak = () => {
     const [morningPages, setDates] = useState([])
-    let history = useHistory();
     let today = new Date();
     let day = parseInt(String(today.getDay()))
     console.log(day)
 
+    useEffect(
+        () => {
+            return fetch(`http://localhost:8088/morningPages`)
+                .then(response => response.json()) // make request and converts data back into a javascript object
+                .then((data) => {
+                    setDates(data)
+                })
+        },
+
+        []
+    )
+
     const EndDate = () => {
-        // debugger
         let today = new Date();
         let dd = String(today.getDate()).padStart(2, '0');
         let mm = String(today.getMonth() + 1).padStart(2, '0');
@@ -30,13 +39,11 @@ export const WeeklyStreak = (props) => {
         let length = 7
         morningPages.map((mp) => {
             if (mp.userId === parseInt(localStorage.getItem("artist_login")))
-            dates.push(mp.date)
+                dates.push(mp.date)
         })
         let recordDates = trackRecord({ dates, length, endDate })
 
-        console.log(recordDates)
-
-        var object = { 456: "Hello", 512: "Bye" },
+        let object = trackRecord,
             key;
 
         const sunday = []
@@ -80,7 +87,6 @@ export const WeeklyStreak = (props) => {
 
         for (key in recordDates) {
             if (!key.startsWith('Sat')) continue;
-            // debugger
             saturday.push(recordDates[key]);
         }
 
@@ -89,14 +95,13 @@ export const WeeklyStreak = (props) => {
                 <div className="streak-buttons">
                     <button className={sunday[0] === true ? "btn-fill" : "streak-button"}
                     >S</button>
-                    <button className={monday[0] === true && day > 0 ? "btn-fill" : "streak-button"} >M</button>{''}
-                    <button className={tuesday[0] === true && day >= 2 ? "btn-fill" : "streak-button"} >T</button>{''}
-                    <button className={wednesday[0] === true && day >= 3 ? "btn-fill" : "streak-button"} >W</button>{''}
-                    <button className={thursday[0] === true && day >= 4 ? "btn-fill" : "streak-button"} >T</button>{''}
-                    <button className={friday[0] === true && day >= 5 ? "btn-fill" : "streak-button"}>F</button>{''}
+                    <button className={monday[0] === true && day > 0 ? "btn-fill" : "streak-button"} >M</button>
+                    <button className={tuesday[0] === true && day >= 2 ? "btn-fill" : "streak-button"} >T</button>
+                    <button className={wednesday[0] === true && day >= 3 ? "btn-fill" : "streak-button"} >W</button>
+                    <button className={thursday[0] === true && day >= 4 ? "btn-fill" : "streak-button"} >T</button>
+                    <button className={friday[0] === true && day >= 5 ? "btn-fill" : "streak-button"}>F</button>
                     <button className={saturday[0] === true && day === 6 ? "btn-fill" : "streak-button"} >S</button>
                 </div>
-
             </Card>
 
 
@@ -104,20 +109,6 @@ export const WeeklyStreak = (props) => {
 
 
     }
-
-
-    useEffect(
-        () => {
-            return fetch(`http://localhost:8088/morningPages`)
-                .then(response => response.json()) // make request and converts data back into a javascript object
-                .then((data) => {
-                    setDates(data)
-
-                })
-        },
-
-        []
-    )
 
 
     return (

@@ -1,7 +1,4 @@
 import { useEffect, useState } from "react"
-import { Link } from "react-router-dom"
-
-
 
 export const DatesList = ({ searchState }) => {
     const [searchResults, updateSearchResults] = useState({})
@@ -22,7 +19,6 @@ export const DatesList = ({ searchState }) => {
     useEffect(
         () => {
             if (searchState !== "") {
-                // debugger
                 const filteredDates = artistDates.find(date => date.title.startsWith(searchState))
                 if (filteredDates !== undefined) {
 

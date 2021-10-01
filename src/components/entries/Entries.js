@@ -6,7 +6,7 @@ import { Button } from 'reactstrap';
 export const Entries = (props) => {
     console.log(props)
     const history = useHistory()
-    const [entries, setEntries] = useState([]) //chosen distortions is an array of objects
+    const [entries, setEntries] = useState([]) 
     const [distortions, setDistortions] = useState([])
 
 
@@ -57,51 +57,45 @@ export const Entries = (props) => {
     return (
         <>
 
-       
-            {/* <div className="form"> */}
             <h2 className="title title-out-of-form">PAST ENTRIES</h2>
-                <div id="entry">
-                
-                    {
-                        entries.map((entry) => {
-                            if (entry?.userId === parseInt(localStorage.getItem("artist_login"))) {
-                                return <>
+            <div id="entry">
 
-                                    <p className="space-between">
+                {
+                    entries.map((entry) => {
+                        if (entry?.userId === parseInt(localStorage.getItem("artist_login"))) {
+                            return <>
+
+                                <p className="space-between">
                                     <h4 className="mp-title">{entry.title}</h4>
-                                        <p><p> <h6>MORNING PAGE:</h6> {entry.morningPage}</p>
-                                            <p> BLURT:{entry.blurt}</p>
-                                            {
-                                                distortions.map((distortion) => {
-                                                    if (distortion?.morningPageId === entry.id) {
-                                                        return <p key={entry.id}><Link className="distortions" to={`/distortionDetail/${distortion?.distortionDetail?.id}`}>{distortion.distortionDetail.name}</Link></p>
-                                                    }
-                                                })
-                                            }
-                                            <p key={entry.id}>REFRAME: {entry.reframe}</p>
-                                            <p>Date: {entry.date}</p>
-                                        </p>
-                                        <div className="buttons">
-                                            <Button value={entry.id} onClick={() => { editEntry(entry.id) }}>EDIT</Button>
-                                            <Button className="btn btn-secondary delete" onClick={() => { deleteEntry(entry.id) }}>DELETE</Button>
-
-                                        </div>
+                                    <p><p> <h6>MORNING PAGE:</h6> {entry.morningPage}</p>
+                                        <p> BLURT:{entry.blurt}</p>
+                                        {
+                                            distortions.map((distortion) => {
+                                                if (distortion?.morningPageId === entry.id) {
+                                                    return <p key={entry.id}><Link className="distortions" to={`/distortionDetail/${distortion?.distortionDetail?.id}`}>{distortion.distortionDetail.name}</Link></p>
+                                                }
+                                            })
+                                        }
+                                        <p key={entry.id}>REFRAME: {entry.reframe}</p>
+                                        <p>Date: {entry.date}</p>
                                     </p>
-                                </>
+                                    <div className="buttons">
+                                        <Button value={entry.id} onClick={() => { editEntry(entry.id) }}>EDIT</Button>
+                                        <Button className="btn btn-secondary delete" onClick={() => { deleteEntry(entry.id) }}>DELETE</Button>
+
+                                    </div>
+                                </p>
+                            </>
 
 
-                            }
                         }
-                        )
                     }
+                    )
+                }
 
-<button className="btn btn-secondary" onClick={() => history.push("/")}>
-                HOME</button>
-                </div>
-              
-    
-
-            
+                <button className="btn btn-secondary" onClick={() => history.push("/")}>
+                    HOME</button>
+            </div>
 
         </>
     )

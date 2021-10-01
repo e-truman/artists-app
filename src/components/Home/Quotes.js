@@ -1,12 +1,9 @@
-import { useHistory } from "react-router-dom"
 import { Card, Button, CardTitle, CardText, Row, Col } from 'reactstrap';
 import React, { useState, useEffect } from "react"
 import './Home.css';
 
 
 export const Quotes = (props) => {
-  const history = useHistory()
-  const [quotes, setQuotes] = useState([])
   const [quote, setQuote] = useState({
     "quote": "It does not matter how slow you go so long as you do not stop.",
     "author": "Confucius"

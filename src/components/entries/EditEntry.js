@@ -6,7 +6,7 @@ export const EditEntry = (props) => {
     console.log(props)
     const history = useHistory()
     const { morningPageId } = useParams()
-    const [entries, setEntry] = useState([]) //chosen distortions is an array of objects
+    const [entries, setEntry] = useState([]) 
     const [morningPages, setPage] = useState({
         "title": "",
         "userId": parseInt(localStorage.getItem("artist_login")),
@@ -34,7 +34,7 @@ export const EditEntry = (props) => {
             return fetch(`http://localhost:8088/morningPages/${morningPageId}`)
                 .then(response => response.json()) // make request and converts data back into a javascript object
                 .then((data) => {
-                    setPage(data) // I gain access to the morning page object by invoking this function
+                    setPage(data) 
 
                 })
         },

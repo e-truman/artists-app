@@ -1,18 +1,13 @@
 import { useHistory } from "react-router-dom"
-import { Card, Button, CardTitle, CardText, Row, Col } from 'reactstrap';
-import React, { useState, useEffect } from "react"
+import { Card, Button, CardTitle, CardText } from 'reactstrap';
 import './Home.css';
-import { Quotes } from "./Quotes";
-import { WeeklyStreak } from "./WeeklyStreak";
+
 
 
 export const ArtistDateStart = (props) => {
   const history = useHistory()
 
  
-
-
-
   return (
     <>
 

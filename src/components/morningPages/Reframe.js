@@ -65,8 +65,9 @@ export const Reframe = (props) => {
 
     return (
         <>
-            <h2 className="title">REFRAME</h2>
+            
             <form className="form">
+            <h2 className="title">REFRAME</h2>
                 <div>
                     <p> THOUGHT DISTORTIONS PRESENT:</p>
                     {

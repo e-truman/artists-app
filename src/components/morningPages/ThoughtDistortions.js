@@ -58,9 +58,8 @@ export const ThoughtDistortion = (props) => {
 
 
     return (
-        <>
-            <h2 className="title">THOUGHT DISTORTIONS</h2>
             <form className="form">
+            <h2 className="title">THOUGHT DISTORTIONS</h2>
                 <fieldset className="checkbox-field">
                     <p>Select any thought distortions present:</p>
                     <div className="form-checkbox-group">
@@ -95,6 +94,5 @@ export const ThoughtDistortion = (props) => {
                     Next
                 </button>
             </form>
-        </>
     )
 }

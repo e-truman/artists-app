@@ -1,6 +1,7 @@
 import React, { useState } from "react"
 import { useHistory } from "react-router-dom"
 import "./MorningPages.css";
+import "../Artists.css";
 
 export const MorningPage = () => {
     const [morningPage, setMp] = useState({
@@ -70,8 +71,9 @@ export const MorningPage = () => {
     }
     return (
         <>
-        <h2 className="title">MORNING PAGES</h2>
+       
         <form className="form">
+        <h2 className="title">MORNING PAGES</h2>
             <fieldset>
                 <div className="form-group">
                     <input

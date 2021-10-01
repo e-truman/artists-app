@@ -50,9 +50,9 @@ export const Blurt = (props) => {
 
     return (
         <>
-            <h2 className="title">BLURTS</h2>
+            
             <form className="form">
-
+            <h2 className="title">BLURTS</h2>
                 <fieldset>
                     <div className="form-group">
                         {/* <label htmlFor="name">Specialty:</label> */}

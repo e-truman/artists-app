@@ -11,11 +11,88 @@ p {
 
 .form {
   padding: 2%;
-
   margin: 1%;
-
 }
 
 .journal {
   height: 200%;
+}
+
+.journal {
+  height: 15rem;
+}
+
+
+.distortion-list {
+  margin-top: 10%;
+}
+
+
+.mp-title {
+  font-family: 'Beth Ellen', cursive;
+  color: #6c757d;
+  margin-bottom: 2%;
+}
+
+.completed-checkin {
+  margin: 0 auto;
+  margin-top: 1%;
+  background-color: #fff;
+  background-clip: border-box;
+  border: 1px solid rgba(0,0,0,.125);
+  border-radius: .25rem;
+  padding:2em;
+  width: 50%;    
+}
+
+#distortion-details-background {
+  margin:5%;
+  background-color: #fff;
+  background-clip: border-box;
+  border: 1px solid rgba(0,0,0,.125);
+  border-radius: .25rem;
+  padding:2em;
+  width: 75%;
+}
+
+.form-checkbox-group {
+  font-family: 'Montserrat', sans-serif;
+  display: flex;
+  flex-direction: column;
+
+  
+}
+
+.distortions {
+  text-decoration: none;
+  color: #404040;
+}
+.distortions:hover {
+  color:rgb(149, 173, 173)
+}
+
+.checkbox-field {
+  margin-bottom: 1em;
+  background-color: #fff;
+  background-clip: border-box;
+  border: 1px solid rgba(0,0,0,.125);
+  border-radius: .25rem;
+  padding:2em;
+  width: 75%;
+}
+
+.checkbox {
+  margin-right:.5em;
+}
+
+.title {
+  font-weight: 500;
+  font-size: 1.5rem;
+  padding: 1% 10% 1% 0%; 
+}
+
+.check-in-title {
+  margin: 1% 0% 1% 25%;
+  font-weight: 500;
+  font-size: 1.5rem;
 }

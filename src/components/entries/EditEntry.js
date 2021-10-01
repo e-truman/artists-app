@@ -1,6 +1,6 @@
 import React, { useState, useEffect } from "react"
 import { useHistory, useParams, Link } from "react-router-dom"
-import './Entries.css';
+import "./Entries.css";
 
 export const EditEntry = (props) => {
     console.log(props)
@@ -71,12 +71,12 @@ export const EditEntry = (props) => {
 
     return (
         <>
-            <h2 className="title">EDIT YOUR MORNING PAGE</h2>
+            
             <form className="form">
-
+            <h2 className="title">EDIT YOUR MORNING PAGE</h2>
                 <fieldset>
                     <div className="form-group">
-                        <label htmlFor="description">TITLE: </label>
+                        <label htmlFor="description">TITLE:</label>
                         <input
                             required autoFocus
                             type="text"

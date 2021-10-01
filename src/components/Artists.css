@@ -1,9 +1,7 @@
 /* Import the google web fonts you want to use */
 @import url("https://fonts.googleapis.com/css?family=Comfortaa|Patua+One");
 @import url('https://fonts.googleapis.com/css2?family=Beth+Ellen&display=swap');
-
 @import url('https://fonts.googleapis.com/css2?family=Montserrat:wght@200;300&family=Open+Sans&display=swap');
-
 
 
 /*Typography
@@ -21,8 +19,7 @@ textarea {
 }
 
 body {
-  margin: 0;
-  
+  margin: 0;  
 }
 
 .card-title {
@@ -53,7 +50,6 @@ p {
 
 .card-body {
   display: flex;
-
   justify-content: center;
   margin: 1% 30%;
   padding: 0% 30% 2% 30%;
@@ -64,7 +60,6 @@ p {
 
   
 .card {
-  /* text-align: center; */
   align-content: center;
   margin: 2% 25%;
  
@@ -94,63 +89,7 @@ p {
 .title {
   font-weight: 500;
   font-size: 1.5rem;
-  padding-left: 1%;
-}
-
-.form-checkbox-group {
-  font-family: 'Montserrat', sans-serif;
-  display: flex;
-  flex-direction: column;
-
-  
-}
-
-.distortions {
-  text-decoration: none;
-  color: #404040;
-}
-.distortions:hover {
-  color:rgb(149, 173, 173)
-}
-
-.checkbox-field {
-  margin-bottom: 1em;
-  background-color: #fff;
-  background-clip: border-box;
-  border: 1px solid rgba(0,0,0,.125);
-  border-radius: .25rem;
-  padding:2em;
-  width: 75%;
-}
-
-.checkbox {
-  margin-right:.5em;
-}
-
-.mp-title {
-  font-family: 'Beth Ellen', cursive;
-  color: #6c757d;
-  margin-bottom: 2%;
-}
-
-.completed-checkin {
-  margin-bottom: 1em;
-  background-color: #fff;
-  background-clip: border-box;
-  border: 1px solid rgba(0,0,0,.125);
-  border-radius: .25rem;
-  padding:2em;
-  width: 75%;    
-}
-
-#distortion-details-background {
-  margin:5%;
-  background-color: #fff;
-  background-clip: border-box;
-  border: 1px solid rgba(0,0,0,.125);
-  border-radius: .25rem;
-  padding:2em;
-  width: 75%;
+  margin: 0 auto; 
 }
 
 .delete {
@@ -168,36 +107,19 @@ p {
 
 }
 
-.journal {
-  height: 15rem;
-}
-
-.entry {
-  margin-bottom: 1em;
-  background-color: #fff;
-  background-clip: border-box;
-  border: 1px solid rgba(0,0,0,.125);
-  border-radius: .25rem;
-  padding:2em;
-  width: 75%;
-    
-}
-
-.distortion-list {
-  margin-top: 10%;
-}
-
-.edit-title {
-  margin: 2% 0 2% 0;
-}
-
 label {
-  font-weight: 500;
+  font-weight: 800;
   font-size: 1rem;
 }
 
-.home-entries {
-  margin: 0% 0% 2% 3%;
+.title {
+  font-weight: 500;
+  font-size: 1.5rem;
+  margin: 0 auto; 
 }
+
+
+
+
 
 

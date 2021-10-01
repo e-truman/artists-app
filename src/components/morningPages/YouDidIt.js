@@ -115,10 +115,10 @@ export const YouDidIt = (props) => {
 
     return (
         <>
-            <h2 className="title">CHECK IN COMPLETE</h2>
-
-            <form className="form completed-checkin">
-
+            
+            <h2 className="check-in-title">CHECK IN COMPLETE</h2>
+            <div className="completed-checkin">
+            
                 <h4 className="mp-title" key={morningPage.id}>{morningPage.title}</h4>
                 <p key={morningPage.morningPage}>MORNING PAGE:  {morningPage.morningPage}</p>
                 <p key={morningPage.blurts}>BLURTS:  {morningPage.blurt}</p>
@@ -132,18 +132,17 @@ export const YouDidIt = (props) => {
                     })
                 }
 
-
                 <p key={morningPage.reframe}>REFRAME:  {morningPage.reframe}</p>
                 {Streak()}
                 <div className="buttons">
                     <button className="btn btn-secondary edit" value={morningPage.id} onClick={() => {
                         EditEntry(morningPage.id)
                     }}>EDIT</button>
-                    <button className="btn btn-secondary delete" onClick={() => {
+                    <button className="btn btn-secondary delete"  onClick={() => {
                         deleteTicket(morningPage.id)
                     }}>DELETE</button>
                 </div>
-            </form>
+                </div>
         </>
 
 

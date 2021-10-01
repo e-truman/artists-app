@@ -1,6 +1,6 @@
 import { Link } from "react-router-dom"
 import "./NavBar.css"
-import { VscBook, VscArchive, VscEdit, VscHome, VscSymbolColor, VscTrash, VscSignOut } from "react-icons/vsc";
+import { VscBook, VscHome, VscSignOut } from "react-icons/vsc";
 import React, { useState } from 'react';
 import {
   Collapse,
@@ -10,15 +10,7 @@ import {
   Nav,
   NavItem,
   NavLink,
-  UncontrolledDropdown,
-  DropdownToggle,
-  DropdownMenu,
-  DropdownItem,
-  NavbarText
 } from 'reactstrap';
-
-
-
 
 
 export const NavBar = () => {
@@ -40,25 +32,8 @@ export const NavBar = () => {
               <NavItem>
                 <NavLink href="/entries"><VscBook /></NavLink>
               </NavItem>
-              {/* <UncontrolledDropdown nav inNavbar>
-                <DropdownToggle nav caret>
-                  Options
-                </DropdownToggle>
-                <DropdownMenu right>
-                  <DropdownItem>
-                    Option 1
-                  </DropdownItem>
-                  <DropdownItem>
-                    Option 2
-                  </DropdownItem>
-                  <DropdownItem divider />
-                  <DropdownItem>
-                    Reset
-                  </DropdownItem>
-                </DropdownMenu>
-              </UncontrolledDropdown> */}
+    
             </Nav>
-            {/* {<NavLink>  */}
             <Link  className="navbar__link" to="#" 
                     onClick={
                         () => {
@@ -66,10 +41,8 @@ export const NavBar = () => {
                         }
                     }>
 
-                         <VscSignOut />
-                    
+                         <VscSignOut /> 
                 </Link>
-                {/* </NavLink> */}
           </Collapse>
         </Navbar>
       </div>

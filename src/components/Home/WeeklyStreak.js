@@ -7,7 +7,7 @@ import "./Home.css";
 export const WeeklyStreak = () => {
     const [morningPages, setDates] = useState([])
     let today = new Date();
-    let day = parseInt(String(today.getDay()))
+    let day = parseInt(String(today.getDay())) // returns a number for each day of the week with Sun being 0 and Sat being 6
     console.log(day)
 
     useEffect(
@@ -22,6 +22,7 @@ export const WeeklyStreak = () => {
         []
     )
 
+    // function to find today in the correct format so I can use it as a parameter in trackRecord
     const EndDate = () => {
         let today = new Date();
         let dd = String(today.getDate()).padStart(2, '0');
@@ -41,7 +42,7 @@ export const WeeklyStreak = () => {
             if (mp.userId === parseInt(localStorage.getItem("artist_login")))
                 dates.push(mp.date)
         })
-        let recordDates = trackRecord({ dates, length, endDate })
+        let recordDates = trackRecord({ dates, length, endDate }) // returns a single object of the last 7 days. Keys are the dates, values are booleans. They are marked true if that date is in the array of dates used as a parameter
 
         let object = trackRecord,
             key;

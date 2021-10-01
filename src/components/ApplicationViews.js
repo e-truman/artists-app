@@ -11,8 +11,6 @@ import { YouDidIt } from "./morningPages/YouDidIt"
 import { Entries } from "./entries/Entries"
 import { EditEntry } from "./entries/EditEntry"
 import { ArtistDates } from "./artistDates/ArtistDatesViews"
-import { DatesList } from "./artistDates/DatesList"
-import { ArtistDatesList } from "./artistDates/ArtistDatesList"
 
 export const ApplicationViews = () => {
     return (

@@ -2,8 +2,6 @@ import React, { useState, useEffect } from "react"
 import { useHistory, useParams, Link } from "react-router-dom"
 import "./MorningPages.css";
 
-
-// Purpose of this page: show throught distortions. allow you to select them. will post the selected thought distortions with the correct morning page Id. The selected thought distortions will appear on next page
 export const ThoughtDistortion = (props) => {
     console.log(props)
     const history = useHistory()
@@ -11,8 +9,6 @@ export const ThoughtDistortion = (props) => {
     const { morningPageId } = useParams()
     const [chosenThoughtDistortions, setChosenThoughtDistortions] = useState([])
 
-
-    //I need to fetch the list of thought distortions. I will map throught them and display them as a list of links
     useEffect(
         () => {
             return fetch(`http://localhost:8088/distortionDetails?_embed=thoughtDistortions&_embed=morningPages`)
@@ -46,7 +42,7 @@ export const ThoughtDistortion = (props) => {
                 fetch("http://localhost:8088/thoughtDistortions", fetchOption)
                     .then(res => res.json())
                     .then((data) => {
-                        history.push(`/reframe/data.${morningPageId}`)
+                        history.push(`/reframe/${data.morningPageId}`)
                     })
             }
 

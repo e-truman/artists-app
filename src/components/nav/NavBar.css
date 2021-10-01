@@ -4,20 +4,9 @@
     flex-wrap: nowrap;
     justify-content: right;
     width:100%;
-    /* overflow: hidden; */
-    /* margin: 45% 0 0 0; */
-    /* position: fixed; */
-    /* bottom: 0; */
-    /* color: white; */
     
     
 }
-
-/* .navbar__item {
-    flex-basis: 20%;
-    list-style-type: none;
-    
-} */
 
 a,
 .navbar__link {
@@ -25,13 +14,6 @@ a,
     color: #6c757d;
 
 }
-/* .icon {
-    color: white;
-    display:flex;
-    flex-direction: column;
-    
-   
-} */
 
 .nav__text {
     font-size: 50%;
@@ -48,7 +30,7 @@ svg {
 }
 
 .collapse {
-    text-align:right;
+    justify-content: flex-end;
 }
 
 

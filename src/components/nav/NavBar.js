@@ -27,17 +27,17 @@ export const NavBar = () => {
         <Collapse isOpen={isOpen} navbar>
           <Nav className="mr-auto" navbar>
             <NavItem>
-              <NavLink href="/"><VscHome /></NavLink>
+              <NavLink title="HOME" href="/"><VscHome /></NavLink>
             </NavItem>
             <NavItem>
-              <NavLink href="/entries"><VscBook /></NavLink>
+              <NavLink title="PAST ENTRIES" href="/entries"><VscBook /></NavLink>
             </NavItem>
             <NavItem>
-              <NavLink href="/discover"><VscSearch /></NavLink>
+              <NavLink href="/discover" title="DISCOVER"><VscSearch /></NavLink>
             </NavItem>
 
           </Nav>
-          <Link className="navbar__link" to="#"
+          <Link title="LOGOUT" className="navbar__link" to="#"
             onClick={
               () => {
                 localStorage.removeItem("artist_login")

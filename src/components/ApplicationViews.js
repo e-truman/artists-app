@@ -11,6 +11,7 @@ import { YouDidIt } from "./morningPages/YouDidIt"
 import { Entries } from "./entries/Entries"
 import { EditEntry } from "./entries/EditEntry"
 import { ArtistDates } from "./artistDates/ArtistDatesViews"
+import { Discover } from "./discover/Discover"
 
 export const ApplicationViews = () => {
     return (
@@ -44,6 +45,9 @@ export const ApplicationViews = () => {
             </Route>
             <Route exact path="/artist-dates">
                 <ArtistDates />
+            </Route>
+            <Route exact path="/discover">
+                <Discover />
             </Route>
 
         </>

@@ -1,6 +1,6 @@
 import { Link } from "react-router-dom"
 import "./NavBar.css"
-import { VscBook, VscHome, VscSignOut, VscSearch } from "react-icons/vsc";
+import { VscBook, VscHome, VscSignOut, VscSearch, VscSymbolColor } from "react-icons/vsc";
 import React, { useState } from 'react';
 import {
   Collapse,
@@ -31,6 +31,9 @@ export const NavBar = () => {
             </NavItem>
             <NavItem>
               <NavLink title="PAST ENTRIES" href="/entries"><VscBook /></NavLink>
+            </NavItem>
+            <NavItem>
+              <NavLink title="ARTIST DATES" href="/artist-dates"><VscSymbolColor /></NavLink>
             </NavItem>
             <NavItem>
               <NavLink href="/discover" title="DISCOVER"><VscSearch /></NavLink>

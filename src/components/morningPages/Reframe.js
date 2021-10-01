@@ -20,7 +20,6 @@ export const Reframe = (props) => {
                 })
         },
 
-
         []
     )
 
@@ -32,6 +31,7 @@ export const Reframe = (props) => {
                     setPage(data)
                 })
         },
+        []
     )
 
     const updateMorningPage = (evt) => {

@@ -42,7 +42,7 @@ export const ThoughtDistortion = (props) => {
                 fetch("http://localhost:8088/thoughtDistortions", fetchOption)
                     .then(res => res.json())
                     .then((data) => {
-                        history.push(`/reframe/${data.morningPageId}`)
+                        history.push(`/reframe/${morningPageId}`)
                     })
             }
 

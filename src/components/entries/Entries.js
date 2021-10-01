@@ -70,6 +70,7 @@ export const Entries = (props) => {
                                     <p>
                                         <p> <span className="check-in-categories">MORNING PAGE: </span> {entry.morningPage}</p>
                                         <p> <span className="check-in-categories">BLURT:</span> {entry.blurt}</p>
+                                        <p className="check-in-categories">THOUGHT DISTORTIONS PRESENT:</p>
                                         {
                                             distortions.map((distortion) => {
                                                 if (distortion?.morningPageId === entry.id) {

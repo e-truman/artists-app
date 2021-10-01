@@ -1,4 +1,7 @@
-# Getting Started with Create React App
+# The Artist's Way App
+
+This is my capstone project for the client side half of the day cohort 50 bootcamp at Nashville Software School. I created a journaling app that is geared toward helping artists of all kinds effectively deal with creative blocks. Many of the tools in my app, such as morning pages and artist dates, come from the book The Artist's Way by Julia Cameron.
+
 
 This project was bootstrapped with [Create React App](https://github.com/facebook/create-react-app).
 

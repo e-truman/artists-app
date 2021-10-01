@@ -29,10 +29,12 @@ export const WeeklyStreak = (props) => {
         let endDate = EndDate()
         let length = 7
         morningPages.map((mp) => {
-            if (morningPages.userId === parseInt(localStorage.getItem("artist_login")))
+            if (mp.userId === parseInt(localStorage.getItem("artist_login")))
             dates.push(mp.date)
         })
         let recordDates = trackRecord({ dates, length, endDate })
+
+        console.log(recordDates)
 
         var object = { 456: "Hello", 512: "Bye" },
             key;

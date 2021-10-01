@@ -31,7 +31,8 @@ p {
 .mp-title {
   font-family: 'Beth Ellen', cursive;
   color: #6c757d;
-  margin-bottom: 2%;
+  margin-bottom: 4%;
+  font-size: 2rem;
 }
 
 .completed-checkin {
@@ -41,11 +42,11 @@ p {
   background-clip: border-box;
   border: 1px solid rgba(0,0,0,.125);
   border-radius: .25rem;
-  padding:2em;
+  padding: 1.5em;
   width: 50%;    
 }
 
-#distortion-details-background {
+.distortion-details-background {
   margin:5%;
   background-color: #fff;
   background-clip: border-box;
@@ -58,9 +59,7 @@ p {
 .form-checkbox-group {
   font-family: 'Montserrat', sans-serif;
   display: flex;
-  flex-direction: column;
-
-  
+  flex-direction: column;  
 }
 
 .distortions {
@@ -95,4 +94,9 @@ p {
   margin: 1% 0% 1% 25%;
   font-weight: 500;
   font-size: 1.5rem;
+}
+
+.check-in-categories {
+  font-weight: 600;
+  font-size: .9rem;
 }

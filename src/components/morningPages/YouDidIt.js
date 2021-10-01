@@ -89,14 +89,6 @@ export const YouDidIt = (props) => {
     )
 
 
-    // for (const morningPage of morningPages) {
-    //            dates.push(morningPage.date)
-    //            console.log(dates)
-    //        }
-
-
-
-
     const Streak = () => {
 
         const dates = []
@@ -108,31 +100,28 @@ export const YouDidIt = (props) => {
         streak = summary({ dates })
         console.log(streak)
         return <>
-            <p>CURRENT STREAK: {streak?.currentStreak} DAYS </p>
-            <p>LONGEST STREAK: {streak?.longestStreak} DAYS </p>
+            <p><span className="check-in-categories">CURRENT STREAK:</span> {streak?.currentStreak} DAYS  </p>
+            <p><span className="check-in-categories">LONGEST STREAK:</span> {streak?.longestStreak} DAYS </p>
         </>
     }
 
     return (
         <>
             
-            <h2 className="check-in-title">CHECK IN COMPLETE</h2>
+            <h2 className=" check-in-title">CHECK IN COMPLETE</h2>
             <div className="completed-checkin">
             
                 <h4 className="mp-title" key={morningPage.id}>{morningPage.title}</h4>
-                <p key={morningPage.morningPage}>MORNING PAGE:  {morningPage.morningPage}</p>
-                <p key={morningPage.blurts}>BLURTS:  {morningPage.blurt}</p>
-                <p>THOUGHT DISTORTIONS PRESENT: </p>
+                <p><span className="check-in-categories">MORNING PAGE: </span>  {morningPage.morningPage}</p>
+                <p><span className="check-in-categories">BLURTS: </span>{morningPage.blurt}</p>
+                <p><span className="check-in-categories">THOUGHT DISTORTIONS PRESENT: </span></p>
                 {
                     distortions.map((distortion) => {
-                        // if (distortion?.morningPageId === entry.id) {
                         return <p key={distortion.id}><Link className="distortions" to={`/distortionDetail/${distortion?.distortionDetail?.id}`}>{distortion.distortionDetail.name}</Link></p>
-
-
                     })
                 }
 
-                <p key={morningPage.reframe}>REFRAME:  {morningPage.reframe}</p>
+               <p> <span className="check-in-categories">REFRAME:</span>  {morningPage.reframe}</p>
                 {Streak()}
                 <div className="buttons">
                     <button className="btn btn-secondary edit" value={morningPage.id} onClick={() => {

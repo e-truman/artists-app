@@ -14,39 +14,19 @@ export const MorningPage = () => {
     });
 
     let date = () => {
-        // debugger
         let today = new Date();
-        let day = String(today.getDay())
         let dd = String(today.getDate()).padStart(2, '0');
-        let mm = String(today.getMonth() + 1).padStart(2, '0'); 
+        let mm = String(today.getMonth() + 1).padStart(2, '0');
         let yyyy = today.getFullYear();
-
-        console.log(day)
-        if (day === "0") {
-            day = "Sunday"
-        } else if (day === "1") {
-            day = "Monday"
-        } else if (day === "2") {
-            day = "Tuesday"
-        } else if (day === "3") {
-            day = "Wednesday"
-        } else if (day === "4") {
-            day = "Thursday"
-        } else if (day === "5") {
-            day = "Friday"
-        } else {
-            day = "Saturday"
-        }
-
         today = `${mm}/${dd}/${yyyy}`;
         return today
     }
 
 
-    const history = useHistory() 
+    const history = useHistory()
 
-    const submitMorningPage = (event) => { // invoked when you push submit button
-        event.preventDefault() // prevents form from being submitted without being able to see your fetch
+    const submitMorningPage = (event) => {
+        event.preventDefault()
         const newMorningPage = {
             title: morningPage.title,
             userId: morningPage.userId,
@@ -56,11 +36,11 @@ export const MorningPage = () => {
             date: date()
         }
         const fetchOption = {
-            method: "POST", //have to write options for fetch before writign fetch call
-            headers: { // needs headers or json won't work. only need content type
+            method: "POST",
+            headers: {
                 "Content-Type": "application/json"
             },
-            body: JSON.stringify(newMorningPage) // sends body of reqest. hast to be sent as string. cant be javascript objects
+            body: JSON.stringify(newMorningPage)
         }
 
         return fetch("http://localhost:8088/morningPages", fetchOption)
@@ -71,47 +51,46 @@ export const MorningPage = () => {
     }
     return (
         <>
-       
-        <form className="form">
-        <h2 className="title">MORNING PAGES</h2>
-            <fieldset>
-                <div className="form-group">
-                    <input
-                        required autoFocus
-                        type="text"
-                        className="form-control"
-                        placeholder="Title"
-                        onChange={
-                            (evt) => {
-                                const copy = { ...morningPage }
-                                copy.title = evt.target.value
-                                setMp(copy)
+
+            <form className="form">
+                <h2 className="title">MORNING PAGES</h2>
+                <fieldset>
+                    <div className="form-group">
+                        <input
+                            required autoFocus
+                            type="text"
+                            className="form-control"
+                            placeholder="Title"
+                            onChange={
+                                (evt) => {
+                                    const copy = { ...morningPage }
+                                    copy.title = evt.target.value
+                                    setMp(copy)
+                                }
+                            } />
+                    </div>
+                </fieldset>
+                <fieldset>
+                    <div className="form-group">
+                        <textarea
+                            required
+                            type="text"
+                            className="form-control journal"
+                            placeholder="How are you today?"
+                            onChange={
+                                (evt) => {
+                                    const copy = { ...morningPage }
+                                    copy.morningPage = evt.target.value
+                                    setMp(copy)
+                                }
                             }
-                        } />
-                </div>
-            </fieldset>
-            <fieldset>
-                <div className="form-group">
-                    {/* <label htmlFor="name">Specialty:</label> */}
-                    <textarea
-                        required 
-                        type="text"
-                        className="form-control journal"
-                        placeholder="How are you today?"
-                        onChange={
-                            (evt) => {
-                                const copy = { ...morningPage }
-                                copy.morningPage = evt.target.value
-                                setMp(copy)
-                            }
-                        }
-                    />
-                </div>
-            </fieldset>
-            <button className="btn btn-secondary" onClick={submitMorningPage}>
-                Next
-            </button>
-        </form>
+                        />
+                    </div>
+                </fieldset>
+                <button className="btn btn-secondary" onClick={submitMorningPage}>
+                    Next
+                </button>
+            </form>
         </>
     )
 }

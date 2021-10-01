@@ -1,9 +1,6 @@
-// purpose of this page: diplay a list of thought distortions selected for this morning page id, and provide a form where user can reframe
-
 import React, { useState, useEffect } from "react"
 import { useHistory, useParams } from "react-router-dom"
 import "./MorningPages.css";
-
 export const Details = (props) => {
     console.log(props)
     const history = useHistory()
@@ -25,7 +22,7 @@ export const Details = (props) => {
 
     return (
         <>
-            <div className="form" id="distortion-details-background">
+            <div className="distortion-details-background">
                 {
                     details.map((detail) => {
                         if (detail?.id === parseInt(distortionDetailId)) {

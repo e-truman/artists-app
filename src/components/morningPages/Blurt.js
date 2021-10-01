@@ -49,32 +49,28 @@ export const Blurt = (props) => {
 
 
     return (
-        <>
-            
-            <form className="form">
+        <form className="form">
             <h2 className="title">BLURTS</h2>
-                <fieldset>
-                    <div className="form-group">
-                        {/* <label htmlFor="name">Specialty:</label> */}
-                        <textarea
-                            required autoFocus
-                            type="text"
-                            className="form-control journal"
-                            placeholder="Did you have any unhelpful thoughts?"
-                            onChange={
-                                (evt) => {
-                                    const copy = { ...morningPage }
-                                    copy.blurt = evt.target.value
-                                    updateBlurt(copy)
-                                }
+            <fieldset>
+                <div className="form-group">
+                    <textarea
+                        required autoFocus
+                        type="text"
+                        className="form-control journal"
+                        placeholder="Did you have any unhelpful thoughts?"
+                        onChange={
+                            (evt) => {
+                                const copy = { ...morningPage }
+                                copy.blurt = evt.target.value
+                                updateBlurt(copy)
                             }
-                        />
-                    </div>
-                </fieldset>
-                <button className="btn btn-secondary" onClick={updateMorningPage}>
-                    Next
-                </button>
-            </form>
-        </>
+                        }
+                    />
+                </div>
+            </fieldset>
+            <button className="btn btn-secondary" onClick={updateMorningPage}>
+                Next
+            </button>
+        </form>
     )
 }

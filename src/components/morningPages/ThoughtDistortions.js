@@ -46,7 +46,7 @@ export const ThoughtDistortion = (props) => {
                 fetch("http://localhost:8088/thoughtDistortions", fetchOption)
                     .then(res => res.json())
                     .then((data) => {
-                        history.push(`/reframe/${morningPageId}`)
+                        history.push(`/reframe/data.${morningPageId}`)
                     })
             }
 
@@ -55,44 +55,40 @@ export const ThoughtDistortion = (props) => {
         }
     }
 
-
-
     return (
-            <form className="form">
+        <form className="form">
             <h2 className="title">THOUGHT DISTORTIONS</h2>
-                <fieldset className="checkbox-field">
-                    <p>Select any thought distortions present:</p>
-                    <div className="form-checkbox-group">
-
-                        {thoughtDistortionsList.map((distortion) => {
-                            return <>
-                                <div className="checkbox-and-name">
-                                    <input className="checkbox" value={distortion.id}
-                                        onChange={
-                                            (evt) => {
-                                                let copy = [...chosenThoughtDistortions]
-                                                if (copy.includes(distortion.id)) {
-                                                    const position = copy.indexOf(distortion.id) // returns position in array
-                                                    copy.splice(position, 1) // removes whatever at that position in array
-                                                } else {
-                                                    copy.push(distortion.id)
-                                                }
-                                                setChosenThoughtDistortions(copy)
+            <fieldset className="checkbox-field">
+                <p>Select any thought distortions present:</p>
+                <div className="form-checkbox-group">
+                    {thoughtDistortionsList.map((distortion) => {
+                        return <>
+                            <div className="checkbox-and-name">
+                                <input className="checkbox" value={distortion.id}
+                                    onChange={
+                                        (evt) => {
+                                            let copy = [...chosenThoughtDistortions]
+                                            if (copy.includes(distortion.id)) {
+                                                const position = copy.indexOf(distortion.id) // returns position in array
+                                                copy.splice(position, 1) // removes whatever at that position in array
+                                            } else {
+                                                copy.push(distortion.id)
                                             }
+                                            setChosenThoughtDistortions(copy)
                                         }
+                                    }
 
-                                        type="checkbox" />
+                                    type="checkbox" />
 
-
-                                    <Link className="distortions" to={`/distortionDetail/${distortion?.id}`}>{distortion.name}</Link>
-                                </div>
-                            </>
-                        })}
-                    </div>
-                </fieldset>
-                <button className="btn btn-secondary" onClick={submitThoughtDistortions}>
-                    Next
-                </button>
-            </form>
+                                <Link className="distortions" to={`/distortionDetail/${distortion?.id}`}>{distortion.name}</Link>
+                            </div>
+                        </>
+                    })}
+                </div>
+            </fieldset>
+            <button className="btn btn-secondary" onClick={submitThoughtDistortions}>
+                Next
+            </button>
+        </form>
     )
 }

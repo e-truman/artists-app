@@ -10,8 +10,8 @@ export const ArtistDates = () => {
 
     return (
         <>
-            <DatesSearch updateSearchState={updateSearchTerm}/>
-            <DatesList searchState={searchTerm}/>
+            <DatesSearch updateSearchState={updateSearchTerm} />
+            <DatesList searchState={searchTerm} />
             <ArtistDatesList />
         </>
     )

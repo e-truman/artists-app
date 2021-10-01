@@ -1,10 +1,8 @@
-import { VscSearch } from "react-icons/vsc";
 export const DatesSearch = ({ updateSearchState }) => {
 
     return (
         <>
             <div className="search-container">
-                {/* <h2 className="title">SEARCH</h2> */}
 
                 <section>
                     <form className="form--search" onSubmit={(event) => { event.preventDefault() }}>

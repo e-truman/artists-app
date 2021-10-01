@@ -6,7 +6,7 @@ export const Blurt = (props) => {
     console.log(props)
     const history = useHistory()
     const { morningPageId } = useParams()
-    const [morningPage, setPage] = useState({}) // trying to get same morning page from previous module. It should be a single object
+    const [morningPage, setPage] = useState({})
     const [blurtTransientState, updateBlurt] = useState({})
 
     useEffect(
@@ -19,10 +19,10 @@ export const Blurt = (props) => {
                 })
         },
 
-        [] // should I just do an initial render, or change whenever morningPageId changes? does it matter if I won't be changing morning page Id?
+        []
     )
 
-    const updateMorningPage = (evt) => {  // this submits my post.
+    const updateMorningPage = (evt) => {
         evt.preventDefault()
         const newMorningPage = {
             "title": morningPage.title,
@@ -39,7 +39,7 @@ export const Blurt = (props) => {
             headers: {
                 "Content-Type": "application/json"
             },
-            body: JSON.stringify(newMorningPage) //this replaces the morning page you're editing
+            body: JSON.stringify(newMorningPage)
         })
             .then(res => res.json())
             .then((data) => {

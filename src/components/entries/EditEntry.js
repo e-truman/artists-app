@@ -6,7 +6,7 @@ export const EditEntry = (props) => {
     console.log(props)
     const history = useHistory()
     const { morningPageId } = useParams()
-    const [entries, setEntry] = useState([]) 
+    const [entries, setEntry] = useState([])
     const [morningPages, setPage] = useState({
         "title": "",
         "userId": parseInt(localStorage.getItem("artist_login")),
@@ -34,7 +34,7 @@ export const EditEntry = (props) => {
             return fetch(`http://localhost:8088/morningPages/${morningPageId}`)
                 .then(response => response.json()) // make request and converts data back into a javascript object
                 .then((data) => {
-                    setPage(data) 
+                    setPage(data)
 
                 })
         },
@@ -71,9 +71,9 @@ export const EditEntry = (props) => {
 
     return (
         <>
-            
+
             <form className="form">
-            <h2 className="title">EDIT YOUR MORNING PAGE</h2>
+                <h2 className="title">EDIT YOUR MORNING PAGE</h2>
                 <fieldset>
                     <div className="form-group">
                         <label htmlFor="description">TITLE:</label>
@@ -125,7 +125,7 @@ export const EditEntry = (props) => {
                         />
                     </div>
                     <div className="distortion-list">
-                            <p>THOUGHT DISTORTIONS PRESENT:</p>
+                        <p>THOUGHT DISTORTIONS PRESENT:</p>
                         {
                             entries.map((distortion) => {
 

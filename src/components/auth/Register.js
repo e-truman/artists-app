@@ -58,14 +58,14 @@ export const Register = (props) => {
             <section className="login-background register-background">
                 <form className="form--login" onSubmit={handleRegister}>
                     <h1 className="h6 mb-3 font-weight-normal">REGISTER FOR THE ARTIST'S WAY APP</h1>
-                    
+
                     <fieldset>
                         <input onChange={updateUser} type="email" size="20" id="email" className="form-control entry-field" placeholder="EMAIL ADDRESS" required />
                     </fieldset>
                     <fieldset>
                         <input onChange={updateUser} type="text" size="20" id="name" className="form-control entry-field" placeholder="FULL NAME" required />
                     </fieldset>
-                    
+
                     <fieldset>
                         <Button type="submit"> REGISTER </Button>
                     </fieldset>

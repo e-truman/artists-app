@@ -35,7 +35,3 @@ export const Artists = () => (
   </>
 );
 
-
-{/* <div className="background" style={{ 
-      backgroundImage: `url("https://www.rawpixel.com/image/597475/creative-paint-texture-background")` 
-    }}></div> */}

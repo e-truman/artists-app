@@ -7,7 +7,7 @@ import './Home.css';
 export const ArtistDateStart = (props) => {
   const history = useHistory()
 
- 
+
   return (
     <>
 
@@ -16,7 +16,7 @@ export const ArtistDateStart = (props) => {
         <CardText>“Serious art is born from serious play.”</CardText>
         <Button onClick={() => history.push("/artist-dates")}>START</Button>
       </Card>
-      
+
     </>
   )
 }

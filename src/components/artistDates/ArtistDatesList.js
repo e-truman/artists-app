@@ -1,11 +1,10 @@
 import React, { useState, useEffect } from "react"
-import { useHistory, Link } from "react-router-dom"
+import { useHistory } from "react-router-dom"
 import { Button } from 'reactstrap';
 import "./ArtistDates.css";
 
 
-// Purpose of this page: show throught distortions. allow you to select them. will post the selected thought distortions with the correct morning page Id. The selected thought distortions will appear on next page
-export const ArtistDatesList = ({ searchState }) => {
+export const ArtistDatesList = () => {
     const history = useHistory()
     const [artistDates, setADs] = useState([])
 
@@ -13,18 +12,14 @@ export const ArtistDatesList = ({ searchState }) => {
     useEffect(
         () => {
             return fetch(`http://localhost:8088/artistDates`)
-                .then(response => response.json()) // make request and converts data back into an array of a javascript objects
+                .then(response => response.json()) 
                 .then((data) => {
-                    setADs(data)// the array will be called thoughtDistortionList
+                    setADs(data)
 
                 })
         },
         []
     )
-
-
-
-
 
 
     return (

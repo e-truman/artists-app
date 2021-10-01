@@ -1,5 +1,5 @@
 import { useHistory } from "react-router-dom"
-import { Card, Button, CardTitle, CardText } from 'reactstrap';
+import { Card, CardTitle, CardText } from 'reactstrap';
 import './Discover.css';
 
 

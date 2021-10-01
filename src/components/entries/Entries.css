@@ -7,27 +7,26 @@
     padding:2em;
     width: 60%;
       
-  }
+}
   
-  .edit-title {
-    margin: 2% 0 2% 0;
-  }
+.edit-title {
+     margin: 2% 0 2% 0;
+}
 
-  .btn-secondary {
+.btn-secondary {
     width: 10em;
     margin: auto;
     padding: 1em 0em 1em 0em;
     font-family: 'Montserrat', sans-serif;
-  }
+}
 
   .title-out-of-form {
-      margin-left: 20%;
-  }
+    margin-left: 20%;
+}
 
 .buttons {
     margin: 0 auto;
 }
-
 .delete {
     margin-left: 2%;
 }

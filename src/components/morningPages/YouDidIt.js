@@ -9,22 +9,8 @@ export const YouDidIt = (props) => {
     const [distortions, setDistortions] = useState([]) //chosen distortions is an array of objects
     const [morningPage, setPage] = useState([])
     const [morningPages, setDates] = useState([])
-    // const datesArray = []
     let streak = {}
     console.log(streak)
-   
-
-    // useEffect(
-    //     () => {
-    //         if (dates !== []) {
-    //             let streak = summary({ dates })
-    //             } 
-    //         } else {
-    //             updateSearchResults({})
-    //         }
-    //     },
-    //     [searchState]
-    // )
 
 
 
@@ -93,10 +79,11 @@ export const YouDidIt = (props) => {
 
         const dates = []
         let streak = {}
-        morningPages.map((mp) => {dates.push(mp.date)
-   
+        morningPages.map((mp) => {
+            dates.push(mp.date)
+
         })
-        
+
         streak = summary({ dates })
         console.log(streak)
         return <>
@@ -107,10 +94,10 @@ export const YouDidIt = (props) => {
 
     return (
         <>
-            
+
             <h2 className=" check-in-title">CHECK IN COMPLETE</h2>
             <div className="completed-checkin">
-            
+
                 <h4 className="mp-title" key={morningPage.id}>{morningPage.title}</h4>
                 <p><span className="check-in-categories">MORNING PAGE: </span>  {morningPage.morningPage}</p>
                 <p><span className="check-in-categories">BLURTS: </span>{morningPage.blurt}</p>
@@ -121,17 +108,17 @@ export const YouDidIt = (props) => {
                     })
                 }
 
-               <p> <span className="check-in-categories">REFRAME:</span>  {morningPage.reframe}</p>
+                <p> <span className="check-in-categories">REFRAME:</span>  {morningPage.reframe}</p>
                 {Streak()}
                 <div className="buttons">
                     <button className="btn btn-secondary edit" value={morningPage.id} onClick={() => {
                         EditEntry(morningPage.id)
                     }}>EDIT</button>
-                    <button className="btn btn-secondary delete"  onClick={() => {
+                    <button className="btn btn-secondary delete" onClick={() => {
                         deleteTicket(morningPage.id)
                     }}>DELETE</button>
                 </div>
-                </div>
+            </div>
         </>
 
 

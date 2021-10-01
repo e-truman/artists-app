@@ -6,7 +6,7 @@ import { Button } from 'reactstrap';
 export const Entries = (props) => {
     console.log(props)
     const history = useHistory()
-    const [entries, setEntries] = useState([]) 
+    const [entries, setEntries] = useState([])
     const [distortions, setDistortions] = useState([])
 
 

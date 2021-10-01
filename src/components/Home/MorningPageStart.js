@@ -13,7 +13,6 @@ export const MorningPageStart = (props) => {
                 <CardText>"Each morning, as we face the page, we meet ourselves. The pages give us a place to vent and a place to dream."</CardText>
                 <Button onClick={() => history.push("/morning-pages")}>START</Button>
             </Card>
-
         </>
     )
 }

@@ -2,7 +2,7 @@ import React, { useRef, useState } from "react"
 import { Link } from "react-router-dom";
 import { useHistory } from "react-router-dom"
 import "./Login.css"
-import { Button} from 'reactstrap';
+import { Button } from 'reactstrap';
 
 export const Login = () => {
     const [email, set] = useState("")

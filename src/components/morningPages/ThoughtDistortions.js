@@ -24,9 +24,8 @@ export const ThoughtDistortion = (props) => {
     const submitThoughtDistortions = (evt) => { // invoked when you push submit button
 
         if (chosenThoughtDistortions.length > 0) {
-            evt.preventDefault() // prevents form from being submitted without being able to see your fetch
-            //needs to be inside an iteration of chosen thought distortions
-            for (const distortion of chosenThoughtDistortions) { // for every distortion number in the chosenThoughtDistortion array, creating a new object for each number
+            evt.preventDefault() //needs to be inside an iteration of chosen thought distortions
+            for (const distortion of chosenThoughtDistortions) { // for every distortion number in the chosenThoughtDistortion array, creates a new object for each number
 
                 const newThoughtDistortion = {
                     "distortionDetailId": distortion,
@@ -37,7 +36,7 @@ export const ThoughtDistortion = (props) => {
                     headers: {
                         "Content-Type": "application/json"
                     },
-                    body: JSON.stringify(newThoughtDistortion) // sends body of reqest. hast to be sent as string. cant be javascript objects
+                    body: JSON.stringify(newThoughtDistortion) // sends body of request. has to be sent as string
                 }
                 fetch("http://localhost:8088/thoughtDistortions", fetchOption)
                     .then(res => res.json())

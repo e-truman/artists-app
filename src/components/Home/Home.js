@@ -19,7 +19,7 @@ export const Home = (props) => {
       <Quotes />
       <MorningPageStart />
       <ArtistDateStart />
-      {/* <WeeklyStreak /> */}
+   <WeeklyStreak />
 
 
     </>

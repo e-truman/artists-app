@@ -37,7 +37,7 @@ export const MorningPage = () => {
             day = "Saturday"
         }
 
-        today = `${day} ${mm}/${dd}/${yyyy}`;
+        today = `${mm}/${dd}/${yyyy}`;
         return today
     }
 

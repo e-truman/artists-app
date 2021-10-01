@@ -108,8 +108,8 @@ export const YouDidIt = (props) => {
         streak = summary({ dates })
         console.log(streak)
         return <>
-            <p>CURRENT STREAK: {streak?.currentStreak}  </p>
-            <p>LONGEST STREAK: {streak?.longestStreak}  </p>
+            <p>CURRENT STREAK: {streak?.currentStreak} DAYS </p>
+            <p>LONGEST STREAK: {streak?.longestStreak} DAYS </p>
         </>
     }
 
@@ -120,8 +120,8 @@ export const YouDidIt = (props) => {
             <form className="form completed-checkin">
 
                 <h4 className="mp-title" key={morningPage.id}>{morningPage.title}</h4>
-                <p key={morningPage.morningPage}>MORNING PAGE: {morningPage.morningPage}</p>
-                <p key={morningPage.blurts}>BLURTS: {morningPage.blurt}</p>
+                <p key={morningPage.morningPage}>MORNING PAGE:  {morningPage.morningPage}</p>
+                <p key={morningPage.blurts}>BLURTS:  {morningPage.blurt}</p>
                 <p>THOUGHT DISTORTIONS PRESENT: </p>
                 {
                     distortions.map((distortion) => {
@@ -133,7 +133,7 @@ export const YouDidIt = (props) => {
                 }
 
 
-                <p key={morningPage.reframe}>REFRAME: {morningPage.reframe}</p>
+                <p key={morningPage.reframe}>REFRAME:  {morningPage.reframe}</p>
                 {Streak()}
                 <div className="buttons">
                     <button className="btn btn-secondary edit" value={morningPage.id} onClick={() => {

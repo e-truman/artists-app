@@ -69,7 +69,6 @@ export const WeeklyStreak = () => {
             tuesday.push(recordDates[key]);
         }
 
-
         for (key in recordDates) {
             if (!key.startsWith('Wed')) continue;
             wednesday.push(recordDates[key]);

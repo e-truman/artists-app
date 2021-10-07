@@ -1,11 +1,41 @@
-
+.bg-light,
 .navbar {
     display: flex;
     flex-wrap: nowrap;
-    justify-content: left;
+    justify-content: right;
+    width:100%;
+    
+    
 }
 
-.navbar__item {
-    flex-basis: 20%;
-    list-style-type: none;
+a,
+.navbar__link {
+    text-decoration: none;
+    color: #6c757d;
+
 }
+
+.nav__text {
+    font-size: 50%;
+}
+
+svg {
+    margin-right: .75em;
+}
+
+.navbar-brand {
+    font-family: 'Beth Ellen', cursive;
+    color: #6c757d;
+    margin: .5em;
+}
+
+.collapse {
+    justify-content: flex-end;
+    margin-right: 1%;
+}
+
+
+
+
+
+

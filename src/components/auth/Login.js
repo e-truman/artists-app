@@ -2,6 +2,7 @@ import React, { useRef, useState } from "react"
 import { Link } from "react-router-dom";
 import { useHistory } from "react-router-dom"
 import "./Login.css"
+import { Button } from 'reactstrap';
 
 export const Login = () => {
     const [email, set] = useState("")
@@ -28,33 +29,32 @@ export const Login = () => {
     }
 
     return (
-        <main className="container--login">
+        <main>
             <dialog className="dialog dialog--auth" ref={existDialog}>
-                <div>User does not exist</div>
+                <div>USER DOES NOT EXIST</div>
                 <button className="button--close" onClick={e => existDialog.current.close()}>Close</button>
             </dialog>
 
-            <section>
+            <section className="login-background">
                 <form className="form--login" onSubmit={handleLogin}>
-                    <h1>The Artist's App</h1>
-                    <h2>Please sign in</h2>
+                    <h1 className="title-login">The Artist's Way App</h1>
+                    <h6>PLEASE SIGN IN</h6>
                     <fieldset>
-                        <label htmlFor="inputEmail"> Email address </label>
                         <input type="email"
                             onChange={evt => set(evt.target.value)}
-                            className="form-control"
-                            placeholder="Email address"
+                            className="form-control entry-field"
+                            placeholder="EMAIL ADDRESS"
                             required autoFocus />
                     </fieldset>
                     <fieldset>
-                        <button type="submit">
-                            Sign in
-                        </button>
+                        <Button className="button" type="submit">
+                            SIGN IN
+                        </Button>
                     </fieldset>
                 </form>
             </section>
             <section className="link--register">
-                <Link to="/register">Not a member yet?</Link>
+                <Link className="link" to="/register">NOT A MEMBER YET?</Link>
             </section>
         </main>
     )

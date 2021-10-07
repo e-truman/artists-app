@@ -1,6 +1,7 @@
 import React, { useRef, useState } from "react"
 import { useHistory } from "react-router-dom"
 import "./Login.css"
+import { Button } from 'reactstrap';
 
 export const Register = (props) => {
     const [user, setUser] = useState({})
@@ -40,7 +41,7 @@ export const Register = (props) => {
     }
 
     const updateUser = (evt) => {
-        const copy = {...user}
+        const copy = { ...user }
         copy[evt.target.id] = evt.target.value
         setUser(copy)
     }
@@ -49,26 +50,27 @@ export const Register = (props) => {
     return (
         <main style={{ textAlign: "center" }}>
             <dialog className="dialog dialog--password" ref={conflictDialog}>
-                <div>Account with that email address already exists</div>
+                <div>ACCOUNT WITH THAT EMAIL ALREADY EXISTS</div>
                 <button className="button--close" onClick={e => conflictDialog.current.close()}>Close</button>
             </dialog>
 
-            <form className="form--login" onSubmit={handleRegister}>
-                <h1 className="h3 mb-3 font-weight-normal">Please Register for The Artist's App</h1>
-                <fieldset>
-                    <label htmlFor="name"> Full Name </label>
-                    <input onChange={updateUser}
-                           type="text" id="name" className="form-control"
-                           placeholder="Enter your name" required autoFocus />
-                </fieldset>
-                <fieldset>
-                    <label htmlFor="email"> Email address </label>
-                    <input onChange={updateUser} type="email" id="email" className="form-control" placeholder="Email address" required />
-                </fieldset>
-                <fieldset>
-                    <button type="submit"> Register </button>
-                </fieldset>
-            </form>
+
+            <section className="login-background register-background">
+                <form className="form--login" onSubmit={handleRegister}>
+                    <h1 className="h6 mb-3 font-weight-normal">REGISTER FOR THE ARTIST'S WAY APP</h1>
+
+                    <fieldset>
+                        <input onChange={updateUser} type="email" size="20" id="email" className="form-control entry-field" placeholder="EMAIL ADDRESS" required />
+                    </fieldset>
+                    <fieldset>
+                        <input onChange={updateUser} type="text" size="20" id="name" className="form-control entry-field" placeholder="FULL NAME" required />
+                    </fieldset>
+
+                    <fieldset>
+                        <Button type="submit"> REGISTER </Button>
+                    </fieldset>
+                </form>
+            </section>
         </main>
     )
 }

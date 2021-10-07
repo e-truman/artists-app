@@ -1,16 +1,17 @@
 import React, { useState, useEffect } from "react"
 import { useHistory, useParams } from "react-router-dom"
+import "./MorningPages.css";
 
 export const Blurt = (props) => {
     console.log(props)
     const history = useHistory()
     const { morningPageId } = useParams()
-    const [morningPage, setPage] = useState({}) // trying to get same morning page from previous module. It should be a single object
+    const [morningPage, setPage] = useState({})
     const [blurtTransientState, updateBlurt] = useState({})
 
-    useEffect( 
+    useEffect(
         () => {
-            return fetch(`http://localhost:8088/morningPages/${morningPageId}`) 
+            return fetch(`http://localhost:8088/morningPages/${morningPageId}`)
                 .then(response => response.json()) // make request and converts data back into a javascript object
                 .then((data) => {
                     setPage(data) // I gain access to the morning page object by invoking this function
@@ -18,58 +19,57 @@ export const Blurt = (props) => {
                 })
         },
 
-        [] // should I just do an initial render, or change whenever morningPageId changes? does it matter if I won't be changing morning page Id?
+        []
     )
 
-    const updateMorningPage = (evt) => {  // this submits my post.
+    const updateMorningPage = (evt) => {
         evt.preventDefault()
-        const newMorningPage = {  
+        const newMorningPage = {
             "title": morningPage.title,
             "userId": morningPage.userId,
             "morningPage": morningPage.morningPage,
             "blurt": blurtTransientState.blurt,
             "reframe": "",
             "date": morningPage.date
-    };
-    
-        return fetch(`http://localhost:8088/morningPages/${morningPageId}`,{
+        };
+
+        return fetch(`http://localhost:8088/morningPages/${morningPageId}`, {
 
             method: "PUT",
             headers: {
                 "Content-Type": "application/json"
             },
-            body: JSON.stringify(newMorningPage) //this replaces the morning page you're editing
+            body: JSON.stringify(newMorningPage)
         })
             .then(res => res.json())
             .then((data) => {
-                history.push(`/thought-distortions/${data.id}`) 
+                history.push(`/thought-distortions/${data.id}`)
             })
-        }
-        
-            
+    }
+
+
     return (
-        <form className="blurtForm">
-            <h2 className="blurt__title">Blurts</h2>
+        <form className="form">
+            <h2 className="title">BLURTS</h2>
             <fieldset>
                 <div className="form-group">
-                    {/* <label htmlFor="name">Specialty:</label> */}
-                    <input 
+                    <textarea
                         required autoFocus
                         type="text"
-                        className="form-control"
+                        className="form-control journal"
                         placeholder="Did you have any unhelpful thoughts?"
                         onChange={
                             (evt) => {
-                                const copy = {...morningPage}
+                                const copy = { ...morningPage }
                                 copy.blurt = evt.target.value
-                               updateBlurt(copy)
+                                updateBlurt(copy)
                             }
-                        } 
-                       />
+                        }
+                    />
                 </div>
             </fieldset>
-            <button className="btn btn-primary" onClick={updateMorningPage}> 
-              Next
+            <button className="btn btn-secondary" onClick={updateMorningPage}>
+                Next
             </button>
         </form>
     )

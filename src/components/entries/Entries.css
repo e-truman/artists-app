@@ -1,0 +1,38 @@
+#entry {
+    margin: 0 auto;
+    background-color: #fff;
+    background-clip: border-box;
+    border: 1px solid rgba(0,0,0,.125);
+    border-radius: .25rem;
+    padding:2em;
+    width: 60%;
+      
+}
+  
+.edit-title {
+     margin: 2% 0 2% 0;
+}
+
+.btn-secondary {
+    width: 10em;
+    margin: auto;
+    padding: 1em 0em 1em 0em;
+    font-family: 'Montserrat', sans-serif;
+}
+
+  .title-out-of-form {
+    margin-left: 20%;
+}
+
+.buttons {
+    margin: 0 auto;
+}
+.delete {
+    margin-left: 2%;
+}
+
+.check-in-categories {
+    font-weight: 600;
+    font-size: .9rem;
+  }
+  

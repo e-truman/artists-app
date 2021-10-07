@@ -5,6 +5,7 @@ import { Login } from "./auth/Login";
 import { Register } from "./auth/Register";
 import "./Artists.css";
 import { NavBar } from "./nav/NavBar";
+import background from "./brush-background.jpeg";
 
 export const Artists = () => (
   <>
@@ -14,7 +15,9 @@ export const Artists = () => (
           return (
             <>
               <NavBar />
+              <img className="background" src={background} alt="paint splatters" />
               <ApplicationViews />
+
             </>
           );
         } else {
@@ -31,3 +34,4 @@ export const Artists = () => (
     </Route>
   </>
 );
+

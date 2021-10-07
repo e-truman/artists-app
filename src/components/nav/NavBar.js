@@ -1,32 +1,58 @@
-import React from "react";
 import { Link } from "react-router-dom"
 import "./NavBar.css"
+import { VscBook, VscHome, VscSignOut, VscSearch, VscSymbolColor } from "react-icons/vsc";
+import React, { useState } from 'react';
+import {
+  Collapse,
+  Navbar,
+  NavbarToggler,
+  NavbarBrand,
+  Nav,
+  NavItem,
+  NavLink,
+} from 'reactstrap';
+
 
 export const NavBar = () => {
-    return (
-        <ul className="navbar">
-            {/* <li className="navbar__item active">
-                <Link className="navbar__link" to="/discover">Discover</Link> 
-            </li> */}
-            <li className="navbar__item">
-                <Link className="navbar__link" to="/entries">Past Entries</Link>
-            </li>
-            <li className="navbar__item">
-                <Link className="navbar__link" to="/">Home</Link>
-            </li>
-            {/* <li className="navbar__item">
-                <Link className="navbar__link" to="/insights">Insights</Link>
-            </li> */}
-            <li className="navbar__item">
-                <Link className="navbar__link" to="#"
-                onClick={
-                    () => {
-                            localStorage.removeItem("artist_login")
-                        }
-                    }>
-                    Logout
-                </Link>
-            </li>
-        </ul>
-    )
+
+  const [isOpen, setIsOpen] = useState(false);
+
+  const toggle = () => setIsOpen(!isOpen);
+
+  return (
+    <div>
+      <Navbar color="light" light expand="md">
+        <NavbarBrand style={{ color: "#6c757d" }} href="/">The Artist's Way App </NavbarBrand>
+        <NavbarToggler onClick={toggle} />
+        <Collapse isOpen={isOpen} navbar>
+          <Nav className="mr-auto" navbar>
+            <NavItem>
+              <NavLink title="HOME" href="/"><VscHome /></NavLink>
+            </NavItem>
+            <NavItem>
+              <NavLink title="PAST ENTRIES" href="/entries"><VscBook /></NavLink>
+            </NavItem>
+            <NavItem>
+              <NavLink title="ARTIST DATES" href="/artist-dates"><VscSymbolColor /></NavLink>
+            </NavItem>
+            <NavItem>
+              <NavLink href="/discover" title="DISCOVER"><VscSearch /></NavLink>
+            </NavItem>
+
+          </Nav>
+          <Link title="LOGOUT" className="navbar__link" to="#"
+            onClick={
+              () => {
+                localStorage.removeItem("artist_login")
+              }
+            }>
+
+            <VscSignOut />
+          </Link>
+        </Collapse>
+      </Navbar>
+    </div>
+  );
 }
+
+

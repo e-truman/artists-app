@@ -1,8 +1,7 @@
 import React, { useState, useEffect } from "react"
 import { useHistory, useParams, Link } from "react-router-dom"
+import "./MorningPages.css";
 
-
-// Purpose of this page: show throught distortions. allow you to select them. will post the selected thought distortions with the correct morning page Id. The selected thought distortions will appear on next page
 export const ThoughtDistortion = (props) => {
     console.log(props)
     const history = useHistory()
@@ -10,8 +9,6 @@ export const ThoughtDistortion = (props) => {
     const { morningPageId } = useParams()
     const [chosenThoughtDistortions, setChosenThoughtDistortions] = useState([])
 
-
-    //I need to fetch the list of thought distortions. I will map throught them and display them as a list of links
     useEffect(
         () => {
             return fetch(`http://localhost:8088/distortionDetails?_embed=thoughtDistortions&_embed=morningPages`)
@@ -24,62 +21,67 @@ export const ThoughtDistortion = (props) => {
         []
     )
 
-
     const submitThoughtDistortions = (evt) => { // invoked when you push submit button
-        evt.preventDefault() // prevents form from being submitted without being able to see your fetch
-        //needs to be inside an iteration of chosen thought distortions
-        for (const distortion of chosenThoughtDistortions) { // for every distortion number in the chosenThoughtDistortion array, creating a new object for each number
 
-            const newThoughtDistortion = {
-                "distortionDetailId": distortion, 
-                "morningPageId": parseInt(morningPageId)
+        if (chosenThoughtDistortions.length > 0) {
+            evt.preventDefault() //needs to be inside an iteration of chosen thought distortions
+            for (const distortion of chosenThoughtDistortions) { // for every distortion number in the chosenThoughtDistortion array, creates a new object for each number
+
+                const newThoughtDistortion = {
+                    "distortionDetailId": distortion,
+                    "morningPageId": parseInt(morningPageId)
+                }
+                const fetchOption = { // for each object, a post will run
+                    method: "POST",
+                    headers: {
+                        "Content-Type": "application/json"
+                    },
+                    body: JSON.stringify(newThoughtDistortion) // sends body of request. has to be sent as string
+                }
+                fetch("http://localhost:8088/thoughtDistortions", fetchOption)
+                    .then(res => res.json())
+                    .then((data) => {
+                        history.push(`/reframe/${morningPageId}`)
+                    })
             }
-            const fetchOption = { // for each object, a post will run
-                method: "POST", 
-                headers: { 
-                    "Content-Type": "application/json"
-                },
-                body: JSON.stringify(newThoughtDistortion) // sends body of reqest. hast to be sent as string. cant be javascript objects
-            }
-            fetch("http://localhost:8088/thoughtDistortions", fetchOption)
-                .then(res => res.json())
-                .then((data) => {
-                      history.push(`/reframe/${morningPageId}`) 
-                })
+
+        } else {
+            history.push(`/reframe/${morningPageId}`)
         }
     }
 
-
-
     return (
-        <form className="thoughtDistortionForm">
-            <h2 className="thoughtDistortion__title">Select the thought distortions present</h2>
-            <fieldset>
+        <form className="form">
+            <h2 className="title">THOUGHT DISTORTIONS</h2>
+            <fieldset className="checkbox-field">
+                <p>Select any thought distortions present:</p>
                 <div className="form-checkbox-group">
-                    <label htmlFor="name">click to learn more:</label>
                     {thoughtDistortionsList.map((distortion) => {
                         return <>
-                            <Link to={`/distortionDetail/${distortion?.id}`}>{distortion.name}</Link>
-                            <input value={distortion.id}
-                                onChange={
-                                    (evt) => {
-                                        let copy = [...chosenThoughtDistortions]
-                                        if (copy.includes(distortion.id)) {
-                                            const position = copy.indexOf(distortion.id) // returns position in array
-                                            copy.splice(position, 1) // removes whatever at that position in array
-                                        } else {
-                                            copy.push(distortion.id)
+                            <div className="checkbox-and-name">
+                                <input className="checkbox" value={distortion.id}
+                                    onChange={
+                                        (evt) => {
+                                            let copy = [...chosenThoughtDistortions]
+                                            if (copy.includes(distortion.id)) {
+                                                const position = copy.indexOf(distortion.id) // returns position in array
+                                                copy.splice(position, 1) // removes whatever at that position in array
+                                            } else {
+                                                copy.push(distortion.id)
+                                            }
+                                            setChosenThoughtDistortions(copy)
                                         }
-                                        setChosenThoughtDistortions(copy)
                                     }
-                                }
 
-                                type="checkbox" />
+                                    type="checkbox" />
+
+                                <Link className="distortions" to={`/distortionDetail/${distortion?.id}`}>{distortion.name}</Link>
+                            </div>
                         </>
                     })}
                 </div>
             </fieldset>
-            <button className="btn btn-primary" onClick={submitThoughtDistortions}>
+            <button className="btn btn-secondary" onClick={submitThoughtDistortions}>
                 Next
             </button>
         </form>

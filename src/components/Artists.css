@@ -1,24 +1,123 @@
 /* Import the google web fonts you want to use */
 @import url("https://fonts.googleapis.com/css?family=Comfortaa|Patua+One");
+@import url('https://fonts.googleapis.com/css2?family=Beth+Ellen&display=swap');
+@import url('https://fonts.googleapis.com/css2?family=Montserrat:wght@200;300&family=Open+Sans&display=swap');
 
-/*Typography
---------------------------------------------------------------*/
+
 body,
 button,
+label,
 input,
 select,
 textarea {
   color: #404040;
-  font-family: "Comfortaa", Arial, sans-serif;
+  font-family: 'Montserrat', sans-serif;
   font-size: 14px;
   line-height: 1.5;
 }
 
+body {
+  margin: 0;  
+}
+
+.card-title {
+  font-family: 'Montserrat', sans-serif;
+  font-weight: 700;
+  letter-spacing: 2px;
+  text-align: center;
+}
+
 h1, h2, h3, h4, h5, h6 {
-  font-family: "Patua One", serif;
+  font-family: 'Montserrat', sans-serif;
   letter-spacing: 2px;
 }
 
 p {
   margin-bottom: 1.5em;
+  font-family: 'Montserrat', sans-serif;
 }
+
+.background {
+  position:absolute;
+  left:0px;
+  top:0px;
+  z-index:-3;
+  opacity:40%;
+  width: 100%;
+}
+
+.card-body {
+  display: flex;
+  justify-content: center;
+  margin: 1% 30%;
+  padding: 0% 30% 2% 30%;
+  font-family: 'Montserrat', sans-serif;
+  border-style: solid;
+  width: 50%;
+}
+
+  
+.card {
+  align-content: center;
+  margin: 2% 25%;
+ 
+}
+
+.button-container {
+  display: flex;
+  flex-direction: column;
+
+}
+
+.btn {
+  width: 10em;
+  margin: auto;
+  padding: 1em 0em 1em 0em;
+  font-family: 'Montserrat', sans-serif;
+}
+
+.space-between {
+  margin-bottom: 2em;
+}
+
+.card-text {
+  padding: 0em 2em 0em 2em;
+}
+
+.title {
+  font-weight: 500;
+  font-size: 1.5rem;
+  margin: 0 auto; 
+}
+
+.delete {
+  margin: 0em 1em 0em 1em;
+}
+
+
+p {
+  margin-bottom: 1.5em;
+}
+
+.form {
+  padding: 2%;
+  margin: 1%;
+
+}
+
+label {
+  font-weight: 800;
+  font-size: 1rem;
+}
+
+.title {
+  font-weight: 500;
+  font-size: 1.5rem;
+  margin: 0 auto; 
+}
+
+
+
+
+
+

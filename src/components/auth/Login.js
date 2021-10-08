@@ -32,7 +32,7 @@ export const Login = () => {
         <main>
             <dialog className="dialog dialog--auth" ref={existDialog}>
                 <div>USER DOES NOT EXIST</div>
-                <button className="button--close" onClick={e => existDialog.current.close()}>Close</button>
+                <button className="button--close" onClick={e => existDialog.current.close()}>CLOSE</button>
             </dialog>
 
             <section className="login-background">

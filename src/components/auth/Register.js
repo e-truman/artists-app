@@ -51,7 +51,7 @@ export const Register = (props) => {
         <main style={{ textAlign: "center" }}>
             <dialog className="dialog dialog--password" ref={conflictDialog}>
                 <div>ACCOUNT WITH THAT EMAIL ALREADY EXISTS</div>
-                <button className="button--close" onClick={e => conflictDialog.current.close()}>Close</button>
+                <button className="button--close" onClick={e => conflictDialog.current.close()}>CLOSE</button>
             </dialog>
 
 

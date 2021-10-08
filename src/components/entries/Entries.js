@@ -12,7 +12,7 @@ export const Entries = (props) => {
 
     useEffect(
         () => {
-            return fetch(`http://localhost:8088/thoughtDistortions?_expand=morningPage&_expand=distortionDetail`)
+            return fetch(`https://artists-api-f85cm.ondigitalocean.app/thoughtDistortions?_expand=morningPage&_expand=distortionDetail`)
                 .then(response => response.json()) // make request and converts data back into a javascript object
                 .then((data) => {
                     setDistortions(data)
@@ -23,7 +23,7 @@ export const Entries = (props) => {
 
     const FetchEntries =
         () => {
-            return fetch(`http://localhost:8088/morningPages`)
+            return fetch(`https://artists-api-f85cm.ondigitalocean.app/morningPages`)
                 .then(response => response.json()) // make request and converts data back into a javascript object
                 .then((data) => {
                     setEntries(data)
@@ -43,7 +43,7 @@ export const Entries = (props) => {
     }
 
     const deleteEntry = (id) => {
-        fetch(`http://localhost:8088/morningPages/${id}`, {
+        fetch(`https://artists-api-f85cm.ondigitalocean.app/morningPages/${id}`, {
             method: "DELETE"
         })
             .then(() => {
@@ -51,7 +51,6 @@ export const Entries = (props) => {
             }
             )
     }
-
 
 
     return (
@@ -78,12 +77,12 @@ export const Entries = (props) => {
                                                 }
                                             })
                                         }
-                                        <p key={entry.id}> <span className="check-in-categories">REFRAME: </span>{entry.reframe}</p>
+                                        <p> <span className="check-in-categories">REFRAME: </span>{entry.reframe}</p>
                                         <p className="check-in-categories">Date: {entry.date}</p>
                                     </p>
                                     <div className="buttons">
                                         <Button value={entry.id} onClick={() => { editEntry(entry.id) }}>EDIT</Button>
-                                        <Button className="btn btn-secondary delete" onClick={() => { deleteEntry(entry.id) }}>DELETE</Button>
+                                        <Button className="btn btn-secondary delete" value={entry.id} onClick={() => { deleteEntry(entry.id) }}>DELETE</Button>
 
                                     </div>
                                 </p>

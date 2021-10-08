@@ -12,7 +12,7 @@ export const WeeklyStreak = () => {
 
     useEffect(
         () => {
-            return fetch(`http://localhost:8088/morningPages`)
+            return fetch(`https://artists-api-f85cm.ondigitalocean.app/morningPages`)
                 .then(response => response.json()) // make request and converts data back into a javascript object
                 .then((data) => {
                     setDates(data)
@@ -39,8 +39,9 @@ export const WeeklyStreak = () => {
         let endDate = EndDate()
         let length = 7
         morningPages.map((mp) => {
-            if (mp.userId === parseInt(localStorage.getItem("artist_login")))
+            if (mp.userId === parseInt(localStorage.getItem("artist_login"))) {
                 dates.push(mp.date)
+            }
         })
         let recordDates = trackRecord({ dates, length, endDate }) // returns a single object of the last 7 days. Keys are the dates, values are booleans. They are marked true if that date is in the array of dates used as a parameter
 

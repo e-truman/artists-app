@@ -9,7 +9,7 @@ export const Details = (props) => {
 
     useEffect(
         () => {
-            return fetch(`http://localhost:8088/distortionDetails`)
+            return fetch(`https://artists-api-f85cm.ondigitalocean.app/distortionDetails`)
                 .then(response => response.json()) // make request and converts data back into a javascript object
                 .then((data) => {
                     setDetails(data)

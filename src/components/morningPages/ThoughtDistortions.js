@@ -11,7 +11,7 @@ export const ThoughtDistortion = (props) => {
 
     useEffect(
         () => {
-            return fetch(`http://localhost:8088/distortionDetails?_embed=thoughtDistortions&_embed=morningPages`)
+            return fetch(`https://artists-api-f85cm.ondigitalocean.app/distortionDetails?_embed=thoughtDistortions&_embed=morningPages`)
                 .then(response => response.json()) // make request and converts data back into an array of a javascript objects
                 .then((data) => {
                     setDistortions(data)// the array will be called thoughtDistortionList
@@ -38,7 +38,7 @@ export const ThoughtDistortion = (props) => {
                     },
                     body: JSON.stringify(newThoughtDistortion) // sends body of request. has to be sent as string
                 }
-                fetch("http://localhost:8088/thoughtDistortions", fetchOption)
+                fetch("https://artists-api-f85cm.ondigitalocean.app/thoughtDistortions", fetchOption)
                     .then(res => res.json())
                     .then((data) => {
                         history.push(`/reframe/${morningPageId}`)

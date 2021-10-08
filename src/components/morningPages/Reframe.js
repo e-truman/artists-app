@@ -13,7 +13,7 @@ export const Reframe = (props) => {
 
     useEffect(
         () => {
-            return fetch(`http://localhost:8088/thoughtDistortions?_expand=morningPage&_expand=distortionDetail`)
+            return fetch(`https://artists-api-f85cm.ondigitalocean.app/thoughtDistortions?_expand=morningPage&_expand=distortionDetail`)
                 .then(response => response.json())
                 .then((data) => {
                     setTD(data)
@@ -25,7 +25,7 @@ export const Reframe = (props) => {
 
     useEffect(
         () => {
-            return fetch(`http://localhost:8088/morningPages/${morningPageId}`)
+            return fetch(`https://artists-api-f85cm.ondigitalocean.app/morningPages/${morningPageId}`)
                 .then(response => response.json())
                 .then((data) => {
                     setPage(data)
@@ -45,7 +45,7 @@ export const Reframe = (props) => {
             "date": morningPage.date
         };
 
-        return fetch(`http://localhost:8088/morningPages/${morningPageId}`, {
+        return fetch(`https://artists-api-f85cm.ondigitalocean.app/morningPages/${morningPageId}`, {
 
             method: "PUT",
             headers: {

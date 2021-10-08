@@ -37,7 +37,7 @@ export const Quotes = (props) => {
 
   const RandomNumber = () => {
     if (number !== 0) {
-      return fetch(`http://localhost:8088/quotes/${number}`)
+      return fetch(`https://artists-api-f85cm.ondigitalocean.app/quotes/${number}`)
 
         .then(response => response.json()) // make request and converts data back into a javascript object
         .then((data) => {

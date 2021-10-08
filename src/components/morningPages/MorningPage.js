@@ -43,7 +43,7 @@ export const MorningPage = () => {
             body: JSON.stringify(newMorningPage)
         }
 
-        return fetch("http://localhost:8088/morningPages", fetchOption)
+        return fetch("https://artists-api-f85cm.ondigitalocean.app/morningPages", fetchOption)
             .then(res => res.json())
             .then((data) => {
                 history.push(`/blurts/${data.id}`) // This redirects me to the blurts form with the correct id

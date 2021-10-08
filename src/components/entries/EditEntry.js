@@ -18,7 +18,7 @@ export const EditEntry = (props) => {
 
     useEffect(
         () => {
-            return fetch(`http://localhost:8088/thoughtDistortions?_expand=morningPage&_expand=distortionDetail&morningPageId=${morningPageId}`)
+            return fetch(`https://artists-api-f85cm.ondigitalocean.app/thoughtDistortions?_expand=morningPage&_expand=distortionDetail&morningPageId=${morningPageId}`)
                 .then(response => response.json()) // make request and converts data back into a javascript object
 
                 .then((data) => {
@@ -31,7 +31,7 @@ export const EditEntry = (props) => {
 
     useEffect(
         () => {
-            return fetch(`http://localhost:8088/morningPages/${morningPageId}`)
+            return fetch(`https://artists-api-f85cm.ondigitalocean.app/morningPages/${morningPageId}`)
                 .then(response => response.json()) // make request and converts data back into a javascript object
                 .then((data) => {
                     setPage(data)
@@ -54,7 +54,7 @@ export const EditEntry = (props) => {
             "date": morningPages.date
         };
 
-        return fetch(`http://localhost:8088/morningPages/${morningPageId}`, {
+        return fetch(`https://artists-api-f85cm.ondigitalocean.app/morningPages/${morningPageId}`, {
 
             method: "PUT",
             headers: {

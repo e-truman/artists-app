@@ -50,7 +50,7 @@ export const YouDidIt = (props) => {
 
     useEffect(
         () => {
-            return fetch(`http://localhost:8088/morningPages/${morningPageId}`)
+            return fetch(`https://artists-api-f85cm.ondigitalocean.app/morningPages/${morningPageId}`)
                 .then(response => response.json()) // make request and converts data back into a javascript object
                 .then((data) => {
                     setPage(data) // I gain access to the morning page object by invoking this function
@@ -63,7 +63,7 @@ export const YouDidIt = (props) => {
 
     useEffect(
         () => {
-            return fetch(`http://localhost:8088/morningPages`)
+            return fetch(`https://artists-api-f85cm.ondigitalocean.app/morningPages`)
                 .then(response => response.json()) // make request and converts data back into a javascript object
                 .then((data) => {
                     setDates(data)

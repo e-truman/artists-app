@@ -10,7 +10,7 @@ export const Register = (props) => {
     const history = useHistory()
 
     const existingUserCheck = () => {
-        return fetch(`http://localhost:8088/users?email=${user.email}`)
+        return fetch(`https://artists-api-f85cm.ondigitalocean.app/users?email=${user.email}`)
             .then(res => res.json())
             .then(user => !!user.length)
     }

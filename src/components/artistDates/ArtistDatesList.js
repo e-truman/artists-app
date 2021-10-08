@@ -11,7 +11,7 @@ export const ArtistDatesList = () => {
 
     useEffect(
         () => {
-            return fetch(`http://localhost:8088/artistDates`)
+            return fetch(`https://artists-api-f85cm.ondigitalocean.app/artistDates`)
                 .then(response => response.json()) 
                 .then((data) => {
                     setADs(data)

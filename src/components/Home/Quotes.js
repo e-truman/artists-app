@@ -12,7 +12,7 @@ export const Quotes = (props) => {
 
   useEffect(
     () => {
-      return fetch(`http://localhost:8088/quotes`)
+      return fetch(`https://artists-api-f85cm.ondigitalocean.app/quotes`)
         .then(response => response.json()) // make request and converts data back into a javascript object
         .then((data) => {
           let num = Math.ceil(Math.random() * (data.length))

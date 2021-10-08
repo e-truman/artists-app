@@ -25,7 +25,7 @@ export const YouDidIt = (props) => {
 
 
     const deleteTicket = (id) => {
-        fetch(`http://localhost:8088/morningPages/${id}`, {
+        fetch(`https://artists-api-f85cm.ondigitalocean.app/morningPages/${id}`, {
             method: "DELETE"
         })
             .then(() => {
@@ -36,7 +36,7 @@ export const YouDidIt = (props) => {
 
     useEffect(
         () => {
-            return fetch(`http://localhost:8088/thoughtDistortions?_expand=morningPage&_expand=distortionDetail&morningPageId=${morningPageId}`)
+            return fetch(`https://artists-api-f85cm.ondigitalocean.app/thoughtDistortions?_expand=morningPage&_expand=distortionDetail&morningPageId=${morningPageId}`)
                 .then(response => response.json()) // make request and converts data back into a javascript object
                 .then((data) => {
                     setDistortions(data)

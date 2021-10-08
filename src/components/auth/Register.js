@@ -19,7 +19,7 @@ export const Register = (props) => {
         existingUserCheck()
             .then((userExists) => {
                 if (!userExists) {
-                    fetch("http://localhost:8088/users", {
+                    fetch("https://artists-api-f85cm.ondigitalocean.app/users", {
                         method: "POST",
                         headers: {
                             "Content-Type": "application/json"
